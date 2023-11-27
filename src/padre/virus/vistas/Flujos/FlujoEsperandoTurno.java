@@ -3,6 +3,8 @@ package padre.virus.vistas.Flujos;
 import padre.virus.gameController.Controlador;
 import padre.virus.vistas.VistaConsola;
 
+import java.awt.*;
+
 public class FlujoEsperandoTurno extends Flujo{
 
     public FlujoEsperandoTurno(VistaConsola vista, Controlador controlador){
@@ -15,6 +17,7 @@ public class FlujoEsperandoTurno extends Flujo{
 
     @Override
     public void mostrarSiguienteTexto() {
-
+            vista.desEntradas();
+            vista.printear("\nEspere el cambio de turno\n", Color.red);
     }
 }

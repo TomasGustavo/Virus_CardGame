@@ -60,6 +60,13 @@ public class Jugador {
         }
         return cartas;
     }
+    public ArrayList<String> obtenerCuerpo(){
+        ArrayList<String> organos = new ArrayList<>();
+        for(Organo organo : cuerpo){
+            organos.add(organo.toString());
+        }
+        return organos;
+    }
 
     public void setMano(ArrayList<Carta> mano){
         this.mano = mano;
@@ -71,6 +78,5 @@ public class Jugador {
 
     public void descartar(int carta){
         mano.remove(carta);
-        setSuTurno(false);
     }
 }

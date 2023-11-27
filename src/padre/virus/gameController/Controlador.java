@@ -19,6 +19,7 @@ public class Controlador implements Observador {
     private ArrayList<String> mazo;
     private ArrayList<String> jugadores;
     private ArrayList<String> cartas;
+    private ArrayList<String> organos;
     private ArrayList<String> descarte;
 
     public Controlador(Modelo modelo, IVista vista){
@@ -30,18 +31,14 @@ public class Controlador implements Observador {
 
         jugadores = new ArrayList<>();
         descarte = new ArrayList<>();
+        cartas = new ArrayList<>();
         idJA = 0;
     }
 
     public void Jugar(){
-        MostrarEstadoJuego();
+        modelo.jugar();
     }
 
-
-
-    public void MostrarEstadoJuego(){
-
-    }
 
     @Override
     public void actualizar(Object evento, Observable observado) {
@@ -53,9 +50,11 @@ public class Controlador implements Observador {
                 }
                 case PARTIDA_INICIADA -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
+                    organos = this.modelo.obtenerOrganos(nombreJugador);
                     jugadorActual = this.modelo.turnoActual();
                     mazo = this.modelo.obtenerMazo();
-                    this.vista.mostarInicioPartido(jugadorActual,cartas);
+                    idJA = 0;
+                    this.vista.mostarInicioPartido(jugadorActual,cartas,organos);
                 }
                 case ROBO_CARTA -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
@@ -128,4 +127,6 @@ public class Controlador implements Observador {
     public void terminoTurno(){
         modelo.cambiarTurno(idJA);
     }
+
+
 }

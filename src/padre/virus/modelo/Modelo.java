@@ -35,7 +35,7 @@ public class Modelo implements Observable{
         }
     }
 
-    public boolean jugar(){
+    public void jugar(){
         if(jugadores.size() >=2){
             this.mazo = new Mazo();
             mazo.BarajarMazo();
@@ -43,7 +43,6 @@ public class Modelo implements Observable{
             asignarTurno();
             this.notificar(Eventos.PARTIDA_INICIADA);
         }
-        return false;
     }
 
     public void asignarTurno(){
@@ -72,7 +71,12 @@ public class Modelo implements Observable{
         mazo.BarajarMazo();
         for (Jugador i : jugadores){
             for(int j = 0; j<3 ; j++){
+                Carta carta = mazo.TomarCarta();
+                if(carta.getClass() == Organo.class){
+                    i.setCuerpo((Organo) carta);
+                }
                 i.tomarCarta(mazo.TomarCarta());
+
             }
 
         }
@@ -94,6 +98,15 @@ public class Modelo implements Observable{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCartas();
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<String> obtenerOrganos(String nombre){
+        for(Jugador jugador : jugadores){
+            if(jugador.getNombre().equals(nombre)){
+                return jugador.obtenerCuerpo();
             }
         }
         return null;

@@ -46,10 +46,14 @@ public class VistaConsola implements IVista{
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     printear(TextField.getText() + "\n",Color.WHITE);
+                    procesarEntrada(TextField.getText());
                     TextField.setText("");
+
                 }
             }
         });
+
+        frame.getRootPane().setDefaultButton(ENTER);
     }
 
     public void printear(String texto, Color color){
@@ -96,30 +100,48 @@ public class VistaConsola implements IVista{
 
     @Override
     public void mostrarCartas(ArrayList<String> cartas) {
+        printear("\n----------------------------------------------------------------------",Color.orange);
+        printear("\ntus cartas: \n",Color.CYAN);
+        int i = 1;
+        for(String carta : cartas){
+            printear(i + "\n - " + carta + "\n",Color.MAGENTA);
+            i++;
+        }
+    }
 
+    public void mostrarCuerpo(ArrayList<String> organos){
+        printear("\n----------------------------------------------------------------------",Color.orange);
+        printear("\nTu Cuerpo\n",Color.cyan);
+        for(String organo : organos){
+            printear("\n" + organo + "\n",Color.white);
+        }
     }
 
     @Override
     public void mostrarTurno(String jugadorActual) {
-
+        printear("\nEs el turno del jugador: "+jugadorActual,Color.MAGENTA);
     }
 
     @Override
     public void mostrarJugadores(ArrayList<String> jugadores) {
-
+        for(String jugador : jugadores){
+            printear("\n1 - " + jugador + "\n",Color.ORANGE);
+        }
     }
 
     @Override
     public void mostrarNuevoJugador(String jugador) {
+        printear("El jugador " + jugador + " se unio correctamente",Color.green);
 
     }
 
     @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas) {
+    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas,ArrayList<String> organos) {
         printear("-----------------------------------\n",Color.MAGENTA);
-        printear("|                                  |\n",Color.MAGENTA);
+        printear("|        partida iniciada         |\n",Color.MAGENTA);
         printear("-----------------------------------\n",Color.MAGENTA);
         mostrarTurno(jugadorActual);
+        mostrarCuerpo(organos);
         mostrarCartas(cartas);
         if(!controlador.isTurno()){
             flujoActual = new FlujoEsperandoTurno(this, controlador);

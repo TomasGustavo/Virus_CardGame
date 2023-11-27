@@ -4,6 +4,7 @@ import padre.virus.gameController.Controlador;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class FlujoJugar extends Flujo{
 
@@ -15,12 +16,14 @@ public class FlujoJugar extends Flujo{
         switch(string){
             case "1" ->{
                 if(controlador.listaJugadores().size() < 2){
-                    vista.printear("NO hay mas jugadores, solo usted\n",Color.MAGENTA);
+                    vista.printear("No hay mas jugadores, solo usted\n",Color.MAGENTA);
                 } else{
                     return new FlujoSeleccionarJugador(vista,controlador);
                 }
             }
             case "2" ->{
+                //ArrayList<String> cartas = controlador.obtenerCartas();
+                //vista.mostrarCartas(cartas);
                 return new FlujoDescartar(vista,controlador);
             }
             case "3" ->{
