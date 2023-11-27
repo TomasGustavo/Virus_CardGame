@@ -62,12 +62,14 @@ public class Controlador implements Observador {
                 case TERMINO_TURNO -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
                     if(jugadorActual.equals(nombreJugador)){
+                        vista.mostrarCuerpo(organos);
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
                     }
                     jugadorActual = modelo.cambiarTurno(idJA);
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
+                        vista.mostrarCuerpo(organos);
                         vista.mostrarCartas(cartas);
                         vista.HabilitarTurno();
                     }

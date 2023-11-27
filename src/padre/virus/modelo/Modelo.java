@@ -72,10 +72,12 @@ public class Modelo implements Observable{
         for (Jugador i : jugadores){
             for(int j = 0; j<3 ; j++){
                 Carta carta = mazo.TomarCarta();
-                if(carta.getClass() == Organo.class){
+                if(carta instanceof Organo){
                     i.setCuerpo((Organo) carta);
+                } else{
+                    i.tomarCarta(carta);
                 }
-                i.tomarCarta(mazo.TomarCarta());
+
 
             }
 
@@ -148,6 +150,9 @@ public class Modelo implements Observable{
                 notificar(Eventos.TERMINO_TURNO);
             }
         }
+    }
+    public void terminarTurno(String nombreJugador){
+
     }
 
     public void partidaTerminada(String ganador){

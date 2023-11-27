@@ -27,12 +27,16 @@ public class Jugador {
         // SI EL CUERPO ESTA VACIO AÑADE EL ORGNAO
         if(this.cuerpo == null){
             this.cuerpo.add(organo);
-        }else{
+        }else if(this.cuerpo.size() < 4){
+            boolean bandera = false;
             // VERIFICA SI EL ORGANO A AGREGAR ES DE OTRO COLOR DE CUALQUIERA QUE YA HAYA EN EL CUERPO
             for(int i =0;i<this.cuerpo.size();i++){
-                if(!this.cuerpo.get(i).getColor().equals(organo.getColor())){
-                    this.cuerpo.add(organo);
+                if(this.cuerpo.get(i).getColor().equals(organo.getColor())){
+                    bandera = true;
                 }
+            }
+            if (!bandera){
+                this.cuerpo.add(organo);
             }
         }
     }

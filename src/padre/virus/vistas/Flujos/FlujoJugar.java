@@ -22,8 +22,7 @@ public class FlujoJugar extends Flujo{
                 }
             }
             case "2" ->{
-                //ArrayList<String> cartas = controlador.obtenerCartas();
-                //vista.mostrarCartas(cartas);
+
                 return new FlujoDescartar(vista,controlador);
             }
             case "3" ->{
@@ -37,7 +36,7 @@ public class FlujoJugar extends Flujo{
 
     @Override
     public void mostrarSiguienteTexto() {
-        vista.mostrarCartas(controlador.obtenerCartas());
+        //vista.mostrarCartas(controlador.obtenerCartas());
         vista.printear("1 - hacer jugada\n", Color.MAGENTA);
         vista.printear("2 - descartar cartas\n", Color.MAGENTA);
         vista.printear("3 - abandonar partida\n", Color.MAGENTA);

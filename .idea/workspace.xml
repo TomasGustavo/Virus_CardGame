@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="Me quiero morir">
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="funciona">
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoTerminarTurno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoVacio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,13 +117,22 @@
       <option name="project" value="LOCAL" />
       <updated>1701056434657</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="funciona">
+      <option name="closed" value="true" />
+      <created>1701122369854</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701122369854</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="clases creadas" />
     <MESSAGE value="Me quiero morir" />
-    <option name="LAST_COMMIT_MESSAGE" value="Me quiero morir" />
+    <MESSAGE value="funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="funciona" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

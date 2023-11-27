@@ -15,7 +15,12 @@ public class FlujoMenuPrincipal extends Flujo{
         switch (string){
             case "1" ->{
                 controlador.Jugar();
-                return new FlujoJugar(vista,controlador);
+                if(controlador.isTurno()){
+                    return new FlujoJugar(vista,controlador);
+                } else{
+                    return new FlujoVacio(vista,controlador);
+                }
+
             }
             case "2" -> {
                 mostrarJugadores();

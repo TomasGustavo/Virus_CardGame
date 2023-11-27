@@ -5,20 +5,19 @@ import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
 
-public class FlujoEsperandoTurno extends Flujo{
+public class FlujoVacio extends Flujo{
 
-    public FlujoEsperandoTurno(VistaConsola vista, Controlador controlador){
+    public FlujoVacio(VistaConsola vista, Controlador controlador){
         super(vista,controlador);
     }
+
     @Override
     public Flujo procesarEntrada(String string) {
-
         return null;
     }
 
     @Override
     public void mostrarSiguienteTexto() {
-            vista.desEntradas();
-            vista.printear("\nEspere el cambio de turno\n", Color.red);
+        vista.printear(" ", Color.white);
     }
 }
