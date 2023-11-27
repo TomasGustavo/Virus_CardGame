@@ -1,8 +1,6 @@
-package padre.virus.juego;
+package padre.virus.modelo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Mazo {
 
@@ -15,6 +13,13 @@ public class Mazo {
 
     public List<Carta> getMazo(){
         return mazo;
+    }
+    public ArrayList<String> obtenerMazo(){
+        ArrayList<String> cartas = new ArrayList<>();
+        for(Carta carta : mazo){
+            cartas.add(carta.toString());
+        }
+        return cartas;
     }
 
     public Carta contruirCarta(Tipo tipo,Color color){
@@ -48,5 +53,12 @@ public class Mazo {
         addToMazo(10,Tipo.TRATAMIENTO,Color.NONE);
     }
 
+    public void BarajarMazo(){
+        Collections.shuffle(this.getMazo());
+    }
+
+    public Carta TomarCarta(){
+        return this.getMazo().remove(0);
+    }
 
 }

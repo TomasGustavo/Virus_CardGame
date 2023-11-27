@@ -1,4 +1,4 @@
-package padre.virus.juego;
+package padre.virus.modelo;
 
 public class Tratamiento extends Carta{
 

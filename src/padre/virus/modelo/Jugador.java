@@ -1,14 +1,23 @@
-package padre.virus.juego;
+package padre.virus.modelo;
 
 import java.util.ArrayList;
 
 public class Jugador {
+    private String nombre;
     private ArrayList<Organo> cuerpo;
     private ArrayList<Carta> mano;
+    private Boolean SuTurno;
 
-    public Jugador(){
+    private static int ID = 0;
+    private int IdJugador;
+
+
+
+    public Jugador(String nombre){
+        this.nombre = nombre;
         this.cuerpo = new ArrayList<>();
         this.mano = new ArrayList<>();
+        this.IdJugador = Jugador.ID++;
     }
 
     public ArrayList<Organo> getCuerpo(){
@@ -28,11 +37,38 @@ public class Jugador {
         }
     }
 
+    public void setSuTurno(boolean turno){
+        this.SuTurno = turno;
+    }
+
+    public boolean isTurno(){
+        return SuTurno;
+    }
+    public int CantCartasMano(){
+        return mano.size();
+    }
+    public String getNombre(){
+        return nombre;
+    }
     public ArrayList<Carta> getMano(){
         return mano;
+    }
+    public ArrayList<String> obtenerCartas(){
+        ArrayList<String> cartas = new ArrayList<>();
+        for(Carta carta : mano){
+            cartas.add(carta.toString());
+        }
+        return cartas;
     }
 
     public void setMano(ArrayList<Carta> mano){
         this.mano = mano;
+    }
+
+    public void tomarCarta(Carta carta){
+        mano.add(carta);
+    }
+
+    public void descartar(int carta){
     }
 }

@@ -1,9 +1,9 @@
-package padre.virus.juego;
+package padre.virus.modelo;
 
 
 import java.awt.*;
 
-public class Carta {
+public class Carta implements ICarta {
     private Color color;
     private Tipo tipo;
     private Image imagen;
@@ -18,6 +18,11 @@ public class Carta {
     }
     public Tipo getTipo(){
         return tipo;
+    }
+
+    @Override
+    public String getImage() {
+        return null;
     }
 
     @Override
