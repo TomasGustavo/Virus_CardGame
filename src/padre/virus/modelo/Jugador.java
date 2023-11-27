@@ -70,5 +70,7 @@ public class Jugador {
     }
 
     public void descartar(int carta){
+        mano.remove(carta);
+        setSuTurno(false);
     }
 }

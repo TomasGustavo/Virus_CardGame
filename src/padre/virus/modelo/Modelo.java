@@ -131,6 +131,7 @@ public class Modelo implements Observable{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombreJugador)){
                 jugador.descartar(opcion);
+                jugador.tomarCarta(mazo.TomarCarta());
                 notificar(Eventos.TERMINO_TURNO);
             }
         }

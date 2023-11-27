@@ -122,5 +122,10 @@ public class Controlador implements Observador {
 
     public void descartar(int opcion){
         modelo.descartar(nombreJugador,opcion);
+
+    }
+
+    public void terminoTurno(){
+        modelo.cambiarTurno(idJA);
     }
 }

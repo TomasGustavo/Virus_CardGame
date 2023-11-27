@@ -54,14 +54,15 @@ public class VistaConsola implements IVista{
 
     public void printear(String texto, Color color){
         StyledDocument doc = textPane1.getStyledDocument();
-        Style stilo = textPane1.addStyle("Style",null);
-        StyleConstants.setForeground(stilo,color);
+        Style style = textPane1.addStyle("Style",null);
+        StyleConstants.setForeground(style,color);
+        textPane1.setCaretPosition(textPane1.getDocument().getLength());
         try{
-            doc.insertString(doc.getLength(),texto,stilo);
+            doc.insertString(doc.getLength(),texto,style);
         } catch (BadLocationException e){
             e.printStackTrace();
         }
-        textPane1.setCaretPosition(textPane1.getDocument().getLength());
+
     }
 
     public void desEntradas(){
@@ -85,7 +86,7 @@ public class VistaConsola implements IVista{
 
     @Override
     public void setControlador(Controlador controlador) {
-
+        this.controlador = controlador;
     }
 
     @Override

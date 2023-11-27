@@ -21,7 +21,7 @@ public class FlujoNuevoUsuario extends Flujo{
                 if(!jugador.trim().isEmpty()){
                     vista.printear("Jugador: " + jugador + "se conecto con exito\n",Color.green);
                     controlador.AgregarJugador(jugador);
-                    return new FlujoNuevoUsuario(vista,controlador);
+                    return new FlujoMenuPrincipal(vista,controlador);
                 } else{
                     vista.printear("El nombre no es valido", Color.red);
                 }

@@ -18,7 +18,11 @@ public class FlujoDescartar extends Flujo{
 
             if(opcion >=1 && opcion <= controlador.obtenerCartas().size()){
                 controlador.descartar(opcion);
+                controlador.terminoTurno();
+                return new FlujoEsperandoTurno(vista,controlador);
             }
+        } catch (NumberFormatException e){
+            vista.printear("El numero de carta no es valido \n",Color.red);
         }
 
         return this;
