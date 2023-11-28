@@ -12,6 +12,19 @@ public class FlujoSeleccionarJugador extends Flujo{
     }
     @Override
     public Flujo procesarEntrada(String string) {
+
+        int opcion = Integer.parseInt(string);
+
+        try{
+            String jugadorDestino = controlador.listaJugadores().get(opcion-1);
+
+            vista.mostrarCartas(controlador.obtenerCartas());
+            
+
+        } catch (NumberFormatException e){
+            vista.printear("\nNumero de jugador fuera de rango\n",Color.red);
+        }
+
         return null;
     }
 

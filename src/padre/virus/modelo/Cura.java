@@ -7,9 +7,9 @@ public class Cura extends Carta{
     }
 
     public void cura(Organo organo){
-        if(organo.estaSano()&& organo.getCount() ==1){
+        if(organo.estaSano() && (organo.getColor() == this.getColor()) && organo.getCount() ==1){
             organo.setInmune(true);
-        }else {
+        }else if(organo.estaSano() && (organo.getColor() == this.getColor()) && organo.getCount() == 0){
             organo.setSano(true);
             organo.setCount(1);
         }

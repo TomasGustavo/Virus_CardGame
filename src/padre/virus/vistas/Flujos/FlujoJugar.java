@@ -25,7 +25,10 @@ public class FlujoJugar extends Flujo{
 
                 return new FlujoDescartar(vista,controlador);
             }
-            case "3" ->{
+            case "3" -> {
+                return new FlujoPasarTurno(vista,controlador);
+            }
+            case "4" ->{
                 return new FlujoAbandonarPartida(vista,controlador);
             }
             default -> vista.printear("Opcion invalida\n",Color.red);
@@ -37,9 +40,10 @@ public class FlujoJugar extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         //vista.mostrarCartas(controlador.obtenerCartas());
-        vista.printear("1 - hacer jugada\n", Color.MAGENTA);
+        vista.printear("\n\n1 - hacer jugada\n", Color.MAGENTA);
         vista.printear("2 - descartar cartas\n", Color.MAGENTA);
-        vista.printear("3 - abandonar partida\n", Color.MAGENTA);
+        vista.printear("3 - terminar turno\n", Color.MAGENTA);
+        vista.printear("4 - abandonar partida\n", Color.MAGENTA);
         vista.printear("-----------------------------------------------\n", Color.MAGENTA);
         vista.printear("seleccionar opcion: \n", Color.MAGENTA);
     }

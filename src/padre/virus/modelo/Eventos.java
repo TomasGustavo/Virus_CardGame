@@ -12,6 +12,8 @@ public enum Eventos {
 
     ROBO_CARTA,
 
+    TIRAR_CARTA,
+
     USO_TRATAMIENTO;
 
 }

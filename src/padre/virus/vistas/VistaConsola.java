@@ -131,7 +131,7 @@ public class VistaConsola implements IVista{
 
     @Override
     public void mostrarNuevoJugador(String jugador) {
-        printear("El jugador " + jugador + " se unio correctamente",Color.green);
+        printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n",Color.green);
 
     }
 

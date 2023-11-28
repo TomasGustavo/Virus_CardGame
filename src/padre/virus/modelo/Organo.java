@@ -35,10 +35,10 @@ public class Organo extends Carta {
     public String toString(){
         if(estaSano()){
             if(esInmune()){
-                return "Organo "+this.getColor()+" [INMUNE]";
+                return "Organo "+"["+this.getColor()+"]"+" [INMUNE]";
             }
-            return "Organo "+this.getColor()+" [SANO]";
+            return "Organo "+"["+this.getColor()+"]"+" [SANO]";
         }
-        return "Organo " + this.getColor() + " [INFECTADO]";
+        return "Organo " + "["+this.getColor()+"]" + " [INFECTADO]";
     }
 }

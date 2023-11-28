@@ -23,7 +23,7 @@ public class Jugador {
     public ArrayList<Organo> getCuerpo(){
         return cuerpo;
     }
-    public void setCuerpo(Organo organo){
+   /* public void setCuerpo(Organo organo){
         // SI EL CUERPO ESTA VACIO AÑADE EL ORGNAO
         if(this.cuerpo == null){
             this.cuerpo.add(organo);
@@ -39,6 +39,28 @@ public class Jugador {
                 this.cuerpo.add(organo);
             }
         }
+    }*/
+
+    public void setCuerpo(Organo organo) {
+        // Si el cuerpo está vacío o tiene menos de 4 órganos
+        if (this.cuerpo == null || this.cuerpo.size() < 4) {
+            // Verifica si el órgano a agregar tiene un color diferente a los órganos existentes
+            if (!contieneOrganoConMismoColor(organo.getColor())) {
+                // Agrega el órgano al cuerpo
+                this.cuerpo.add(organo);
+            }
+        }
+    }
+
+    private boolean contieneOrganoConMismoColor(Color color) {
+        if (this.cuerpo != null) {
+            for (Organo organoExistente : this.cuerpo) {
+                if (organoExistente.getColor().equals(color)) {
+                    return true; // El color ya está presente en el cuerpo
+                }
+            }
+        }
+        return false; // El color no está presente en el cuerpo
     }
 
     public void setSuTurno(boolean turno){

@@ -54,6 +54,7 @@ public class Modelo implements Observable{
         String jActual = turnoActual();
         Jugador jugador = jugadores.get(indice);
         jugador.setSuTurno(true);
+
         return jugador.getNombre();
     }
 
@@ -77,10 +78,21 @@ public class Modelo implements Observable{
                 } else{
                     i.tomarCarta(carta);
                 }
-
-
             }
-
+        }
+    }
+    public void tomarCarta(String nombreJugador){
+        for(Jugador i : jugadores){
+            if(i.getNombre().equals(nombreJugador)){
+                while(i.getMano().size() < 3){
+                    Carta carta = mazo.TomarCarta();
+                    if(carta instanceof Organo){
+                        i.setCuerpo((Organo) carta);
+                    } else{
+                        i.tomarCarta(carta);
+                    }
+                }
+            }
         }
     }
 
@@ -90,6 +102,47 @@ public class Modelo implements Observable{
             ListaJugadores.add(jugador.getNombre());
         }
         return ListaJugadores;
+    }
+
+    public void tirarCarta(String jugadorOrigen, String jugadorDestino, int IdCarta,int IdOrgano){
+        Jugador jugadororigen = obtenerJugadorPorNombre(jugadorOrigen);
+        Jugador jugadordestino = obtenerJugadorPorNombre(jugadorDestino);
+
+        if(jugadorOrigen!= null && jugadordestino!= null){
+            Carta carta = jugadororigen.getMano().get(IdCarta);
+
+            if(carta != null){
+                if(carta instanceof Cura){
+                    tirarCura(carta,jugadordestino.getCuerpo().get(IdOrgano));
+                } else if(carta instanceof Virus){
+                    tirarVirus(carta,jugadordestino.getCuerpo().get(IdOrgano));
+                }
+
+                jugadororigen.descartar(IdCarta);
+
+                notificar(Eventos.TIRAR_CARTA);
+            }
+        }
+    }
+
+    private Jugador obtenerJugadorPorNombre(String nombre){
+        for(Jugador jugador : jugadores){
+            if(jugador.getNombre().equals(nombre)){
+                return jugador;
+            }
+        }
+        return null;
+    }
+
+    public void tirarCura(Carta carta,Organo organo){
+
+        ((Cura) carta).cura(organo);
+    }
+    public boolean tirarVirus(Carta carta, Organo organo){
+        return ((Virus) carta).Infectado(organo);
+    }
+    public void tirarTratamiento(Carta carta,Jugador jugador){
+
     }
 
     public ArrayList<String> obtenerMazo(){
@@ -152,7 +205,11 @@ public class Modelo implements Observable{
         }
     }
     public void terminarTurno(String nombreJugador){
-
+        for(Jugador jugador : jugadores){
+            if(jugador.getNombre().equals(nombreJugador)){
+                notificar(Eventos.TERMINO_TURNO);
+            }
+        }
     }
 
     public void partidaTerminada(String ganador){
