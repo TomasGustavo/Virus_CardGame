@@ -90,9 +90,7 @@ public class Controlador implements Observador {
                 case USO_TRATAMIENTO -> {
 
                 }
-                case TIRAR_CARTA -> {
-                    modelo.notificar(Eventos.TERMINO_TURNO);
-                }
+
             }
         }
     }
@@ -149,6 +147,10 @@ public class Controlador implements Observador {
 
     public void tirarCarta(String jugadorDestino,int idCarta,int idOrgano){
         modelo.tirarCarta(jugadorActual,jugadorDestino,idCarta,idOrgano);
+    }
+
+    public ArrayList<String> obtenerOrganos(String jugadorDestino){
+        return modelo.obtenerOrganos(jugadorDestino);
     }
 
 

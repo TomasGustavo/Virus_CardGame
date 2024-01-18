@@ -117,6 +117,16 @@ public class VistaConsola implements IVista{
         }
     }
 
+    public void mostrarCuerpoRival(ArrayList<String> organos){
+        printear("\n----------------------------------------------------------------------",Color.orange);
+        printear("\nCuerpo del Rival\n",Color.cyan);
+        int i = 1;
+        for(String organo : organos){
+            printear(i +"\n" + organo + "\n",Color.white);
+            i++;
+        }
+    }
+
     @Override
     public void mostrarTurno(String jugadorActual) {
         printear("\nEs el turno del jugador: "+jugadorActual,Color.MAGENTA);

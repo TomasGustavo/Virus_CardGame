@@ -120,7 +120,7 @@ public class Modelo implements Observable{
 
                 jugadororigen.descartar(IdCarta);
 
-                notificar(Eventos.TIRAR_CARTA);
+                notificar(Eventos.TERMINO_TURNO);
             }
         }
     }

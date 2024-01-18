@@ -14,18 +14,15 @@ public class FlujoSeleccionarJugador extends Flujo{
     public Flujo procesarEntrada(String string) {
 
         int opcion = Integer.parseInt(string);
-
         try{
             String jugadorDestino = controlador.listaJugadores().get(opcion-1);
 
-            vista.mostrarCartas(controlador.obtenerCartas());
-            
+            return new FlujoSeleccionCarta(vista,controlador,jugadorDestino,false,null);
 
         } catch (NumberFormatException e){
             vista.printear("\nNumero de jugador fuera de rango\n",Color.red);
         }
-
-        return null;
+        return this;
     }
 
     @Override
@@ -33,6 +30,7 @@ public class FlujoSeleccionarJugador extends Flujo{
         int i = 1;
         for(String jugador: controlador.listaJugadores()){
             vista.printear(i + " - "+ jugador+"\n", Color.ORANGE);
+            i++;
         }
         vista.printear("-------------------------------------------------------------------\n",Color.MAGENTA);
         vista.printear("\nSeleccion un jugador para atacar: ",Color.MAGENTA);
