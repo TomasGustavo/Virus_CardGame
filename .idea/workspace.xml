@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix tirar carta">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix set cuerpo (a medias)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +101,7 @@
       <workItem from="1705439984017" duration="296000" />
       <workItem from="1705440299945" duration="7464000" />
       <workItem from="1705614879174" duration="2190000" />
-      <workItem from="1705694173598" duration="8768000" />
+      <workItem from="1705694173598" duration="10542000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -178,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705617063556</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- fix set cuerpo (a medias)">
+      <option name="closed" value="true" />
+      <created>1705719333753</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705719333753</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +198,8 @@
     <MESSAGE value="-" />
     <MESSAGE value="- diagrama uml" />
     <MESSAGE value="- fix tirar carta" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix tirar carta" />
+    <MESSAGE value="- fix set cuerpo (a medias)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix set cuerpo (a medias)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

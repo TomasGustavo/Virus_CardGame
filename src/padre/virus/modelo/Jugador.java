@@ -41,7 +41,7 @@ public class Jugador {
         }
     }*/
 
-    public void setCuerpo(Carta organo) {
+    public boolean setCuerpo(Carta organo) {
         // Si el cuerpo está vacío o tiene menos de 4 órganos
         if (this.cuerpo == null || this.cuerpo.size() < 4) {
             // Verifica si el órgano a agregar tiene un color diferente a los órganos existentes
@@ -49,15 +49,19 @@ public class Jugador {
                 // Agrega el órgano al cuerpo
                 Organo org = (Organo) organo;
                 this.cuerpo.add(org);
+                System.out.println("paso...\n");
+                return true;
+
             }
         }
+        return false;
     }
 
     private boolean contieneOrganoConMismoColor(Color color) {
         if (this.cuerpo != null) {
             for (Organo organoExistente : this.cuerpo) {
                 if (organoExistente.getColor().equals(color)) {
-                    System.out.printf("existe orgnao con ese color ");
+                    System.out.printf("existe orgnao con ese color \n");
                     return true; // El color ya está presente en el cuerpo
                 }
             }

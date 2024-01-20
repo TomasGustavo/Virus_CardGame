@@ -86,10 +86,13 @@ public class Modelo implements Observable{
         for(Jugador i : jugadores){
             if(i.getNombre().equals(nombreJugador)){
                 j = i.getMano().size();
-                while(i.getMano().size() < 3 || j < 3){
+                while(i.getMano().size() < 3 && j < 3){
                     Carta carta = mazo.TomarCarta();
                     if(carta instanceof Organo){
-                        i.setCuerpo(carta);
+                        System.out.println("paso tomarCarta..."+nombreJugador+"\n");
+                        if(!i.setCuerpo(carta)){
+                            i.tomarCarta(carta);
+                        }
                     } else{
                         i.tomarCarta(carta);
                     }
@@ -205,7 +208,7 @@ public class Modelo implements Observable{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombreJugador)){
                 jugador.descartar(opcion);
-                jugador.tomarCarta(mazo.TomarCarta());
+                tomarCarta(nombreJugador);
                 notificar(Eventos.TERMINO_TURNO);
             }
         }
