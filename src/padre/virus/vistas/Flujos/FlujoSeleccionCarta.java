@@ -34,8 +34,7 @@ public class FlujoSeleccionCarta extends Flujo{
                 }
             } else if (cartaOrgano) {
                 // selecciona el organo y llama al controlador para hacer la jugado con todos los datos
-                if(opcion >=1 && opcion <= controlador.obtenerOrganos(jugadorDestino).size()-1){
-
+                if(opcion >=1 && opcion <= controlador.obtenerOrganos(jugadorDestino).size()){
 
                     controlador.tirarCarta(jugadorDestino,cartaSelect,opcion);
 
@@ -47,7 +46,7 @@ public class FlujoSeleccionCarta extends Flujo{
             vista.printear("Opcion invalida \n", Color.red);
         }
 
-        return new FlujoVacio(vista,controlador);
+        return new FlujoEsperandoTurno(vista,controlador);
     }
 
     @Override

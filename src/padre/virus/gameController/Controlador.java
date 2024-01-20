@@ -63,7 +63,7 @@ public class Controlador implements Observador {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
                     if(jugadorActual.equals(nombreJugador)){
                         modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerpo(organos);
+                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
                     }
@@ -71,7 +71,7 @@ public class Controlador implements Observador {
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
                         modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerpo(organos);
+                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
                         vista.mostrarCartas(cartas);
                         vista.HabilitarTurno();
                     }
@@ -145,7 +145,7 @@ public class Controlador implements Observador {
         modelo.tomarCarta(nombreJugador);
     }
 
-    public void tirarCarta(String jugadorDestino,int idCarta,int idOrgano){
+    public void tirarCarta(String jugadorDestino,Integer idCarta,int idOrgano){
         modelo.tirarCarta(jugadorActual,jugadorDestino,idCarta,idOrgano);
     }
 

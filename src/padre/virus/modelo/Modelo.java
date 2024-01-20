@@ -82,15 +82,18 @@ public class Modelo implements Observable{
         }
     }
     public void tomarCarta(String nombreJugador){
+        int j;
         for(Jugador i : jugadores){
             if(i.getNombre().equals(nombreJugador)){
-                while(i.getMano().size() < 3){
+                j = i.getMano().size();
+                while(i.getMano().size() < 3 || j < 3){
                     Carta carta = mazo.TomarCarta();
                     if(carta instanceof Organo){
-                        i.setCuerpo((Organo) carta);
+                        i.setCuerpo(carta);
                     } else{
                         i.tomarCarta(carta);
                     }
+                    j++;
                 }
             }
         }
@@ -104,25 +107,28 @@ public class Modelo implements Observable{
         return ListaJugadores;
     }
 
-    public void tirarCarta(String jugadorOrigen, String jugadorDestino, int IdCarta,int IdOrgano){
+    public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta,int IdOrgano){
         Jugador jugadororigen = obtenerJugadorPorNombre(jugadorOrigen);
         Jugador jugadordestino = obtenerJugadorPorNombre(jugadorDestino);
 
-        if(jugadorOrigen!= null && jugadordestino!= null){
-            Carta carta = jugadororigen.getMano().get(IdCarta);
+        if(jugadorOrigen != null && jugadordestino != null){
+            try {
 
-            if(carta != null){
-                if(carta instanceof Cura){
-                    tirarCura(carta,jugadordestino.getCuerpo().get(IdOrgano));
-                } else if(carta instanceof Virus){
-                    tirarVirus(carta,jugadordestino.getCuerpo().get(IdOrgano));
+                Carta carta = jugadororigen.getMano().get(IdCarta);
+
+                if(carta != null){
+                    if(carta instanceof Cura){
+                        ((Cura) carta).cura(jugadordestino.getCuerpo().get(IdOrgano));
+                    } else if(carta instanceof Virus){
+                        ((Virus) carta).Infectado(jugadordestino.getCuerpo().get(IdOrgano));
+                    }
+                    jugadororigen.descartar(IdCarta);
                 }
-
-                jugadororigen.descartar(IdCarta);
-
-                notificar(Eventos.TERMINO_TURNO);
+            } catch (IndexOutOfBoundsException e){
+                e.printStackTrace();
             }
         }
+        notificar(Eventos.TERMINO_TURNO);
     }
 
     private Jugador obtenerJugadorPorNombre(String nombre){
