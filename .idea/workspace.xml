@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix set cuerpo (a medias)">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix setCuerpo (definitivo)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +108,8 @@
       <workItem from="1705439984017" duration="296000" />
       <workItem from="1705440299945" duration="7464000" />
       <workItem from="1705614879174" duration="2190000" />
-      <workItem from="1705694173598" duration="10542000" />
+      <workItem from="1705694173598" duration="10578000" />
+      <workItem from="1705948103263" duration="8901000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -183,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705719333753</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- fix setCuerpo (definitivo)">
+      <option name="closed" value="true" />
+      <created>1705721076602</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705721076602</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +215,8 @@
     <MESSAGE value="- diagrama uml" />
     <MESSAGE value="- fix tirar carta" />
     <MESSAGE value="- fix set cuerpo (a medias)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix set cuerpo (a medias)" />
+    <MESSAGE value="- fix setCuerpo (definitivo)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix setCuerpo (definitivo)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -208,6 +225,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

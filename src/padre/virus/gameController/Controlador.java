@@ -4,6 +4,7 @@ import padre.virus.modelo.*;
 import padre.virus.observer.Observable;
 import padre.virus.observer.Observador;
 import padre.virus.vistas.IVista;
+import padre.virus.vistas.VistaConsola;
 
 import java.util.ArrayList;
 
@@ -84,8 +85,8 @@ public class Controlador implements Observador {
                 }
                 case PARTIDA_FINALIZADA -> {
                     Ganador = modelo.getGanador();
-                    jugadorActual = modelo.turnoActual();
-                    vista.partidaTerminada(Ganador, true);
+                    //jugadorActual = modelo.turnoActual();
+                    vista.partidaTerminada(Ganador);
                 }
                 case USO_TRATAMIENTO -> {
 
@@ -130,7 +131,6 @@ public class Controlador implements Observador {
 
     public void descartar(int opcion){
         modelo.descartar(nombreJugador,opcion);
-
     }
 
     public void terminoTurno(){
@@ -151,6 +151,10 @@ public class Controlador implements Observador {
 
     public ArrayList<String> obtenerOrganos(String jugadorDestino){
         return modelo.obtenerOrganos(jugadorDestino);
+    }
+
+    public void terminoPartida(){
+        modelo.hayGandor();
     }
 
 

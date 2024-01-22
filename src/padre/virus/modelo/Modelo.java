@@ -58,6 +58,13 @@ public class Modelo implements Observable{
         return jugador.getNombre();
     }
 
+    public void hayGandor(){
+        for(Jugador i : jugadores){
+            if(obtenerOrganos(i.getNombre()).size() == 4 && i.organosSanos()){
+                partidaTerminada(i.getNombre());
+            }
+        }
+    }
     public String turnoActual(){
         for(Jugador jugador : jugadores){
             if(jugador.isTurno()){
@@ -89,7 +96,7 @@ public class Modelo implements Observable{
                 while(i.getMano().size() < 3 && j < 3){
                     Carta carta = mazo.TomarCarta();
                     if(carta instanceof Organo){
-                        System.out.println("paso tomarCarta..."+nombreJugador+"\n");
+                        //System.out.println("paso tomarCarta..."+nombreJugador+"\n");
                         if(!i.setCuerpo(carta)){
                             i.tomarCarta(carta);
                         }
@@ -113,19 +120,23 @@ public class Modelo implements Observable{
     public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta,int IdOrgano){
         Jugador jugadororigen = obtenerJugadorPorNombre(jugadorOrigen);
         Jugador jugadordestino = obtenerJugadorPorNombre(jugadorDestino);
-
         if(jugadorOrigen != null && jugadordestino != null){
+            boolean jugada = true;
             try {
-
-                Carta carta = jugadororigen.getMano().get(IdCarta);
-
+                Carta carta = jugadororigen.getMano().get(IdCarta-1);
                 if(carta != null){
                     if(carta instanceof Cura){
-                        ((Cura) carta).cura(jugadordestino.getCuerpo().get(IdOrgano));
+                        Organo organoVictima = jugadordestino.getCuerpo().remove(IdOrgano-1);
+                        jugada = ((Cura) carta).cura(organoVictima);
+                        jugadordestino.setCuerpo(organoVictima);
                     } else if(carta instanceof Virus){
-                        ((Virus) carta).Infectado(jugadordestino.getCuerpo().get(IdOrgano));
+                        Organo organoVictima = jugadordestino.getCuerpo().remove(IdOrgano-1);
+                        jugada = ((Virus) carta).Infectado(organoVictima);
+                        jugadordestino.setCuerpo(organoVictima);
                     }
-                    jugadororigen.descartar(IdCarta);
+                    if(jugada){
+                        jugadororigen.descartar(IdCarta-1);
+                    }
                 }
             } catch (IndexOutOfBoundsException e){
                 e.printStackTrace();
@@ -143,13 +154,6 @@ public class Modelo implements Observable{
         return null;
     }
 
-    public void tirarCura(Carta carta,Organo organo){
-
-        ((Cura) carta).cura(organo);
-    }
-    public boolean tirarVirus(Carta carta, Organo organo){
-        return ((Virus) carta).Infectado(organo);
-    }
     public void tirarTratamiento(Carta carta,Jugador jugador){
 
     }
@@ -187,6 +191,7 @@ public class Modelo implements Observable{
 
     }
 
+
     @Override
     public void agregarObservador(Observador observador) {
         this.observadores.add(observador);
@@ -223,6 +228,9 @@ public class Modelo implements Observable{
 
     public void partidaTerminada(String ganador){
         this.ganador = ganador;
-        notificar(Eventos.PARTIDA_FINALIZADA);
+        if(turnoActual().equals(ganador)){
+            notificar(Eventos.PARTIDA_FINALIZADA);
+        }
+
     }
 }

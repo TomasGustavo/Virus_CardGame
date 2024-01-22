@@ -13,6 +13,7 @@ public class FlujoPartidaTerminada extends Flujo{
         super(vista, controlador);
         this.jugador = jugador;
         this.ganador = ganador;
+
     }
 
     @Override
@@ -22,13 +23,13 @@ public class FlujoPartidaTerminada extends Flujo{
 
     @Override
     public void mostrarSiguienteTexto() {
-        vista.desEntradas();
+        //vista.desEntradas();
         vista.printear("---------------------------------------------------------------", Color.MAGENTA);
         if(ganador){
-            vista.printear("\nPartida terminada\nEl ganador es " + jugador + " ", Color.MAGENTA);
+            vista.printear("\n\n\n\tPartida terminada\n\n\n\tEl ganador es " + jugador + " ", Color.GREEN);
         }
         else{
-            vista.printear("\nPartida terminada\n" + jugador + " termino la partida ", Color.MAGENTA);
+            vista.printear("\n\n\n\tPartida terminada\n\n\n\t" + jugador + " termino la partida ", Color.GREEN);
         }
     }
 }

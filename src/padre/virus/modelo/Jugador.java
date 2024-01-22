@@ -49,7 +49,7 @@ public class Jugador {
                 // Agrega el órgano al cuerpo
                 Organo org = (Organo) organo;
                 this.cuerpo.add(org);
-                System.out.println("paso...\n");
+                //System.out.println("paso...\n");
                 return true;
 
             }
@@ -61,7 +61,7 @@ public class Jugador {
         if (this.cuerpo != null) {
             for (Organo organoExistente : this.cuerpo) {
                 if (organoExistente.getColor().equals(color)) {
-                    System.out.printf("existe orgnao con ese color \n");
+                    //System.out.printf("existe orgnao con ese color \n");
                     return true; // El color ya está presente en el cuerpo
                 }
             }
@@ -98,6 +98,15 @@ public class Jugador {
             organos.add(organo.toString());
         }
         return organos;
+    }
+
+    public boolean organosSanos(){
+        for(Organo i : cuerpo){
+            if(!i.estaSano()){
+                return false;
+            }
+        }
+        return true;
     }
 
     public void setMano(ArrayList<Carta> mano){

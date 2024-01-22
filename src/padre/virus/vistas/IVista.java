@@ -23,7 +23,7 @@ public interface IVista {
     void terminarTurno();
 
     void HabilitarTurno();
-    void partidaTerminada(String jugadorActual, boolean hayGanador);
+    void partidaTerminada(String jugadorActual);
 
 
 

@@ -1,10 +1,7 @@
 package padre.virus.vistas;
 
 import padre.virus.gameController.Controlador;
-import padre.virus.vistas.Flujos.Flujo;
-import padre.virus.vistas.Flujos.FlujoEsperandoTurno;
-import padre.virus.vistas.Flujos.FlujoJugar;
-import padre.virus.vistas.Flujos.FlujoNuevoUsuario;
+import padre.virus.vistas.Flujos.*;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -179,10 +176,12 @@ public class VistaConsola implements IVista{
         habEntradas();
         flujoActual = new FlujoJugar(this,controlador);
         flujoActual.mostrarSiguienteTexto();
+
     }
 
     @Override
-    public void partidaTerminada(String jugadorActual, boolean hayGanador) {
-
+    public void partidaTerminada(String jugadorActual) {
+        flujoActual = new FlujoPartidaTerminada(this,controlador,jugadorActual,true);
+        flujoActual.mostrarSiguienteTexto();
     }
 }
