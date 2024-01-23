@@ -39,6 +39,6 @@ public class Organo extends Carta {
             }
             return "Organo "+"["+this.getColor()+"]"+" [SANO]";
         }
-        return "Organo " + "["+this.getColor()+"]" + " [INFECTADO]";
+        return "Organo " + "["+this.getColor()+"]" +" [INFECTADO]";
     }
 }

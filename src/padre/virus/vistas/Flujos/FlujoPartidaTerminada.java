@@ -18,12 +18,13 @@ public class FlujoPartidaTerminada extends Flujo{
 
     @Override
     public Flujo procesarEntrada(String string) {
-        return null;
+
+        return new FlujoVacio(vista,controlador);
     }
 
     @Override
     public void mostrarSiguienteTexto() {
-        //vista.desEntradas();
+        vista.desEntradas();
         vista.printear("---------------------------------------------------------------", Color.MAGENTA);
         if(ganador){
             vista.printear("\n\n\n\tPartida terminada\n\n\n\tEl ganador es " + jugador + " ", Color.GREEN);

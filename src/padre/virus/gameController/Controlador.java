@@ -82,6 +82,7 @@ public class Controlador implements Observador {
                     else{
                         idJA++;
                     }
+                    terminoPartida();
                 }
                 case PARTIDA_FINALIZADA -> {
                     Ganador = modelo.getGanador();

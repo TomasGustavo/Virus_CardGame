@@ -3,6 +3,8 @@ package padre.virus.vistas.Flujos;
 import padre.virus.gameController.Controlador;
 import padre.virus.vistas.VistaConsola;
 
+import java.awt.*;
+
 public class FlujoAbandonarPartida extends Flujo{
 
     public FlujoAbandonarPartida(VistaConsola vista, Controlador controlador){
@@ -15,6 +17,6 @@ public class FlujoAbandonarPartida extends Flujo{
 
     @Override
     public void mostrarSiguienteTexto() {
-
+        vista.printear("El jugador ha abandonado la partida\n", Color.RED);
     }
 }

@@ -110,7 +110,7 @@ public class VistaConsola implements IVista{
         printear("\n----------------------------------------------------------------------",Color.orange);
         printear("\nTu Cuerpo\n",Color.cyan);
         for(String organo : organos){
-            printear("\n" + organo + "\n",Color.white);
+            printear("\n" + organo + "\n",Color.WHITE);
         }
     }
 

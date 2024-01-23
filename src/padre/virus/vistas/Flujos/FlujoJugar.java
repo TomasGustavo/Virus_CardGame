@@ -14,8 +14,6 @@ public class FlujoJugar extends Flujo{
     @Override
     public Flujo procesarEntrada(String string) {
 
-        controlador.terminoPartida();
-
         switch(string){
             case "1" ->{
                 if(controlador.listaJugadores().size() < 2){
