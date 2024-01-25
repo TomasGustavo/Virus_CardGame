@@ -19,6 +19,6 @@ public class FlujoPasarTurno extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         vista.printear("\n----------------------------------------------------\n", Color.magenta);
-        vista.printear("Pasaste el turno\n",Color.ORANGE);
+        vista.printear("Terminaste el turno\n",Color.ORANGE);
     }
 }

@@ -104,6 +104,10 @@ public class Controlador implements Observador {
         return jugadores;
     }
 
+    public int obtenerMazo(){
+        return modelo.obtenerMazo().size();
+    }
+
     public void AgregarJugador(String nombre){
         modelo.agregarJugador(nombre);
         this.nombreJugador = nombre;
@@ -133,6 +137,10 @@ public class Controlador implements Observador {
         return cartas;
     }
 
+    public void actualizarMano(){
+        cartas = this.modelo.obtenerCartas(nombreJugador);
+        vista.mostrarCartas(cartas);
+    }
     public void descartar(int opcion){
         modelo.descartar(nombreJugador,opcion);
     }

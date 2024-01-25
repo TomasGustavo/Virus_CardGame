@@ -18,6 +18,7 @@ public class FlujoDescartar extends Flujo{
 
             if(opcion >=1 && opcion <= controlador.obtenerCartas().size()){
                 controlador.descartar(opcion-1);
+                //controlador.actualizarMano();
                 controlador.terminoTurno();
                 return new FlujoEsperandoTurno(vista,controlador);
             }

@@ -104,10 +104,10 @@ public class VistaConsola implements IVista{
             printear(i + " - " + carta + "\n",Color.pink);
             i++;
         }
+        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(),Color.BLUE);
     }
 
     public void mostrarCuerpo(ArrayList<String> organos){
-
 
         printear("\n----------------------------------------------------------------------",Color.orange);
         printear("\nTu Cuerpo\n",Color.cyan);

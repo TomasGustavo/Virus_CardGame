@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix fin de partida, mensaje para volver al menu principal">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- add volver para atras en hacer jugada">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPasarTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPasarTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +108,7 @@
       <workItem from="1705694173598" duration="10578000" />
       <workItem from="1705948103263" duration="9364000" />
       <workItem from="1705977666671" duration="2066000" />
-      <workItem from="1706124450108" duration="11132000" />
+      <workItem from="1706124450108" duration="13375000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -225,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706141481952</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="- add volver para atras en hacer jugada">
+      <option name="closed" value="true" />
+      <created>1706143653355</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1706143653355</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +259,8 @@
     <MESSAGE value="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas" />
     <MESSAGE value="- fix mazo descarte &#10;- se muestra el cuerpo de los rivales en pantalla" />
     <MESSAGE value="- fix fin de partida, mensaje para volver al menu principal" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix fin de partida, mensaje para volver al menu principal" />
+    <MESSAGE value="- add volver para atras en hacer jugada" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add volver para atras en hacer jugada" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
