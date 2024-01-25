@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- add seleccion multiple para descarte&#10;)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,7 @@
       <workItem from="1705948103263" duration="9364000" />
       <workItem from="1705977666671" duration="2066000" />
       <workItem from="1706124450108" duration="13677000" />
-      <workItem from="1706213892279" duration="4265000" />
+      <workItem from="1706213892279" duration="6195000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -244,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706153263730</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- add seleccion multiple para descarte&#10;)">
+      <option name="closed" value="true" />
+      <created>1706219877806</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1706219877806</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +275,8 @@
     <MESSAGE value="- fix fin de partida, mensaje para volver al menu principal" />
     <MESSAGE value="- add volver para atras en hacer jugada" />
     <MESSAGE value="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)" />
+    <MESSAGE value="- add seleccion multiple para descarte&#10;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add seleccion multiple para descarte&#10;)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

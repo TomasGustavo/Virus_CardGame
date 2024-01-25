@@ -19,7 +19,7 @@ public class FlujoNuevoUsuario extends Flujo{
                 vista.printear("La cantidad de jugadores esta en su maximo (6 jugadores)", Color.ORANGE);
             } else {
                 if(!jugador.trim().isEmpty()){
-                    vista.printear("Jugador: " + jugador + "se conecto con exito\n",Color.green);
+                    //vista.printear("Jugador: " + jugador + "se conecto con exito\n",Color.green);
                     controlador.AgregarJugador(jugador);
                     return new FlujoMenuPrincipal(vista,controlador);
                 } else{

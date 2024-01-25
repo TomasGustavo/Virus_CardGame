@@ -47,7 +47,8 @@ public class Controlador implements Observador {
             switch((Eventos) evento) {
                 case NUEVO_JUGADOR -> {
                     jugadores = this.modelo.obtenerJugadores();
-                    this.vista.mostrarNuevoJugador(jugadores.get(jugadores.size() - 1 ));
+                    //this.vista.mostrarNuevoJugador(jugadores.get(jugadores.size() - 1 ));
+                    this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);

@@ -205,4 +205,26 @@ public class VistaConsola implements IVista{
         flujoActual = new FlujoPartidaTerminada(this,controlador,jugadorActual,true);
         flujoActual.mostrarSiguienteTexto();
     }
+
+
+    public void appendColorPosicion(String texto, Color color, int numeroLinea) {
+        StyledDocument doc = textPane1.getStyledDocument();
+        Style style = textPane1.addStyle("Style", null);
+        StyleConstants.setForeground(style, color);
+        // Obtener la posición de inicio y fin de la línea especificada
+        Element root = doc.getDefaultRootElement();
+        int startOffset = root.getElement(numeroLinea).getStartOffset();
+        int endOffset = root.getElement(numeroLinea).getEndOffset();
+        try {
+            // Insertar el texto en la línea especificada
+            doc.insertString(endOffset, texto, style);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        textPane1.setCaretPosition(endOffset); // Ajusta la posición del cursor al final de la línea
+    }
+
+    public void mostrarTexto(String txt) {
+        appendColorPosicion(txt, Color.GREEN, 0);
+    }
 }

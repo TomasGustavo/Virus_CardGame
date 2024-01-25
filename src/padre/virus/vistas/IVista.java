@@ -21,6 +21,7 @@ public interface IVista {
     void mostrarNuevoJugador(String jugador);
     void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas,ArrayList<String> organos);
     public void cartelInicioPartida();
+    public void mostrarTexto(String txt);
 
     void terminarTurno();
 
