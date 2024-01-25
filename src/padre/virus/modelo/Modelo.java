@@ -243,9 +243,9 @@ public class Modelo implements Observable{
 
     public void partidaTerminada(String ganador){
         this.ganador = ganador;
-        if(turnoActual().equals(ganador)){
+        //if(turnoActual().equals(ganador)){
             notificar(Eventos.PARTIDA_FINALIZADA);
-        }
+        //}
 
     }
 }
