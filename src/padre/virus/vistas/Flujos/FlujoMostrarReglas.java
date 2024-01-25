@@ -44,6 +44,6 @@ public class FlujoMostrarReglas extends Flujo{
                 "Entonces ya se pasa el turno al siguiente jugador.\n" +
                 "\n" +
                 "Gana el primer jugador que tenga delante de el, en su cuerpo 4 órganos sanos.",Color.MAGENTA);
-        vista.printear("Presione cualquier tecla para volver ....",Color.ORANGE);
+        vista.printear("\n\nPresione cualquier tecla para volver ....",Color.ORANGE);
     }
 }

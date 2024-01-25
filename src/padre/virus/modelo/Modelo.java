@@ -225,7 +225,7 @@ public class Modelo implements Observable{
                 actualizarMazoDescarte(jugador.getMano().get(opcion));
                 jugador.descartar(opcion);
                 tomarCarta(nombreJugador);
-                notificar(Eventos.TERMINO_TURNO);
+                //notificar(Eventos.TERMINO_TURNO);
             }
         }
     }
