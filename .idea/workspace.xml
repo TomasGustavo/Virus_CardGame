@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix mazo descarte &#10;- se muestra el cuerpo de los rivales en pantalla">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix fin de partida, mensaje para volver al menu principal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,7 @@
       <workItem from="1705694173598" duration="10578000" />
       <workItem from="1705948103263" duration="9364000" />
       <workItem from="1705977666671" duration="2066000" />
-      <workItem from="1706124450108" duration="10000000" />
+      <workItem from="1706124450108" duration="11132000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -218,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706140823361</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="- fix fin de partida, mensaje para volver al menu principal">
+      <option name="closed" value="true" />
+      <created>1706141481952</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706141481952</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +245,8 @@
     <MESSAGE value="- tirarCarta() funcionando&#10;- arreglar mensaje ganador(deshabilitar entrada para los jugadores y mostrar el cartel del ganador)" />
     <MESSAGE value="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas" />
     <MESSAGE value="- fix mazo descarte &#10;- se muestra el cuerpo de los rivales en pantalla" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix mazo descarte &#10;- se muestra el cuerpo de los rivales en pantalla" />
+    <MESSAGE value="- fix fin de partida, mensaje para volver al menu principal" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix fin de partida, mensaje para volver al menu principal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -15,6 +15,9 @@ public class FlujoSeleccionarJugador extends Flujo{
 
         int opcion = Integer.parseInt(string);
         try{
+            if(opcion == 0){
+                return new FlujoJugar(vista,controlador);
+            }
             String jugadorDestino = controlador.listaJugadores().get(opcion-1);
 
             return new FlujoSeleccionCarta(vista,controlador,jugadorDestino,false,null);
@@ -33,6 +36,6 @@ public class FlujoSeleccionarJugador extends Flujo{
             i++;
         }
         vista.printear("-------------------------------------------------------------------\n",Color.MAGENTA);
-        vista.printear("\nSeleccion un jugador para atacar: ",Color.MAGENTA);
+        vista.printear("\nSeleccion un jugador para atacar (0 para volver para atras): ",Color.MAGENTA);
     }
 }

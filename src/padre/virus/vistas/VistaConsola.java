@@ -160,12 +160,14 @@ public class VistaConsola implements IVista{
         printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n",Color.green);
 
     }
-
-    @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas,ArrayList<String> organos) {
+    public void cartelInicioPartida(){
         printear("-----------------------------------\n",Color.magenta);
         printear("|        partida iniciada         |\n",Color.MAGENTA);
         printear("-----------------------------------\n",Color.MAGENTA);
+    }
+
+    @Override
+    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas,ArrayList<String> organos) {
         mostrarTurno(jugadorActual);
         mostrarCuerpo(organos);
         mostrarCartas(cartas);

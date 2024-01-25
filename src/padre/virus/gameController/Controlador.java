@@ -55,6 +55,7 @@ public class Controlador implements Observador {
                     jugadorActual = this.modelo.turnoActual();
                     mazo = this.modelo.obtenerMazo();
                     idJA = 0;
+                    this.vista.cartelInicioPartida();
                     this.vista.mostarInicioPartido(jugadorActual,cartas,organos);
                 }
                 case ROBO_CARTA -> {
