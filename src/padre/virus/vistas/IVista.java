@@ -12,6 +12,7 @@ public interface IVista {
 
     void mostrarCartas(ArrayList<String> cartas);
     public void mostrarCuerpo(ArrayList<String> organos);
+    public void mostrarCuerposEnLista(String jugador,ArrayList<String> jugadores);
 
     void mostrarTurno(String jugadorActual);
 

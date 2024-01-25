@@ -101,16 +101,34 @@ public class VistaConsola implements IVista{
         printear("\ntus cartas: \n",Color.CYAN);
         int i = 1;
         for(String carta : cartas){
-            printear(i + "\n - " + carta + "\n",Color.MAGENTA);
+            printear(i + " - " + carta + "\n",Color.pink);
             i++;
         }
     }
 
     public void mostrarCuerpo(ArrayList<String> organos){
+
+
         printear("\n----------------------------------------------------------------------",Color.orange);
         printear("\nTu Cuerpo\n",Color.cyan);
+        int i = 1;
         for(String organo : organos){
-            printear("\n" + organo + "\n",Color.WHITE);
+            printear(i+" - " + organo + "\n",Color.WHITE);
+            i++;
+        }
+    }
+
+    public void mostrarCuerposEnLista(String jugador,ArrayList<String> jugadores){
+        for(String i : jugadores){
+            if(!i.equals(jugador)){
+                //printear("\n----------------------------------------------------------------------",Color.orange);
+                printear("\nCuerpo de "+i+": ",Color.cyan);
+                int j = 1;
+                for(String organo : controlador.obtenerOrganos(i)){
+                    printear(j +" - " + organo + "  |  ",Color.white);
+                    j++;
+                }
+            }
         }
     }
 
@@ -119,9 +137,10 @@ public class VistaConsola implements IVista{
         printear("\nCuerpo del Rival\n",Color.cyan);
         int i = 1;
         for(String organo : organos){
-            printear(i +"\n" + organo + "\n",Color.white);
+            printear(i +" - " + organo + "\n ",Color.white);
             i++;
         }
+        printear("\n",Color.white);
     }
 
     @Override
@@ -144,7 +163,7 @@ public class VistaConsola implements IVista{
 
     @Override
     public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas,ArrayList<String> organos) {
-        printear("-----------------------------------\n",Color.MAGENTA);
+        printear("-----------------------------------\n",Color.magenta);
         printear("|        partida iniciada         |\n",Color.MAGENTA);
         printear("-----------------------------------\n",Color.MAGENTA);
         mostrarTurno(jugadorActual);

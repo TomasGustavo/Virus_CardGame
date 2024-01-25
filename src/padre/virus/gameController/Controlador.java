@@ -63,7 +63,9 @@ public class Controlador implements Observador {
                 case TERMINO_TURNO -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
                     if(jugadorActual.equals(nombreJugador)){
+                        vista.mostrarTurno(jugadorActual);
                         modelo.tomarCarta(nombreJugador);
+                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
@@ -72,6 +74,7 @@ public class Controlador implements Observador {
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
                         modelo.tomarCarta(nombreJugador);
+                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
                         vista.mostrarCartas(cartas);
                         vista.HabilitarTurno();
@@ -82,11 +85,10 @@ public class Controlador implements Observador {
                     else{
                         idJA++;
                     }
-                    terminoPartida();
+
                 }
                 case PARTIDA_FINALIZADA -> {
                     Ganador = modelo.getGanador();
-                    //jugadorActual = modelo.turnoActual();
                     vista.partidaTerminada(Ganador);
                 }
                 case USO_TRATAMIENTO -> {
@@ -153,7 +155,6 @@ public class Controlador implements Observador {
     public ArrayList<String> obtenerOrganos(String jugadorDestino){
         return modelo.obtenerOrganos(jugadorDestino);
     }
-
     public void terminoPartida(){
         modelo.hayGandor();
     }

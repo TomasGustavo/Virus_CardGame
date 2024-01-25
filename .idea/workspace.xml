@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- tirarCarta() funcionando&#10;- arreglar mensaje ganador(deshabilitar entrada para los jugadores y mostrar el cartel del ganador)">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Mazo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Mazo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +109,8 @@
       <workItem from="1705614879174" duration="2190000" />
       <workItem from="1705694173598" duration="10578000" />
       <workItem from="1705948103263" duration="9364000" />
-      <workItem from="1705977666671" duration="1946000" />
+      <workItem from="1705977666671" duration="2066000" />
+      <workItem from="1706124450108" duration="9114000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -205,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705958089741</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas">
+      <option name="closed" value="true" />
+      <created>1705979707124</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705979707124</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +234,8 @@
     <MESSAGE value="- fix set cuerpo (a medias)" />
     <MESSAGE value="- fix setCuerpo (definitivo)" />
     <MESSAGE value="- tirarCarta() funcionando&#10;- arreglar mensaje ganador(deshabilitar entrada para los jugadores y mostrar el cartel del ganador)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- tirarCarta() funcionando&#10;- arreglar mensaje ganador(deshabilitar entrada para los jugadores y mostrar el cartel del ganador)" />
+    <MESSAGE value="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas" />
+    <option name="LAST_COMMIT_MESSAGE" value="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

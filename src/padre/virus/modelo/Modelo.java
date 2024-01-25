@@ -4,12 +4,15 @@ import padre.virus.observer.Observable;
 import padre.virus.observer.Observador;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Modelo implements Observable{
 
     private ArrayList<Observador> observadores;
     private Mazo mazo;
+    private Mazo mazoDescarte;
     private final ArrayList<Jugador> jugadores;
 
     String ganador;
@@ -37,7 +40,8 @@ public class Modelo implements Observable{
 
     public void jugar(){
         if(jugadores.size() >=2){
-            this.mazo = new Mazo();
+            this.mazo = new Mazo(false);
+            this.mazoDescarte = new Mazo(true);
             mazo.BarajarMazo();
             RepartirCartas();
             asignarTurno();
@@ -90,6 +94,12 @@ public class Modelo implements Observable{
     }
     public void tomarCarta(String nombreJugador){
         int j;
+        if(mazo.obtenerMazo().isEmpty()){
+            for(Carta carta : mazoDescarte.getMazo()){
+                this.mazo.add(carta);
+            }
+            mazoDescarte.vaciarMazo();
+        }
         for(Jugador i : jugadores){
             if(i.getNombre().equals(nombreJugador)){
                 j = i.getMano().size();
@@ -212,11 +222,16 @@ public class Modelo implements Observable{
     public void descartar(String nombreJugador, int opcion){
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombreJugador)){
+                actualizarMazoDescarte(jugador.getMano().get(opcion));
                 jugador.descartar(opcion);
                 tomarCarta(nombreJugador);
                 notificar(Eventos.TERMINO_TURNO);
             }
         }
+    }
+
+    public void actualizarMazoDescarte(Carta carta){
+        mazoDescarte.add(carta);
     }
     public void terminarTurno(String nombreJugador){
         for(Jugador jugador : jugadores){
