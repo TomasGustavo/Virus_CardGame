@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- cambio en la manera de mostrar quien se unio a la partida">
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/ColorRGB.java" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- creacion de propia paleta de colores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Eventos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Eventos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoNuevoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoNuevoUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPasarTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPasarTurno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +112,8 @@
       <workItem from="1705977666671" duration="2066000" />
       <workItem from="1706124450108" duration="13677000" />
       <workItem from="1706213892279" duration="6496000" />
-      <workItem from="1706298332504" duration="5530000" />
+      <workItem from="1706298332504" duration="5655000" />
+      <workItem from="1706304983968" duration="1730000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -274,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706222139846</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="- creacion de propia paleta de colores">
+      <option name="closed" value="true" />
+      <created>1706304855605</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1706304855605</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +300,8 @@
     <MESSAGE value="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)" />
     <MESSAGE value="- add seleccion multiple para descarte&#10;)" />
     <MESSAGE value="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)" />
+    <MESSAGE value="- creacion de propia paleta de colores" />
+    <option name="LAST_COMMIT_MESSAGE" value="- creacion de propia paleta de colores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -312,6 +314,11 @@
           <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java</url>
           <line>105</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

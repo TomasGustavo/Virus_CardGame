@@ -64,17 +64,6 @@ public class VistaConsola implements IVista{
             e.printStackTrace();
         }
     }
-    /*public void printearNotificacion(String texto,Color color){
-        StyledDocument doc = textPane2.getStyledDocument();
-        Style style = textPane2.addStyle("Style",null);
-        StyleConstants.setForeground(style,color);
-        textPane2.setCaretPosition(textPane2.getDocument().getLength());
-        try{
-            doc.insertString(doc.getLength(),texto,style);
-        } catch (BadLocationException e){
-            e.printStackTrace();
-        }
-    }*/
 
     public void desEntradas(){
         TextField.setEnabled(false);
@@ -238,7 +227,12 @@ public class VistaConsola implements IVista{
         appendColorPosicion(txt, ColorRGB.GREEN, 0);
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public void abandonoPartida(String nombre){
+
+            flujoActual = new FlujoPartidaTerminada(this,controlador, controlador.getJugadorActual(), false);
+            flujoActual.mostrarSiguienteTexto();
+
+
+
     }
 }

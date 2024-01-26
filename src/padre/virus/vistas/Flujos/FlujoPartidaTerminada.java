@@ -35,7 +35,7 @@ public class FlujoPartidaTerminada extends Flujo{
             vista.printear("\n\n\n\t\tPartida terminada\n\n\t\tEl ganador es " + jugador + "\n\n", ColorRGB.GREEN);
         }
         else{
-            vista.printear("\n\n\n\t\t   Partida terminada\n\n\t\t" + jugador + " termino la partida\n\n", ColorRGB.GREEN);
+            vista.printear("\n\n\n\t\t   Partida terminada\n\n\t\t" + jugador + " abandono la partida\n\n", ColorRGB.GREEN);
         }
         vista.printear("\t PRESIONE [0] PARA VOLVER AL MENU PRINCIPAL!!\n",ColorRGB.RED);
     }

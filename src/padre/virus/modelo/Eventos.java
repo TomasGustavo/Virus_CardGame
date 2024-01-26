@@ -14,6 +14,8 @@ public enum Eventos {
 
     TIRAR_CARTA,
 
-    USO_TRATAMIENTO;
+    USO_TRATAMIENTO,
+
+    ABANDONO_PARTIDA;
 
 }

@@ -7,6 +7,7 @@ import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 import padre.virus.vistas.VistaConsola;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class Controlador implements Observador {
@@ -66,7 +67,7 @@ public class Controlador implements Observador {
                 case TERMINO_TURNO -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
                     if(jugadorActual.equals(nombreJugador)){
-                        //this.vista.printearNotificacion(jugadorActual, ColorRGB.ORANGE);
+                        vista.mostrarTurno(jugadorActual);
                         modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
@@ -75,7 +76,7 @@ public class Controlador implements Observador {
                     }
                     jugadorActual = modelo.cambiarTurno(idJA);
                     if(jugadorActual.equals(nombreJugador)){
-                        //this.vista.printearNotificacion(jugadorActual, ColorRGB.ORANGE);
+                        vista.mostrarTurno(jugadorActual);
                         modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
@@ -93,6 +94,9 @@ public class Controlador implements Observador {
                 case PARTIDA_FINALIZADA -> {
                     Ganador = modelo.getGanador();
                     vista.partidaTerminada(Ganador);
+                }
+                case ABANDONO_PARTIDA -> {
+                    vista.abandonoPartida(nombreJugador);
                 }
                 case USO_TRATAMIENTO -> {
 
@@ -168,6 +172,10 @@ public class Controlador implements Observador {
     }
     public void terminoPartida(){
         modelo.hayGandor();
+    }
+    public String abandonoPartida(){
+        modelo.abandonoPartida();
+        return nombreJugador;
     }
 
 

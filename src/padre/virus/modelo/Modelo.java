@@ -193,6 +193,10 @@ public class Modelo implements Observable{
     public String getGanador(){
         return ganador;
     }
+
+    public void abandonoPartida(){
+        this.notificar(Eventos.ABANDONO_PARTIDA);
+    }
     @Override
     public void notificar(Object evento) {
         for(Observador observador: observadores){

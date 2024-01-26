@@ -31,7 +31,9 @@ public class FlujoJugar extends Flujo{
                 return new FlujoPasarTurno(vista,controlador);
             }
             case "4" ->{
-                return new FlujoAbandonarPartida(vista,controlador);
+                String nombre = controlador.abandonoPartida();
+                return new FlujoAbandonarPartida(vista,controlador,nombre);
+
             }
             default -> vista.printear("Opcion invalida\n",ColorRGB.RED);
 
