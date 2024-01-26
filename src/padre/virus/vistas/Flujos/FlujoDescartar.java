@@ -1,6 +1,7 @@
 package padre.virus.vistas.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
@@ -31,7 +32,7 @@ public class FlujoDescartar extends Flujo{
             return new FlujoEsperandoTurno(vista,controlador);
             //}
         } catch (NumberFormatException e){
-            vista.printear("El numero de carta no es valido \n",Color.red);
+            vista.printear("El numero de carta no es valido \n", ColorRGB.RED);
         }
 
         return this;
@@ -41,9 +42,9 @@ public class FlujoDescartar extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         vista.mostrarCartas(controlador.obtenerCartas());
-        vista.printear("\n--------------------------------------------\n", Color.MAGENTA);
-        vista.printear("\nSeleccione carta/s a descartar\n", Color.MAGENTA);
-        vista.printear("Separadas con coma ',' ejemplo: 1,2,3 / 1,3", Color.MAGENTA);
+        vista.printear("\n--------------------------------------------\n", ColorRGB.MAGENTA);
+        vista.printear("\nSeleccione carta/s a descartar\n", ColorRGB.MAGENTA);
+        vista.printear("Separadas con coma ',' ejemplo: 1,2,3 / 1,3", ColorRGB.MAGENTA);
 
 
     }

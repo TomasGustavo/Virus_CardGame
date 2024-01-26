@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- add seleccion multiple para descarte&#10;)">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- cambio en la manera de mostrar quien se unio a la partida">
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/ColorRGB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoDescartar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoEsperandoTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoJugar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoMostrarReglas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoNuevoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoNuevoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPartidaTerminada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPasarTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoPasarTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionCarta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoSeleccionarJugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +119,8 @@
       <workItem from="1705948103263" duration="9364000" />
       <workItem from="1705977666671" duration="2066000" />
       <workItem from="1706124450108" duration="13677000" />
-      <workItem from="1706213892279" duration="6195000" />
+      <workItem from="1706213892279" duration="6496000" />
+      <workItem from="1706298332504" duration="5530000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -252,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706219877806</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)">
+      <option name="closed" value="true" />
+      <created>1706222139846</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1706222139846</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +298,8 @@
     <MESSAGE value="- add volver para atras en hacer jugada" />
     <MESSAGE value="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)" />
     <MESSAGE value="- add seleccion multiple para descarte&#10;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add seleccion multiple para descarte&#10;)" />
+    <MESSAGE value="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

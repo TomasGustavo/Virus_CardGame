@@ -1,6 +1,7 @@
 package padre.virus.vistas.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
@@ -29,13 +30,13 @@ public class FlujoPartidaTerminada extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         vista.habEntradas();
-        vista.printear("---------------------------------------------------------------", Color.MAGENTA);
+        vista.printear("---------------------------------------------------------------", ColorRGB.MAGENTA);
         if(ganador){
-            vista.printear("\n\n\n\tPartida terminada\n\n\n\tEl ganador es " + jugador + " \n\n\n\n", Color.GREEN);
+            vista.printear("\n\n\n\t\tPartida terminada\n\n\t\tEl ganador es " + jugador + "\n\n", ColorRGB.GREEN);
         }
         else{
-            vista.printear("\n\n\n\tPartida terminada\n\n\n\t" + jugador + " termino la partida ", Color.GREEN);
+            vista.printear("\n\n\n\t\t   Partida terminada\n\n\t\t" + jugador + " termino la partida\n\n", ColorRGB.GREEN);
         }
-        vista.printear("\t PRESIONE [0] PARA VOLVER AL MENU PRINCIPAL!!\n",Color.RED);
+        vista.printear("\t PRESIONE [0] PARA VOLVER AL MENU PRINCIPAL!!\n",ColorRGB.RED);
     }
 }

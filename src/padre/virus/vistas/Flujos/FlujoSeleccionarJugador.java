@@ -1,6 +1,7 @@
 package padre.virus.vistas.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
@@ -23,7 +24,7 @@ public class FlujoSeleccionarJugador extends Flujo{
             return new FlujoSeleccionCarta(vista,controlador,jugadorDestino,false,null);
 
         } catch (NumberFormatException e){
-            vista.printear("\nNumero de jugador fuera de rango\n",Color.red);
+            vista.printear("\nNumero de jugador fuera de rango\n", ColorRGB.RED);
         }
         return this;
     }
@@ -32,10 +33,10 @@ public class FlujoSeleccionarJugador extends Flujo{
     public void mostrarSiguienteTexto() {
         int i = 1;
         for(String jugador: controlador.listaJugadores()){
-            vista.printear(i + " - "+ jugador+"\n", Color.ORANGE);
+            vista.printear(i + " - "+ jugador+"\n", ColorRGB.ORANGE);
             i++;
         }
-        vista.printear("-------------------------------------------------------------------\n",Color.MAGENTA);
-        vista.printear("\nSeleccion un jugador para atacar (0 para volver para atras): ",Color.MAGENTA);
+        vista.printear("-------------------------------------------------------------------\n",ColorRGB.MAGENTA);
+        vista.printear("\nSeleccion un jugador para atacar (0 para volver para atras): ",ColorRGB.MAGENTA);
     }
 }

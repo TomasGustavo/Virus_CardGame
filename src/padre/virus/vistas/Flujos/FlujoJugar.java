@@ -1,6 +1,7 @@
 package padre.virus.vistas.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
@@ -17,7 +18,7 @@ public class FlujoJugar extends Flujo{
         switch(string){
             case "1" ->{
                 if(controlador.listaJugadores().size() < 2){
-                    vista.printear("No hay mas jugadores, solo usted\n",Color.MAGENTA);
+                    vista.printear("No hay mas jugadores, solo usted\n", ColorRGB.MAGENTA);
                 } else{
                     return new FlujoSeleccionarJugador(vista,controlador);
                 }
@@ -32,7 +33,7 @@ public class FlujoJugar extends Flujo{
             case "4" ->{
                 return new FlujoAbandonarPartida(vista,controlador);
             }
-            default -> vista.printear("Opcion invalida\n",Color.red);
+            default -> vista.printear("Opcion invalida\n",ColorRGB.RED);
 
         }
         return this;
@@ -41,11 +42,11 @@ public class FlujoJugar extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         //vista.mostrarCartas(controlador.obtenerCartas());
-        vista.printear("\n\n1 - hacer jugada\n", Color.MAGENTA);
-        vista.printear("2 - descartar cartas\n", Color.MAGENTA);
-        vista.printear("3 - terminar turno\n", Color.MAGENTA);
-        vista.printear("4 - abandonar partida\n", Color.MAGENTA);
-        vista.printear("-----------------------------------------------\n", Color.MAGENTA);
-        vista.printear("seleccionar opcion: \n", Color.MAGENTA);
+        vista.printear("\n\n1 - hacer jugada\n", ColorRGB.MAGENTA);
+        vista.printear("2 - descartar cartas\n", ColorRGB.MAGENTA);
+        vista.printear("3 - terminar turno\n", ColorRGB.MAGENTA);
+        vista.printear("4 - abandonar partida\n", ColorRGB.MAGENTA);
+        vista.printear("-----------------------------------------------\n", ColorRGB.MAGENTA);
+        vista.printear("seleccionar opcion: \n", ColorRGB.CYAN);
     }
 }

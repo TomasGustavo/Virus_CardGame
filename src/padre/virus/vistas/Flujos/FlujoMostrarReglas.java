@@ -1,6 +1,7 @@
 package padre.virus.vistas.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
@@ -12,24 +13,25 @@ public class FlujoMostrarReglas extends Flujo{
     }
     @Override
     public Flujo procesarEntrada(String string) {
+
         return new FlujoMenuPrincipal(vista,controlador);
     }
 
     @Override
     public void mostrarSiguienteTexto() {
-        vista.printear("\n\t\t Reglas del Virus!\n\n", Color.MAGENTA);
+        vista.printear("\n\t\t Reglas del Virus!\n\n", ColorRGB.TIEL);
         vista.printear("Este juego es un juego rápido donde" +
                 " las partidas pueden llegar a durar unos 20 minutos y está " +
-                "destinado a jugar entre 2 y 6 jugadores.\n\n",Color.magenta);
+                "destinado a jugar entre 2 y 6 jugadores.\n\n",ColorRGB.TIEL);
         vista.printear("contiene un mazo de 68 cartas divididas en los siguientes tipos:\n" +
                 "\n" +
                 " - 21 cartas de órganos (5 corazones; 5 estómagos; 5 cerebros-, 5 huesos; 1 órgano comodín)\n" +
                 " - 17 cartas de virus (4 rojos; 4 verdes; 4 azules; 4 amarillos; 1 comodín)\n" +
                 " - 20 cartas de medicinas (4 rojos; 4 verdes; 4 azules; 4 amarillos; 4 comodín)\n" +
-                " - 10 cartas de Tratamientos\n\n",Color.MAGENTA);
+                " - 10 cartas de Tratamientos\n\n",ColorRGB.TIEL);
         vista.printear("El primer jugador que consiga 4 órganos totalmente sanos es el que gana. " +
                 "Se consideran órganos sanos los órganos que no tienen infección, que están vacunados o los " +
-                "que están inmunizados.\n\n",Color.MAGENTA);
+                "que están inmunizados.\n\n",ColorRGB.TIEL);
         vista.printear("Por turnos cada jugador podrá usar una de las 3 cartas que tenga en su mano." + "¿Que puedes  hacer con tu cartas?" +
                 " -  Poner un órgano delante de el en su parte de la mesa (cuerpo)\n" +
                 " -  Podrás usar una medicina para curar un órgano tuyo infectado o vacunarlo para que no te lo infecten.\n" +
@@ -43,7 +45,7 @@ public class FlujoMostrarReglas extends Flujo{
                 "\n" +
                 "Entonces ya se pasa el turno al siguiente jugador.\n" +
                 "\n" +
-                "Gana el primer jugador que tenga delante de el, en su cuerpo 4 órganos sanos.",Color.MAGENTA);
-        vista.printear("\n\nPresione cualquier tecla para volver ....",Color.ORANGE);
+                "Gana el primer jugador que tenga delante de el, en su cuerpo 4 órganos sanos.",ColorRGB.TIEL);
+        vista.printear("\n\nPresione cualquier tecla para volver ....",ColorRGB.ORANGE);
     }
 }

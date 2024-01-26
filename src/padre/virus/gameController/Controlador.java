@@ -3,6 +3,7 @@ package padre.virus.gameController;
 import padre.virus.modelo.*;
 import padre.virus.observer.Observable;
 import padre.virus.observer.Observador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 import padre.virus.vistas.VistaConsola;
 
@@ -65,7 +66,7 @@ public class Controlador implements Observador {
                 case TERMINO_TURNO -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
                     if(jugadorActual.equals(nombreJugador)){
-                        vista.mostrarTurno(jugadorActual);
+                        //this.vista.printearNotificacion(jugadorActual, ColorRGB.ORANGE);
                         modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
@@ -74,7 +75,7 @@ public class Controlador implements Observador {
                     }
                     jugadorActual = modelo.cambiarTurno(idJA);
                     if(jugadorActual.equals(nombreJugador)){
-                        vista.mostrarTurno(jugadorActual);
+                        //this.vista.printearNotificacion(jugadorActual, ColorRGB.ORANGE);
                         modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));

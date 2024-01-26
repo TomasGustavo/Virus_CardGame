@@ -1,6 +1,7 @@
 package padre.virus.vistas.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola;
 
 import java.awt.*;
@@ -43,7 +44,7 @@ public class FlujoSeleccionCarta extends Flujo{
 
 
         } catch (NumberFormatException e){
-            vista.printear("Opcion invalida \n", Color.red);
+            vista.printear("Opcion invalida \n", ColorRGB.RED);
         }
 
         return new FlujoEsperandoTurno(vista,controlador);

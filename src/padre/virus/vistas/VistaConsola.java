@@ -63,8 +63,18 @@ public class VistaConsola implements IVista{
         } catch (BadLocationException e){
             e.printStackTrace();
         }
-
     }
+    /*public void printearNotificacion(String texto,Color color){
+        StyledDocument doc = textPane2.getStyledDocument();
+        Style style = textPane2.addStyle("Style",null);
+        StyleConstants.setForeground(style,color);
+        textPane2.setCaretPosition(textPane2.getDocument().getLength());
+        try{
+            doc.insertString(doc.getLength(),texto,style);
+        } catch (BadLocationException e){
+            e.printStackTrace();
+        }
+    }*/
 
     public void desEntradas(){
         TextField.setEnabled(false);
@@ -97,23 +107,23 @@ public class VistaConsola implements IVista{
 
     @Override
     public void mostrarCartas(ArrayList<String> cartas) {
-        printear("\n----------------------------------------------------------------------",Color.orange);
-        printear("\ntus cartas: \n",Color.CYAN);
+        printear("\n----------------------------------------------------------------------",ColorRGB.ORANGE);
+        printear("\ntus cartas: \n",ColorRGB.CYAN);
         int i = 1;
         for(String carta : cartas){
-            printear(i + " - " + carta + "\n",Color.pink);
+            printear(i + " - " + carta + "\n",ColorRGB.PINK);
             i++;
         }
-        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(),Color.BLUE);
+        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(),ColorRGB.BLUE);
     }
 
     public void mostrarCuerpo(ArrayList<String> organos){
 
-        printear("\n----------------------------------------------------------------------",Color.orange);
-        printear("\nTu Cuerpo\n",Color.cyan);
+        printear("\n----------------------------------------------------------------------",ColorRGB.ORANGE);
+        printear("\nTu Cuerpo\n",ColorRGB.CYAN);
         int i = 1;
         for(String organo : organos){
-            printear(i+" - " + organo + "\n",Color.WHITE);
+            printear(i+" - " + organo + "\n",ColorRGB.TIEL);
             i++;
         }
     }
@@ -122,7 +132,7 @@ public class VistaConsola implements IVista{
         for(String i : jugadores){
             if(!i.equals(jugador)){
                 //printear("\n----------------------------------------------------------------------",Color.orange);
-                printear("\nCuerpo de "+i+": ",Color.cyan);
+                printear("\nCuerpo de "+i+": ",ColorRGB.CYAN);
                 int j = 1;
                 for(String organo : controlador.obtenerOrganos(i)){
                     printear(j +" - " + organo + "  |  ",Color.white);
@@ -133,8 +143,8 @@ public class VistaConsola implements IVista{
     }
 
     public void mostrarCuerpoRival(ArrayList<String> organos){
-        printear("\n----------------------------------------------------------------------",Color.orange);
-        printear("\nCuerpo del Rival\n",Color.cyan);
+        printear("\n----------------------------------------------------------------------",ColorRGB.ORANGE);
+        printear("\nCuerpo del Rival\n",ColorRGB.CYAN);
         int i = 1;
         for(String organo : organos){
             printear(i +" - " + organo + "\n ",Color.white);
@@ -145,25 +155,25 @@ public class VistaConsola implements IVista{
 
     @Override
     public void mostrarTurno(String jugadorActual) {
-        printear("\nEs el turno del jugador: "+jugadorActual,Color.MAGENTA);
+        printear("\nEs el turno del jugador: "+jugadorActual,ColorRGB.ORANGE);
     }
 
     @Override
     public void mostrarJugadores(ArrayList<String> jugadores) {
         for(String jugador : jugadores){
-            printear("\n1 - " + jugador + "\n",Color.ORANGE);
+            printear("\n1 - " + jugador + "\n",ColorRGB.ORANGE);
         }
     }
 
     @Override
     public void mostrarNuevoJugador(String jugador) {
-        printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n",Color.green);
+        printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n",ColorRGB.GREEN);
 
     }
     public void cartelInicioPartida(){
-        printear("-----------------------------------\n",Color.magenta);
-        printear("|        partida iniciada         |\n",Color.MAGENTA);
-        printear("-----------------------------------\n",Color.MAGENTA);
+        printear("-----------------------------------\n",ColorRGB.MAGENTA);
+        printear("|        partida iniciada         |\n",ColorRGB.MAGENTA);
+        printear("-----------------------------------\n",ColorRGB.MAGENTA);
     }
 
     @Override
@@ -225,6 +235,10 @@ public class VistaConsola implements IVista{
     }
 
     public void mostrarTexto(String txt) {
-        appendColorPosicion(txt, Color.GREEN, 0);
+        appendColorPosicion(txt, ColorRGB.GREEN, 0);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
