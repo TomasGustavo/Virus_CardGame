@@ -58,7 +58,6 @@ public class Modelo implements Observable{
         String jActual = turnoActual();
         Jugador jugador = jugadores.get(indice);
         jugador.setSuTurno(true);
-
         return jugador.getNombre();
     }
 

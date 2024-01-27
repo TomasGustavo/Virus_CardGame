@@ -50,7 +50,7 @@ public class Controlador implements Observador {
                 case NUEVO_JUGADOR -> {
                     jugadores = this.modelo.obtenerJugadores();
                     //this.vista.mostrarNuevoJugador(jugadores.get(jugadores.size() - 1 ));
-                    this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
+                    this.vista.notificarMensaje("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
@@ -75,6 +75,7 @@ public class Controlador implements Observador {
                         vista.terminarTurno();
                     }
                     jugadorActual = modelo.cambiarTurno(idJA);
+                    vista.notificarMensaje("Es turno del jugador: " + jugadorActual);
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
                         modelo.tomarCarta(nombreJugador);
@@ -98,6 +99,7 @@ public class Controlador implements Observador {
                 case ABANDONO_PARTIDA -> {
                     vista.abandonoPartida(nombreJugador);
                 }
+
                 case USO_TRATAMIENTO -> {
 
                 }

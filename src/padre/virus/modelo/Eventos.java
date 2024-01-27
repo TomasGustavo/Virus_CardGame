@@ -17,5 +17,4 @@ public enum Eventos {
     USO_TRATAMIENTO,
 
     ABANDONO_PARTIDA;
-
 }

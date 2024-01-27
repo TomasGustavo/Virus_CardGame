@@ -12,7 +12,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class VistaConsola implements IVista{
+public class VistaConsola implements IVista {
 
     private Controlador controlador;
     private JButton ENTER;
@@ -20,12 +20,13 @@ public class VistaConsola implements IVista{
     private JTextField TextField;
     private JFrame frame;
     private JTextPane textPane1;
+    private JLabel mensaje;
     private Flujo flujoActual;
 
-    public VistaConsola(){
-        frame  = new JFrame("Virus!");
+    public VistaConsola() {
+        frame = new JFrame("Virus!");
         frame.setContentPane(panel1);
-        frame.setSize(750,700);
+        frame.setSize(750, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         ENTER.addActionListener(new ActionListener() {
@@ -42,7 +43,7 @@ public class VistaConsola implements IVista{
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    printear(TextField.getText() + "\n",Color.WHITE);
+                    printear(TextField.getText() + "\n", Color.WHITE);
                     procesarEntrada(TextField.getText());
                     TextField.setText("");
 
@@ -53,30 +54,36 @@ public class VistaConsola implements IVista{
         frame.getRootPane().setDefaultButton(ENTER);
     }
 
-    public void printear(String texto, Color color){
+    public void notificarMensaje(String texto) {
+        mensaje.setText(texto.toUpperCase());
+    }
+
+
+    public void printear(String texto, Color color) {
         StyledDocument doc = textPane1.getStyledDocument();
-        Style style = textPane1.addStyle("Style",null);
-        StyleConstants.setForeground(style,color);
+        Style style = textPane1.addStyle("Style", null);
+        StyleConstants.setForeground(style, color);
         textPane1.setCaretPosition(textPane1.getDocument().getLength());
-        try{
-            doc.insertString(doc.getLength(),texto,style);
-        } catch (BadLocationException e){
+        try {
+            doc.insertString(doc.getLength(), texto, style);
+        } catch (BadLocationException e) {
             e.printStackTrace();
         }
     }
 
-    public void desEntradas(){
+    public void desEntradas() {
         TextField.setEnabled(false);
         ENTER.setEnabled(false);
     }
-    public void habEntradas(){
+
+    public void habEntradas() {
         TextField.setEnabled(true);
         ENTER.setEnabled(true);
     }
 
-    public void procesarEntrada(String input){
+    public void procesarEntrada(String input) {
         input = input.trim();
-        if(input.isEmpty()){
+        if (input.isEmpty()) {
             return;
         }
         flujoActual = flujoActual.procesarEntrada(input);
@@ -96,93 +103,94 @@ public class VistaConsola implements IVista{
 
     @Override
     public void mostrarCartas(ArrayList<String> cartas) {
-        printear("\n----------------------------------------------------------------------",ColorRGB.ORANGE);
-        printear("\ntus cartas: \n",ColorRGB.CYAN);
+        printear("\n----------------------------------------------------------------------", ColorRGB.ORANGE);
+        printear("\ntus cartas: \n", ColorRGB.CYAN);
         int i = 1;
-        for(String carta : cartas){
-            printear(i + " - " + carta + "\n",ColorRGB.PINK);
+        for (String carta : cartas) {
+            printear(i + " - " + carta + "\n", ColorRGB.PINK);
             i++;
         }
-        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(),ColorRGB.BLUE);
+        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(), ColorRGB.BLUE);
     }
 
-    public void mostrarCuerpo(ArrayList<String> organos){
+    public void mostrarCuerpo(ArrayList<String> organos) {
 
-        printear("\n----------------------------------------------------------------------",ColorRGB.ORANGE);
-        printear("\nTu Cuerpo\n",ColorRGB.CYAN);
+        printear("\n----------------------------------------------------------------------", ColorRGB.ORANGE);
+        printear("\nTu Cuerpo\n", ColorRGB.CYAN);
         int i = 1;
-        for(String organo : organos){
-            printear(i+" - " + organo + "\n",ColorRGB.TIEL);
+        for (String organo : organos) {
+            printear(i + " - " + organo + "\n", ColorRGB.TIEL);
             i++;
         }
     }
 
-    public void mostrarCuerposEnLista(String jugador,ArrayList<String> jugadores){
-        for(String i : jugadores){
-            if(!i.equals(jugador)){
+    public void mostrarCuerposEnLista(String jugador, ArrayList<String> jugadores) {
+        for (String i : jugadores) {
+            if (!i.equals(jugador)) {
                 //printear("\n----------------------------------------------------------------------",Color.orange);
-                printear("\nCuerpo de "+i+": ",ColorRGB.CYAN);
+                printear("\nCuerpo de " + i + ": ", ColorRGB.CYAN);
                 int j = 1;
-                for(String organo : controlador.obtenerOrganos(i)){
-                    printear(j +" - " + organo + "  |  ",Color.white);
+                for (String organo : controlador.obtenerOrganos(i)) {
+                    printear(j + " - " + organo + "  |  ", Color.white);
                     j++;
                 }
             }
         }
     }
 
-    public void mostrarCuerpoRival(ArrayList<String> organos){
-        printear("\n----------------------------------------------------------------------",ColorRGB.ORANGE);
-        printear("\nCuerpo del Rival\n",ColorRGB.CYAN);
+    public void mostrarCuerpoRival(ArrayList<String> organos) {
+        printear("\n----------------------------------------------------------------------", ColorRGB.ORANGE);
+        printear("\nCuerpo del Rival\n", ColorRGB.CYAN);
         int i = 1;
-        for(String organo : organos){
-            printear(i +" - " + organo + "\n ",Color.white);
+        for (String organo : organos) {
+            printear(i + " - " + organo + "\n ", Color.white);
             i++;
         }
-        printear("\n",Color.white);
+        printear("\n", Color.white);
     }
 
     @Override
     public void mostrarTurno(String jugadorActual) {
-        printear("\nEs el turno del jugador: "+jugadorActual,ColorRGB.ORANGE);
+        printear("\nEs el turno del jugador: " + jugadorActual, ColorRGB.ORANGE);
     }
 
     @Override
     public void mostrarJugadores(ArrayList<String> jugadores) {
-        for(String jugador : jugadores){
-            printear("\n1 - " + jugador + "\n",ColorRGB.ORANGE);
+        for (String jugador : jugadores) {
+            printear("\n1 - " + jugador + "\n", ColorRGB.ORANGE);
         }
     }
 
     @Override
     public void mostrarNuevoJugador(String jugador) {
-        printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n",ColorRGB.GREEN);
+        printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n", ColorRGB.GREEN);
 
     }
-    public void cartelInicioPartida(){
-        printear("-----------------------------------\n",ColorRGB.MAGENTA);
-        printear("|        partida iniciada         |\n",ColorRGB.MAGENTA);
-        printear("-----------------------------------\n",ColorRGB.MAGENTA);
+
+    public void cartelInicioPartida() {
+        printear("-----------------------------------\n", ColorRGB.MAGENTA);
+        printear("|        partida iniciada         |\n", ColorRGB.MAGENTA);
+        printear("-----------------------------------\n", ColorRGB.MAGENTA);
     }
 
     @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas,ArrayList<String> organos) {
+    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas, ArrayList<String> organos) {
         mostrarTurno(jugadorActual);
         mostrarCuerpo(organos);
         mostrarCartas(cartas);
-        if(!controlador.isTurno()){
+        if (!controlador.isTurno()) {
             flujoActual = new FlujoEsperandoTurno(this, controlador);
             flujoActual.mostrarSiguienteTexto();
-        } else if (controlador.isTurno()){
+        } else if (controlador.isTurno()) {
             habEntradas();
-            flujoActual = new FlujoJugar(this,controlador);
+            flujoActual = new FlujoJugar(this, controlador);
             flujoActual.mostrarSiguienteTexto();
         }
     }
 
     public void mostarInicioPartido() {
         mostrar();
-        flujoActual = new FlujoNuevoUsuario(this,controlador);
+        flujoActual = new FlujoNuevoUsuario(this, controlador);
         flujoActual.mostrarSiguienteTexto();
     }
 
@@ -194,14 +202,14 @@ public class VistaConsola implements IVista{
     @Override
     public void HabilitarTurno() {
         habEntradas();
-        flujoActual = new FlujoJugar(this,controlador);
+        flujoActual = new FlujoJugar(this, controlador);
         flujoActual.mostrarSiguienteTexto();
 
     }
 
     @Override
     public void partidaTerminada(String jugadorActual) {
-        flujoActual = new FlujoPartidaTerminada(this,controlador,jugadorActual,true);
+        flujoActual = new FlujoPartidaTerminada(this, controlador, jugadorActual, true);
         flujoActual.mostrarSiguienteTexto();
     }
 
@@ -227,11 +235,10 @@ public class VistaConsola implements IVista{
         appendColorPosicion(txt, ColorRGB.GREEN, 0);
     }
 
-    public void abandonoPartida(String nombre){
+    public void abandonoPartida(String nombre) {
 
-            flujoActual = new FlujoPartidaTerminada(this,controlador, controlador.getJugadorActual(), false);
-            flujoActual.mostrarSiguienteTexto();
-
+        flujoActual = new FlujoPartidaTerminada(this, controlador, controlador.getJugadorActual(), false);
+        flujoActual.mostrarSiguienteTexto();
 
 
     }
