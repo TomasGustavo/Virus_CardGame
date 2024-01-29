@@ -1,5 +1,7 @@
 package padre.virus.gameController;
 
+import ar.edu.unlu.rmimvc.cliente.IControladorRemoto;
+import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
 import padre.virus.modelo.*;
 import padre.virus.observer.Observable;
 import padre.virus.observer.Observador;
@@ -10,9 +12,9 @@ import padre.virus.vistas.VistaConsola;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class Controlador implements Observador {
+public class Controlador implements IControladorRemoto {
 
-    private Modelo modelo;
+    private IModelo modelo;
     private IVista vista;
     private String nombreJugador;
     String jugadorActual;
@@ -25,12 +27,10 @@ public class Controlador implements Observador {
     private ArrayList<String> organos;
     private ArrayList<String> descarte;
 
-    public Controlador(Modelo modelo, IVista vista){
+    public Controlador(IVista vista){
 
-        this.modelo = modelo;
         this.vista = vista;
         this.vista.setControlador(this);
-        this.modelo.agregarObservador(this);
 
         jugadores = new ArrayList<>();
         descarte = new ArrayList<>();
@@ -39,17 +39,20 @@ public class Controlador implements Observador {
     }
 
     public void Jugar(){
-        modelo.jugar();
+        try {
+            this.modelo.jugar();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
     @Override
-    public void actualizar(Object evento, Observable observado) {
+    public void actualizar(IObservableRemoto modelo, Object evento) throws RemoteException{
         if(evento instanceof Eventos){
             switch((Eventos) evento) {
                 case NUEVO_JUGADOR -> {
                     jugadores = this.modelo.obtenerJugadores();
-                    //this.vista.mostrarNuevoJugador(jugadores.get(jugadores.size() - 1 ));
                     this.vista.notificarMensaje("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
@@ -68,17 +71,17 @@ public class Controlador implements Observador {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
-                        modelo.tomarCarta(nombreJugador);
+                        this.modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
                     }
-                    jugadorActual = modelo.cambiarTurno(idJA);
+                    jugadorActual = this.modelo.cambiarTurno(idJA);
                     vista.notificarMensaje("Es turno del jugador: " + jugadorActual);
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
-                        modelo.tomarCarta(nombreJugador);
+                        this.modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
                         vista.mostrarCartas(cartas);
@@ -93,7 +96,7 @@ public class Controlador implements Observador {
 
                 }
                 case PARTIDA_FINALIZADA -> {
-                    Ganador = modelo.getGanador();
+                    Ganador = this.modelo.getGanador();
                     vista.partidaTerminada(Ganador);
                 }
                 case ABANDONO_PARTIDA -> {
@@ -112,13 +115,23 @@ public class Controlador implements Observador {
         return jugadores;
     }
 
-    public int obtenerMazo(){
-        return modelo.obtenerMazo().size();
+    public int obtenerMazo() {
+
+        try {
+            return modelo.obtenerMazo().size();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void AgregarJugador(String nombre){
-        modelo.agregarJugador(nombre);
-        this.nombreJugador = nombre;
+        try {
+            modelo.agregarJugador(nombre);
+            this.nombreJugador = nombre;
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public String getNombre() {
@@ -129,9 +142,9 @@ public class Controlador implements Observador {
         return jugadorActual;
     }
 
-    public void partidaTerminada(String nombreGanador) {
-        modelo.partidaTerminada(nombreGanador);
-    }
+    //public void partidaTerminada(String nombreGanador) {
+    //    modelo.partidaTerminada(nombreGanador);
+    //}
 
     public boolean isPartidaIniciada(){
         return partidaIniciada;
@@ -146,38 +159,81 @@ public class Controlador implements Observador {
     }
 
     public void actualizarMano(){
-        cartas = this.modelo.obtenerCartas(nombreJugador);
-        vista.mostrarCartas(cartas);
+        try {
+            cartas = this.modelo.obtenerCartas(nombreJugador);
+            vista.mostrarCartas(cartas);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
     public void descartar(int opcion){
-        modelo.descartar(nombreJugador,opcion);
+        try {
+            modelo.descartar(nombreJugador,opcion);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void terminoTurno(){
-        modelo.cambiarTurno(idJA);
+        try {
+            modelo.cambiarTurno(idJA);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void pasoTurno(){
-        modelo.terminarTurno(nombreJugador);
+        try {
+            modelo.terminarTurno(nombreJugador);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void tomarCarta(){
-        modelo.tomarCarta(nombreJugador);
+        try {
+            modelo.tomarCarta(nombreJugador);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void tirarCarta(String jugadorDestino,Integer idCarta,int idOrgano){
-        modelo.tirarCarta(jugadorActual,jugadorDestino,idCarta,idOrgano);
+        try {
+            modelo.tirarCarta(jugadorActual,jugadorDestino,idCarta,idOrgano);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public ArrayList<String> obtenerOrganos(String jugadorDestino){
-        return modelo.obtenerOrganos(jugadorDestino);
+        try {
+            return modelo.obtenerOrganos(jugadorDestino);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void terminoPartida(){
-        modelo.hayGandor();
+        try {
+            modelo.hayGandor();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
     public String abandonoPartida(){
-        modelo.abandonoPartida();
-        return nombreJugador;
+        try {
+            modelo.abandonoPartida();
+            return nombreJugador;
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @Override
+    public <T extends IObservableRemoto> void setModeloRemoto(T modeloRemoto) throws RemoteException {
+        this.modelo = (IModelo) modeloRemoto;
     }
 
 

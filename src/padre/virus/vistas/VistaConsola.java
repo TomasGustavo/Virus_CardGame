@@ -23,11 +23,12 @@ public class VistaConsola implements IVista {
     private JLabel mensaje;
     private Flujo flujoActual;
 
-    public VistaConsola() {
+    public VistaConsola(int x, int y) {
         frame = new JFrame("Virus!");
         frame.setContentPane(panel1);
         frame.setSize(750, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocation(x,y);
 
         ENTER.addActionListener(new ActionListener() {
             @Override
@@ -188,7 +189,8 @@ public class VistaConsola implements IVista {
         }
     }
 
-    public void mostarInicioPartido() {
+
+    public void mostrarNuevoJugador() {
         mostrar();
         flujoActual = new FlujoNuevoUsuario(this, controlador);
         flujoActual.mostrarSiguienteTexto();

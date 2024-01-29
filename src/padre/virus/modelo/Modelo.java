@@ -1,14 +1,16 @@
 package padre.virus.modelo;
 
+import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
 import padre.virus.observer.Observable;
 import padre.virus.observer.Observador;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class Modelo implements Observable{
+public class Modelo extends ObservableRemoto implements IModelo {
 
     private ArrayList<Observador> observadores;
     private Mazo mazo;
@@ -30,30 +32,33 @@ public class Modelo implements Observable{
     }
 */
 
-    public void agregarJugador(String nombre){
+    @Override
+    public void agregarJugador(String nombre) throws RemoteException {
         if(jugadores.size() < 6){
             Jugador jugador = new Jugador(nombre);
             jugadores.add(jugador);
-            this.notificar(Eventos.NUEVO_JUGADOR);
+            this.notificarObservadores(Eventos.NUEVO_JUGADOR);
         }
     }
 
-    public void jugar(){
+    @Override
+    public void jugar() throws RemoteException{
         if(jugadores.size() >=2){
             this.mazo = new Mazo(false);
             this.mazoDescarte = new Mazo(true);
             mazo.BarajarMazo();
             RepartirCartas();
             asignarTurno();
-            this.notificar(Eventos.PARTIDA_INICIADA);
+            this.notificarObservadores(Eventos.PARTIDA_INICIADA);
         }
     }
 
-    public void asignarTurno(){
+    private void asignarTurno(){
         jugadores.get(0).setSuTurno(true);
     }
 
-    public String cambiarTurno (int jugadorID){
+    @Override
+    public String cambiarTurno(int jugadorID) throws RemoteException{
         int indice = (jugadorID + 1) % jugadores.size();
         String jActual = turnoActual();
         Jugador jugador = jugadores.get(indice);
@@ -61,14 +66,16 @@ public class Modelo implements Observable{
         return jugador.getNombre();
     }
 
-    public void hayGandor(){
+    @Override
+    public void hayGandor() throws RemoteException{
         for(Jugador i : jugadores){
             if(obtenerOrganos(i.getNombre()).size() == 4 && i.organosSanos()){
                 partidaTerminada(i.getNombre());
             }
         }
     }
-    public String turnoActual(){
+    @Override
+    public String turnoActual() throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.isTurno()){
                 return jugador.getNombre();
@@ -78,7 +85,7 @@ public class Modelo implements Observable{
     }
 
 
-    public void RepartirCartas(){
+    private void RepartirCartas(){
         mazo.BarajarMazo();
         for (Jugador i : jugadores){
             for(int j = 0; j<3 ; j++){
@@ -91,7 +98,8 @@ public class Modelo implements Observable{
             }
         }
     }
-    public void tomarCarta(String nombreJugador){
+    @Override
+    public void tomarCarta(String nombreJugador) throws RemoteException{
         int j;
         if(mazo.obtenerMazo().isEmpty()){
             for(Carta carta : mazoDescarte.getMazo()){
@@ -118,7 +126,8 @@ public class Modelo implements Observable{
         }
     }
 
-    public ArrayList<String> obtenerJugadores(){
+    @Override
+    public ArrayList<String> obtenerJugadores() throws RemoteException{
         ArrayList<String> ListaJugadores = new ArrayList<>();
         for(Jugador jugador : jugadores){
             ListaJugadores.add(jugador.getNombre());
@@ -126,7 +135,8 @@ public class Modelo implements Observable{
         return ListaJugadores;
     }
 
-    public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta,int IdOrgano){
+    @Override
+    public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta, int IdOrgano) throws RemoteException{
         Jugador jugadororigen = obtenerJugadorPorNombre(jugadorOrigen);
         Jugador jugadordestino = obtenerJugadorPorNombre(jugadorDestino);
         if(jugadorOrigen != null && jugadordestino != null){
@@ -151,7 +161,7 @@ public class Modelo implements Observable{
                 e.printStackTrace();
             }
         }
-        notificar(Eventos.TERMINO_TURNO);
+        notificarObservadores(Eventos.TERMINO_TURNO);
     }
 
     private Jugador obtenerJugadorPorNombre(String nombre){
@@ -163,15 +173,15 @@ public class Modelo implements Observable{
         return null;
     }
 
-    public void tirarTratamiento(Carta carta,Jugador jugador){
+    //public void tirarTratamiento(Carta carta,Jugador jugador){}
 
-    }
-
-    public ArrayList<String> obtenerMazo(){
+    @Override
+    public ArrayList<String> obtenerMazo()throws RemoteException{
         return mazo.obtenerMazo();
     }
 
-    public ArrayList<String> obtenerCartas (String nombre){
+    @Override
+    public ArrayList<String> obtenerCartas(String nombre)throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCartas();
@@ -180,7 +190,8 @@ public class Modelo implements Observable{
         return null;
     }
 
-    public ArrayList<String> obtenerOrganos(String nombre){
+    @Override
+    public ArrayList<String> obtenerOrganos(String nombre)throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCuerpo();
@@ -189,40 +200,19 @@ public class Modelo implements Observable{
         return null;
     }
 
-    public String getGanador(){
+    @Override
+    public String getGanador()throws RemoteException{
         return ganador;
     }
 
-    public void abandonoPartida(){
-        this.notificar(Eventos.ABANDONO_PARTIDA);
-    }
     @Override
-    public void notificar(Object evento) {
-        for(Observador observador: observadores){
-            observador.actualizar(evento,this);
-        }
-
+    public void abandonoPartida()throws RemoteException{
+        this.notificarObservadores(Eventos.ABANDONO_PARTIDA);
     }
 
 
     @Override
-    public void agregarObservador(Observador observador) {
-        this.observadores.add(observador);
-    }
-
-    @Override
-    public void eliminarObservador(Observador observador) {
-        Iterator<Observador> iterador = observadores.iterator();
-        while (iterador.hasNext()){
-            Observador observadorActual = iterador.next();
-            if(observadorActual.equals(observador)){
-                iterador.remove();
-            }
-        }
-
-    }
-
-    public void descartar(String nombreJugador, int opcion){
+    public void descartar(String nombreJugador, int opcion)throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombreJugador)){
                 actualizarMazoDescarte(jugador.getMano().get(opcion));
@@ -233,21 +223,23 @@ public class Modelo implements Observable{
         }
     }
 
-    public void actualizarMazoDescarte(Carta carta){
+    private void actualizarMazoDescarte(Carta carta){
         mazoDescarte.add(carta);
     }
-    public void terminarTurno(String nombreJugador){
+    @Override
+    public void terminarTurno(String nombreJugador)throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombreJugador)){
-                notificar(Eventos.TERMINO_TURNO);
+                notificarObservadores(Eventos.TERMINO_TURNO);
             }
         }
     }
 
-    public void partidaTerminada(String ganador){
+    @Override
+    public void partidaTerminada(String ganador)throws RemoteException{
         this.ganador = ganador;
         //if(turnoActual().equals(ganador)){
-            notificar(Eventos.PARTIDA_FINALIZADA);
+        notificarObservadores(Eventos.PARTIDA_FINALIZADA);
         //}
 
     }
