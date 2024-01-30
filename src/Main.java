@@ -1,9 +1,3 @@
-import padre.virus.gameController.Controlador;
-import padre.virus.modelo.Modelo;
-import padre.virus.vistas.VistaConsola;
-
-import javax.swing.*;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println(" ");

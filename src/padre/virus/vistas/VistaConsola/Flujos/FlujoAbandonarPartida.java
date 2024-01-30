@@ -1,10 +1,7 @@
-package padre.virus.vistas.Flujos;
+package padre.virus.vistas.VistaConsola.Flujos;
 
 import padre.virus.gameController.Controlador;
-import padre.virus.vistas.ColorRGB;
-import padre.virus.vistas.VistaConsola;
-
-import java.awt.*;
+import padre.virus.vistas.VistaConsola.VistaConsola;
 
 public class FlujoAbandonarPartida extends Flujo{
     private String nombre;

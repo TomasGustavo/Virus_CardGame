@@ -1,7 +1,9 @@
-package padre.virus.vistas;
+package padre.virus.vistas.VistaConsola;
 
 import padre.virus.gameController.Controlador;
-import padre.virus.vistas.Flujos.*;
+import padre.virus.vistas.ColorRGB;
+import padre.virus.vistas.VistaConsola.Flujos.*;
+import padre.virus.vistas.IVista;
 
 import javax.swing.*;
 import javax.swing.text.*;

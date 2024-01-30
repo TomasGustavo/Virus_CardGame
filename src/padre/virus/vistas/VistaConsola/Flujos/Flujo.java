@@ -1,9 +1,7 @@
-package padre.virus.vistas.Flujos;
+package padre.virus.vistas.VistaConsola.Flujos;
 
 import padre.virus.gameController.Controlador;
-import padre.virus.vistas.VistaConsola;
-
-import java.awt.image.renderable.ContextualRenderedImageFactory;
+import padre.virus.vistas.VistaConsola.VistaConsola;
 
 public abstract class Flujo {
 

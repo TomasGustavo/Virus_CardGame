@@ -3,11 +3,7 @@ package padre.virus.gameController;
 import ar.edu.unlu.rmimvc.cliente.IControladorRemoto;
 import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
 import padre.virus.modelo.*;
-import padre.virus.observer.Observable;
-import padre.virus.observer.Observador;
-import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
-import padre.virus.vistas.VistaConsola;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
