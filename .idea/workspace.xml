@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- implementacion RMI MVC (unidad de testeo realizada)">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- inicio vista grafica">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +53,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "408",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "412",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -73,6 +79,8 @@
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\vistas\VistaGrafica" />
+      <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\vistas\VistaConsola" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -143,6 +151,8 @@
       <workItem from="1706315965295" duration="678000" />
       <workItem from="1706554605590" duration="2665000" />
       <workItem from="1706567884366" duration="4439000" />
+      <workItem from="1706642342463" duration="3336000" />
+      <workItem from="1706733460365" duration="7523000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -336,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706571997280</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="- inicio vista grafica">
+      <option name="closed" value="true" />
+      <created>1706645671381</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1706645671381</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +384,8 @@
     <MESSAGE value="- implementado mensaje de notificacion" />
     <MESSAGE value="- fix array de descarte, ordena descendente para no calcular corriminetos en el indice de las cartas." />
     <MESSAGE value="- implementacion RMI MVC (unidad de testeo realizada)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- implementacion RMI MVC (unidad de testeo realizada)" />
+    <MESSAGE value="- inicio vista grafica" />
+    <option name="LAST_COMMIT_MESSAGE" value="- inicio vista grafica" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -381,8 +400,8 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/padre/virus/vistas/Flujos/FlujoAbandonarPartida.java</url>
-          <line>18</line>
+          <url>file://$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoAbandonarPartida.java</url>
+          <line>15</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

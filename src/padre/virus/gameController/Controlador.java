@@ -49,7 +49,7 @@ public class Controlador implements IControladorRemoto {
             switch((Eventos) evento) {
                 case NUEVO_JUGADOR -> {
                     jugadores = this.modelo.obtenerJugadores();
-                    this.vista.notificarMensaje("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
+                    this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador);
@@ -122,8 +122,8 @@ public class Controlador implements IControladorRemoto {
 
     public void AgregarJugador(String nombre){
         try {
-            modelo.agregarJugador(nombre);
             this.nombreJugador = nombre;
+            modelo.agregarJugador(nombre);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

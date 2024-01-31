@@ -6,6 +6,7 @@ import ar.edu.unlu.rmimvc.cliente.Cliente;
 import padre.virus.gameController.Controlador;
 import padre.virus.vistas.IVista;
 import padre.virus.vistas.VistaConsola.VistaConsola;
+import padre.virus.vistas.VistaGrafica.VistaGrafica;
 
 import javax.swing.*;
 import java.rmi.RemoteException;
@@ -59,7 +60,7 @@ public class AppCliente {
                 int x = Integer.parseInt(args[4]);
                 int y = Integer.parseInt(args[5]);
                 //IVista vista = new VistaConsola(x, y);
-                IVista vista = new VistaConsola(x,y);
+                IVista vista = new VistaGrafica(x,y);
                 Controlador controlador = new Controlador(vista);
 
                 Cliente c = new Cliente(ip, Integer.parseInt(port), ipServidor, Integer.parseInt(portServidor));

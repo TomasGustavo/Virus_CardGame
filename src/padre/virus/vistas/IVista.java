@@ -25,4 +25,5 @@ public interface IVista {
     void abandonoPartida(String nombre);
     void notificarMensaje(String texto);
     //void printearNotificacion(String jugadorActual, Color color);
+    void printear(String texto,Color color);
 }
