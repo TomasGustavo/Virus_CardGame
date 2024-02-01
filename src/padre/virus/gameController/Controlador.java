@@ -99,8 +99,8 @@ public class Controlador implements IControladorRemoto {
                     vista.abandonoPartida(nombreJugador);
                 }
 
-                case USO_TRATAMIENTO -> {
-
+                case MENSAJE_CHAT -> {
+                    vista.mostrarChat(this.modelo.getMensaje());
                 }
 
             }
@@ -221,6 +221,14 @@ public class Controlador implements IControladorRemoto {
         try {
             modelo.abandonoPartida();
             return nombreJugador;
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void actualizarChat(String txt){
+        try {
+            modelo.mostrarChat(txt);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

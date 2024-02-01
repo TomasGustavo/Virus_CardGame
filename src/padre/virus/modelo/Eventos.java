@@ -16,5 +16,5 @@ public enum Eventos {
 
     USO_TRATAMIENTO,
 
-    ABANDONO_PARTIDA;
+    ABANDONO_PARTIDA, MENSAJE_CHAT;
 }

@@ -16,6 +16,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     private Mazo mazo;
     private Mazo mazoDescarte;
     private final ArrayList<Jugador> jugadores;
+    private String mensaje;
 
     String ganador;
 
@@ -242,5 +243,18 @@ public class Modelo extends ObservableRemoto implements IModelo {
         notificarObservadores(Eventos.PARTIDA_FINALIZADA);
         //}
 
+    }
+
+    public void mostrarChat(String txt){
+        try {
+            this.mensaje = txt;
+            notificarObservadores(Eventos.MENSAJE_CHAT);
+
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String getMensaje(){
+        return mensaje;
     }
 }

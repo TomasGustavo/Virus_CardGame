@@ -12,6 +12,8 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -36,9 +38,12 @@ public class VistaGrafica implements IVista {
     private JButton btnReglas;
     private JButton btnSalir;
     private JPanel pnlMenuPrincipal;
+    private JPanel pnlChat;
+    private JScrollPane scpChat;
+    private JTextField txtEscritura;
+    private JLabel lblTituloChat;
     private JTextArea txtLog;
-    private JScrollPane pnlLog;
-    private JTextPane txpLog;
+    private JTextPane txpChat;
 
     private JFrame frame;
 
@@ -53,6 +58,16 @@ public class VistaGrafica implements IVista {
                 frame.setPreferredSize(new Dimension(600, 600));
                 frame.setLocation(x, y);
                 frame.setVisible(true);
+
+                txtEscritura.addKeyListener(new KeyAdapter() {
+                    @Override
+                    public void keyPressed(KeyEvent e) {
+                        super.keyPressed(e);
+                        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                            controlador.actualizarChat(txtEscritura.getText());
+                        }
+                    }
+                });
 
                 btnAceptar.addActionListener(new ActionListener() {
                     /**
@@ -189,26 +204,25 @@ public class VistaGrafica implements IVista {
     @Override
     public void notificarMensaje(String texto) {
         lblNotificaciones.setText(texto);
-        mostrarLog(texto);
     }
 
     // TODO cambiar lo que seria el log por un chat general para hablar
 
-    private void mostrarLog(String texto){
+    public void mostrarChat(String texto){
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:MM: ");
         printear(LocalDateTime.now().format(formato), ColorRGB.CYAN);
         printear(texto,ColorRGB.TIEL);
     }
 
     public void printear(String texto, Color color) {
-        StyledDocument doc = txpLog.getStyledDocument();
-        Style style = txpLog.addStyle("Style", null);
+        StyledDocument doc = txpChat.getStyledDocument();
+        Style style = txpChat.addStyle("Style", null);
         StyleConstants.setForeground(style, color);
         try {
             doc.insertString(doc.getLength(), texto, style);
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
-        txpLog.setCaretPosition(txpLog.getDocument().getLength()); // Ajusta la posición del cursor al final del documento
+        txpChat.setCaretPosition(txpChat.getDocument().getLength()); // Ajusta la posición del cursor al final del documento
     }
 }

@@ -74,6 +74,10 @@ public class VistaConsola implements IVista {
         }
     }
 
+    public void mostrarChat(String texto) {
+        System.out.println(texto);
+    }
+
     public void desEntradas() {
         TextField.setEnabled(false);
         ENTER.setEnabled(false);
