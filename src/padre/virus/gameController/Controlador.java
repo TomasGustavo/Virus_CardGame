@@ -100,7 +100,8 @@ public class Controlador implements IControladorRemoto {
                 }
 
                 case MENSAJE_CHAT -> {
-                    vista.mostrarChat(this.modelo.getMensaje());
+
+                    vista.mostrarChat(this.modelo.getMensaje(), this.modelo.getJug());
                 }
 
             }
@@ -226,9 +227,14 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
-    public void actualizarChat(String txt){
+    public void actualizarChat(String txt, String jugador){
         try {
-            modelo.mostrarChat(txt);
+            for(String j: jugadores){
+                if(jugador.equals(j)){
+
+                    modelo.mostrarChat(txt,j);
+                }
+            }
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

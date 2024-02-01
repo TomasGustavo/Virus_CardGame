@@ -38,6 +38,7 @@ public interface IModelo extends IObservableRemoto {
 
     void partidaTerminada(String ganador) throws RemoteException;
 
-    void mostrarChat(String txt) throws RemoteException;
+    void mostrarChat(String txt,String jugador) throws RemoteException;
     String getMensaje() throws RemoteException;
+    String getJug() throws RemoteException;
 }

@@ -64,7 +64,8 @@ public class VistaGrafica implements IVista {
                     public void keyPressed(KeyEvent e) {
                         super.keyPressed(e);
                         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                            controlador.actualizarChat(txtEscritura.getText());
+                            controlador.actualizarChat(txtEscritura.getText(),txtNombreJugador.getText());
+                            txtEscritura.setText("");
                         }
                     }
                 });
@@ -208,10 +209,12 @@ public class VistaGrafica implements IVista {
 
     // TODO cambiar lo que seria el log por un chat general para hablar
 
-    public void mostrarChat(String texto){
+    public void mostrarChat(String texto, String jugador){
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:MM: ");
         printear(LocalDateTime.now().format(formato), ColorRGB.CYAN);
-        printear(texto,ColorRGB.TIEL);
+        printear(jugador+": ",ColorRGB.YELLOW);
+        printear(texto,ColorRGB.GREEN);
+        printear("\n",Color.white);
     }
 
     public void printear(String texto, Color color) {

@@ -26,5 +26,5 @@ public interface IVista {
     void notificarMensaje(String texto);
     //void printearNotificacion(String jugadorActual, Color color);
     void printear(String texto,Color color);
-    void mostrarChat(String texto);
+    void mostrarChat(String texto, String nombreJugador);
 }

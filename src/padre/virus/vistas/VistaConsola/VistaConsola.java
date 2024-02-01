@@ -74,7 +74,7 @@ public class VistaConsola implements IVista {
         }
     }
 
-    public void mostrarChat(String texto) {
+    public void mostrarChat(String texto, String nombreJugador) {
         System.out.println(texto);
     }
 
