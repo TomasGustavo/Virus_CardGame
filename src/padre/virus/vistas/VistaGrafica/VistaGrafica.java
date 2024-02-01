@@ -44,7 +44,7 @@ public class VistaGrafica implements IVista {
     private JMenuBar mnbMenu;
     private JMenu mnPartida;
     private JMenu mnOpciones;
-    private JMenu mnAcercaDe;
+    private JMenu mnAcercade;
     private JMenuItem mniSalir;
     private JCheckBox cbxDesabilitarChat;
     private JMenuItem mniMostrarReglas;

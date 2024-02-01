@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje">
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- add botonBar con sus Jmenu y JMenuItem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
@@ -28,7 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -151,7 +150,7 @@
       <workItem from="1706642342463" duration="3336000" />
       <workItem from="1706733460365" duration="8594000" />
       <workItem from="1706754027643" duration="3576000" />
-      <workItem from="1706818637489" duration="7404000" />
+      <workItem from="1706818637489" duration="8205000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -377,14 +376,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706821063863</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="- add botonBar con sus Jmenu y JMenuItem">
+      <option name="closed" value="true" />
+      <created>1706826266570</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1706826266570</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="funciona" />
     <MESSAGE value="funciona bien los flujos, imprime bien" />
     <MESSAGE value="intento de implementacion jugada" />
     <MESSAGE value="-" />
@@ -409,7 +415,8 @@
     <MESSAGE value="- menu nuevo jugador&#10;- menu principal hecho" />
     <MESSAGE value="- chat global implementado, falta agregar nombre de ususario quien escribe." />
     <MESSAGE value="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje" />
+    <MESSAGE value="- add botonBar con sus Jmenu y JMenuItem" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add botonBar con sus Jmenu y JMenuItem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

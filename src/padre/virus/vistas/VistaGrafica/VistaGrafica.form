@@ -293,6 +293,8 @@
               <foreground color="-1"/>
               <horizontalAlignment value="2"/>
               <horizontalTextPosition value="2"/>
+              <opaque value="true"/>
+              <rolloverEnabled value="true"/>
               <selected value="false"/>
               <text value="Opciones"/>
               <verifyInputWhenFocusTarget value="true"/>
@@ -307,16 +309,28 @@
               </component>
             </children>
           </grid>
-          <grid id="c00d2" class="javax.swing.JMenu" binding="mnAcercaDe" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+          <grid id="c00d2" class="javax.swing.JMenu" binding="mnAcercade" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints/>
             <properties>
+              <armed value="false"/>
+              <autoscrolls value="false"/>
               <background color="-12948672"/>
               <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusable value="true"/>
               <foreground color="-1"/>
-              <horizontalAlignment value="2"/>
-              <horizontalTextPosition value="2"/>
+              <hideActionText value="false"/>
+              <horizontalAlignment value="10"/>
+              <horizontalTextPosition value="11"/>
+              <inheritsPopupMenu value="false"/>
+              <opaque value="true"/>
+              <popupMenuVisible value="false"/>
+              <requestFocusEnabled value="true"/>
+              <rolloverEnabled value="false"/>
               <selected value="false"/>
               <text value="Acerca De..."/>
+              <visible value="true"/>
             </properties>
             <border type="none"/>
             <children>
