@@ -10,10 +10,7 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -24,7 +21,7 @@ public class VistaGrafica implements IVista {
     private Controlador controlador;
     private JPanel pnlPrincipal;
     private JLabel lblNotificaciones;
-    private JSplitPane splitPrincipal;
+    private JSplitPane splPrincipal;
     private JPanel pnlMenu;
     private JPanel pnlCardNuevoJugador;
     private JPanel pnlContenedor;
@@ -44,6 +41,14 @@ public class VistaGrafica implements IVista {
     private JLabel lblTituloChat;
     private JTextArea txtLog;
     private JTextPane txpChat;
+    private JMenuBar mnbMenu;
+    private JMenu mnPartida;
+    private JMenu mnOpciones;
+    private JMenu mnAcercaDe;
+    private JMenuItem mniSalir;
+    private JCheckBox cbxDesabilitarChat;
+    private JMenuItem mniMostrarReglas;
+    private JMenuItem mniComoJugar;
 
     private JFrame frame;
 
@@ -58,6 +63,21 @@ public class VistaGrafica implements IVista {
                 frame.setPreferredSize(new Dimension(600, 600));
                 frame.setLocation(x, y);
                 frame.setVisible(true);
+
+                cbxDesabilitarChat.addItemListener(new ItemListener() {
+                    @Override
+                    public void itemStateChanged(ItemEvent e) {
+                        if(e.getStateChange() == ItemEvent.SELECTED){
+                            pnlChat.setVisible(false);
+                        } else{
+                            pnlChat.setVisible(true);
+                            splPrincipal.setDividerLocation(0.8);
+                        }
+                        pnlPrincipal.revalidate();
+                        pnlPrincipal.repaint();
+                    }
+                });
+
 
                 txtEscritura.addKeyListener(new KeyAdapter() {
                     @Override
@@ -228,4 +248,6 @@ public class VistaGrafica implements IVista {
         }
         txpChat.setCaretPosition(txpChat.getDocument().getLength()); // Ajusta la posición del cursor al final del documento
     }
+
+
 }

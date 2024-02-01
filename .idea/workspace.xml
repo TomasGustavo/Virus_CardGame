@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- chat global implementado, falta agregar nombre de ususario quien escribe.">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +151,7 @@
       <workItem from="1706642342463" duration="3336000" />
       <workItem from="1706733460365" duration="8594000" />
       <workItem from="1706754027643" duration="3576000" />
-      <workItem from="1706818637489" duration="2188000" />
+      <workItem from="1706818637489" duration="7404000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -372,14 +369,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706757596663</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje">
+      <option name="closed" value="true" />
+      <created>1706821063863</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1706821063863</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Me quiero morir" />
     <MESSAGE value="funciona" />
     <MESSAGE value="funciona bien los flujos, imprime bien" />
     <MESSAGE value="intento de implementacion jugada" />
@@ -404,7 +408,8 @@
     <MESSAGE value="- inicio vista grafica" />
     <MESSAGE value="- menu nuevo jugador&#10;- menu principal hecho" />
     <MESSAGE value="- chat global implementado, falta agregar nombre de ususario quien escribe." />
-    <option name="LAST_COMMIT_MESSAGE" value="- chat global implementado, falta agregar nombre de ususario quien escribe." />
+    <MESSAGE value="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

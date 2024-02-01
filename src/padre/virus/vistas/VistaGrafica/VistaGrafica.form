@@ -15,7 +15,7 @@
           <text value=""/>
         </properties>
       </component>
-      <splitpane id="acabf" binding="splitPrincipal">
+      <splitpane id="acabf" binding="splPrincipal">
         <constraints border-constraint="Center"/>
         <properties>
           <dividerLocation value="350"/>
@@ -195,7 +195,7 @@
                       </component>
                       <hspacer id="94fed">
                         <constraints>
-                          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                       </hspacer>
                     </children>
@@ -247,6 +247,95 @@
           </grid>
         </children>
       </splitpane>
+      <grid id="bbd7f" class="javax.swing.JMenuBar" binding="mnbMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-16777216"/>
+          <borderPainted value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="95d47" class="javax.swing.JMenu" binding="mnPartida" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <background color="-12948672"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <focusTraversalPolicyProvider value="false"/>
+              <foreground color="-1"/>
+              <horizontalAlignment value="2"/>
+              <horizontalTextPosition value="2"/>
+              <opaque value="true"/>
+              <popupMenuVisible value="false"/>
+              <selected value="false"/>
+              <text value="Partida"/>
+              <visible value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="d093d" class="javax.swing.JMenuItem" binding="mniSalir">
+                <constraints/>
+                <properties>
+                  <text value="Salir"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="c8cd1" class="javax.swing.JMenu" binding="mnOpciones" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <autoscrolls value="false"/>
+              <background color="-12948672"/>
+              <borderPainted value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="true"/>
+              <foreground color="-1"/>
+              <horizontalAlignment value="2"/>
+              <horizontalTextPosition value="2"/>
+              <selected value="false"/>
+              <text value="Opciones"/>
+              <verifyInputWhenFocusTarget value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="375f1" class="javax.swing.JCheckBox" binding="cbxDesabilitarChat">
+                <constraints/>
+                <properties>
+                  <text value="Desahabilitar Chat Global"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="c00d2" class="javax.swing.JMenu" binding="mnAcercaDe" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <background color="-12948672"/>
+              <borderPainted value="false"/>
+              <foreground color="-1"/>
+              <horizontalAlignment value="2"/>
+              <horizontalTextPosition value="2"/>
+              <selected value="false"/>
+              <text value="Acerca De..."/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="71e78" class="javax.swing.JMenuItem" binding="mniMostrarReglas">
+                <constraints/>
+                <properties>
+                  <text value="Reglas"/>
+                </properties>
+              </component>
+              <component id="53f69" class="javax.swing.JMenuItem" binding="mniComoJugar">
+                <constraints/>
+                <properties>
+                  <text value="Como Jugar"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>
