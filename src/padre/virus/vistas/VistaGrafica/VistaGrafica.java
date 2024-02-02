@@ -49,6 +49,8 @@ public class VistaGrafica implements IVista {
     private JCheckBox cbxDesabilitarChat;
     private JMenuItem mniMostrarReglas;
     private JMenuItem mniComoJugar;
+    private JLabel lblEngranaje;
+    private JLabel lblBackGround;
 
     private JFrame frame;
 
@@ -63,6 +65,38 @@ public class VistaGrafica implements IVista {
                 frame.setPreferredSize(new Dimension(600, 600));
                 frame.setLocation(x, y);
                 frame.setVisible(true);
+
+                splPrincipal.remove(pnlMenu);
+                txtEscritura.setEnabled(false);
+
+                JPanel pnlSuperpuesto = new JPanel();
+                OverlayLayout overlayLayout = new OverlayLayout(pnlSuperpuesto);
+                pnlSuperpuesto.setLayout(overlayLayout);
+                pnlSuperpuesto.setPreferredSize(new Dimension(600,600));
+                splPrincipal.add(pnlSuperpuesto);
+
+                ImageIcon imgiEngranaje = new ImageIcon("src/padre/virus/resources/imagenes/Engranaje.png");
+                JLabel lblEngranaje = new JLabel(imgiEngranaje);
+
+                //lblEngranaje.setOpaque(true);
+                //lblEngranaje.setBackground(Color.green);
+
+                lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
+                lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
+
+                JPanel pnlContenedorEngranaje = new JPanel();
+                pnlContenedorEngranaje.setLayout(new GridLayout());
+                pnlContenedorEngranaje.add(lblEngranaje);
+                pnlContenedorEngranaje.setOpaque(false);
+
+
+                pnlSuperpuesto.add(pnlContenedorEngranaje);
+                pnlSuperpuesto.add(pnlMenu);
+
+                splPrincipal.revalidate();
+                splPrincipal.repaint();
+
+
 
                 cbxDesabilitarChat.addItemListener(new ItemListener() {
                     @Override
@@ -100,7 +134,9 @@ public class VistaGrafica implements IVista {
                     public void actionPerformed(ActionEvent e) {
 
                         if (!txtNombreJugador.getText().isEmpty()) {
+                            txtEscritura.setEnabled(true);
                             controlador.AgregarJugador(txtNombreJugador.getText());
+                            agregarTitulo();
                             cambiarCardPanel(pnlCardMenuPrincipal);
                             notificarMensaje("El jugador "+txtNombreJugador.getText()+" se ha unido");
                         } else {
@@ -126,6 +162,10 @@ public class VistaGrafica implements IVista {
 
             }
         });
+    }
+
+    private void agregarTitulo() {
+
     }
 
     private void mostrarReglas() {

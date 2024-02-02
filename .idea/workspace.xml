@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- add botonBar con sus Jmenu y JMenuItem">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix JMenu background">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
@@ -51,7 +51,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "375",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "458",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -150,7 +150,8 @@
       <workItem from="1706642342463" duration="3336000" />
       <workItem from="1706733460365" duration="8594000" />
       <workItem from="1706754027643" duration="3576000" />
-      <workItem from="1706818637489" duration="8205000" />
+      <workItem from="1706818637489" duration="8432000" />
+      <workItem from="1706906317393" duration="11041000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -384,14 +385,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706826266570</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="- fix JMenu background">
+      <option name="closed" value="true" />
+      <created>1706827202257</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1706827202257</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="funciona bien los flujos, imprime bien" />
     <MESSAGE value="intento de implementacion jugada" />
     <MESSAGE value="-" />
     <MESSAGE value="- diagrama uml" />
@@ -416,7 +424,8 @@
     <MESSAGE value="- chat global implementado, falta agregar nombre de ususario quien escribe." />
     <MESSAGE value="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje" />
     <MESSAGE value="- add botonBar con sus Jmenu y JMenuItem" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add botonBar con sus Jmenu y JMenuItem" />
+    <MESSAGE value="- fix JMenu background" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix JMenu background" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
