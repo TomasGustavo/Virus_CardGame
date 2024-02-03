@@ -80,11 +80,13 @@ public class VistaGrafica implements IVista {
 
                 lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
                 lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
-                //lblEngranaje.setOpaque(false);
+                lblEngranaje.setBackground(Color.RED);
+                lblEngranaje.setOpaque(true);
+
 
                 JPanel pnlContenedorEngranaje = new JPanel();
-                pnlContenedorEngranaje.setLayout(new GridLayout());
-                pnlContenedorEngranaje.add(lblEngranaje);
+                pnlContenedorEngranaje.setLayout(new BorderLayout());
+                pnlContenedorEngranaje.add(lblEngranaje,BorderLayout.WEST);
                 pnlContenedorEngranaje.setOpaque(false);
 
                 pnlSuperpuesto.add(pnlContenedorEngranaje);
@@ -98,7 +100,7 @@ public class VistaGrafica implements IVista {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         super.mouseClicked(e);
-                        mostarConfiguracion(lblEngranaje);
+                        mostrarConfiguracion(lblEngranaje);
                     }
                 });
 
@@ -170,18 +172,45 @@ public class VistaGrafica implements IVista {
     }
 
     // TODO sacar alto de Jmenu, manejar evento de redimencion del frame y el codigo de adentro hace que el alto del jWindow toma la altura del JMenu, revalidate, repaint y listo, darle un ancho fijo y agregarle funcion para que con un icono pueda volver para atras(JWindow.SetVisible(fasle))
-    private void mostarConfiguracion(Component componente) {
+    private void mostrarConfiguracion(Component componente) {
         JWindow popUp = new JWindow();
-        popUp.setLayout(new BorderLayout());
-        popUp.setSize(300, 100);
+        Box verticalBox = Box.createVerticalBox();
 
-        popUp.setLocationRelativeTo(componente); // Centrar en la pantalla
+        popUp.setSize(250, splPrincipal.getHeight()); // setea el tamanio del popUp en base a la altura de la pantalla
+        popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // pone el popUp en la esuqina superiror izquierda
         popUp.setBackground(new Color(33, 37, 43, 250)); // alfa aplica transparencia
-        JLabel label = new JLabel("funciona");
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setForeground(Color.blue);
-        popUp.add(label, BorderLayout.CENTER);
+        JCheckBox deshabilitarChat = getjCheckBox();
+
+        verticalBox.add(deshabilitarChat);
+        popUp.getContentPane().setLayout(new BoxLayout(popUp.getContentPane(),BoxLayout.Y_AXIS));
+        popUp.getContentPane().add(verticalBox);
+
         popUp.setVisible(true);
+
+    }
+
+    /**
+     * @return deshabilitarChat ya seteado con todos los parametros
+     */
+    private JCheckBox getjCheckBox() {
+        JCheckBox deshabilitarChat = new JCheckBox();
+        deshabilitarChat.setText("Deshabilitar Chat");
+        deshabilitarChat.setBackground(new Color(33,37,43));
+        deshabilitarChat.setForeground(Color.white);
+        deshabilitarChat.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() == ItemEvent.SELECTED){
+                    pnlChat.setVisible(false);
+                } else{
+                    pnlChat.setVisible(true);
+                    splPrincipal.setDividerLocation(0.8);
+                }
+                pnlPrincipal.revalidate();
+                pnlPrincipal.repaint();
+            }
+        });
+        return deshabilitarChat;
     }
 
     private void agregarTitulo() {
