@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix JMenu background">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- 2da parte, ahora hay que probar si puedo darle funcionalidad al label pero si no anda juro por dios que me mato en las puerta del salon el dia de rendir el final.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +150,7 @@
       <workItem from="1706733460365" duration="8594000" />
       <workItem from="1706754027643" duration="3576000" />
       <workItem from="1706818637489" duration="8432000" />
-      <workItem from="1706906317393" duration="11041000" />
+      <workItem from="1706906317393" duration="12228000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -393,15 +392,29 @@
       <option name="project" value="LOCAL" />
       <updated>1706827202257</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="- Luego de varias arduas horas con mucho calor y gracias al apoyo de mi compatriota german ritacco pudimos hacer andar la poronga de la imagen en la esquina izquiera, un pequeño paso para tomas pero un gran paso para aprobar la materia.">
+      <option name="closed" value="true" />
+      <created>1706917581379</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1706917581379</updated>
+    </task>
+    <task id="LOCAL-00032" summary="- 2da parte, ahora hay que probar si puedo darle funcionalidad al label pero si no anda juro por dios que me mato en las puerta del salon el dia de rendir el final.">
+      <option name="closed" value="true" />
+      <created>1706917661355</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1706917661355</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="intento de implementacion jugada" />
-    <MESSAGE value="-" />
     <MESSAGE value="- diagrama uml" />
     <MESSAGE value="- fix tirar carta" />
     <MESSAGE value="- fix set cuerpo (a medias)" />
@@ -425,7 +438,9 @@
     <MESSAGE value="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje" />
     <MESSAGE value="- add botonBar con sus Jmenu y JMenuItem" />
     <MESSAGE value="- fix JMenu background" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix JMenu background" />
+    <MESSAGE value="- Luego de varias arduas horas con mucho calor y gracias al apoyo de mi compatriota german ritacco pudimos hacer andar la poronga de la imagen en la esquina izquiera, un pequeño paso para tomas pero un gran paso para aprobar la materia." />
+    <MESSAGE value="- 2da parte, ahora hay que probar si puedo darle funcionalidad al label pero si no anda juro por dios que me mato en las puerta del salon el dia de rendir el final." />
+    <option name="LAST_COMMIT_MESSAGE" value="- 2da parte, ahora hay que probar si puedo darle funcionalidad al label pero si no anda juro por dios que me mato en las puerta del salon el dia de rendir el final." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

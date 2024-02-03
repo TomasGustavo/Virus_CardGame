@@ -78,17 +78,14 @@ public class VistaGrafica implements IVista {
                 ImageIcon imgiEngranaje = new ImageIcon("src/padre/virus/resources/imagenes/Engranaje.png");
                 JLabel lblEngranaje = new JLabel(imgiEngranaje);
 
-                //lblEngranaje.setOpaque(true);
-                //lblEngranaje.setBackground(Color.green);
-
                 lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
                 lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
+                //lblEngranaje.setOpaque(false);
 
                 JPanel pnlContenedorEngranaje = new JPanel();
                 pnlContenedorEngranaje.setLayout(new GridLayout());
                 pnlContenedorEngranaje.add(lblEngranaje);
                 pnlContenedorEngranaje.setOpaque(false);
-
 
                 pnlSuperpuesto.add(pnlContenedorEngranaje);
                 pnlSuperpuesto.add(pnlMenu);
@@ -96,6 +93,14 @@ public class VistaGrafica implements IVista {
                 splPrincipal.revalidate();
                 splPrincipal.repaint();
 
+
+                lblEngranaje.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        super.mouseClicked(e);
+                        mostarConfiguracion(lblEngranaje);
+                    }
+                });
 
 
                 cbxDesabilitarChat.addItemListener(new ItemListener() {
@@ -162,6 +167,21 @@ public class VistaGrafica implements IVista {
 
             }
         });
+    }
+
+    // TODO sacar alto de Jmenu, manejar evento de redimencion del frame y el codigo de adentro hace que el alto del jWindow toma la altura del JMenu, revalidate, repaint y listo, darle un ancho fijo y agregarle funcion para que con un icono pueda volver para atras(JWindow.SetVisible(fasle))
+    private void mostarConfiguracion(Component componente) {
+        JWindow popUp = new JWindow();
+        popUp.setLayout(new BorderLayout());
+        popUp.setSize(300, 100);
+
+        popUp.setLocationRelativeTo(componente); // Centrar en la pantalla
+        popUp.setBackground(new Color(33, 37, 43, 250)); // alfa aplica transparencia
+        JLabel label = new JLabel("funciona");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setForeground(Color.blue);
+        popUp.add(label, BorderLayout.CENTER);
+        popUp.setVisible(true);
     }
 
     private void agregarTitulo() {
