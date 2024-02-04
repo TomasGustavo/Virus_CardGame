@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- engranaje funcionando con clicks, new popUp para el menu opciones">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/FondoPrincipal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +153,8 @@
       <workItem from="1706754027643" duration="3576000" />
       <workItem from="1706818637489" duration="8432000" />
       <workItem from="1706906317393" duration="13026000" />
-      <workItem from="1706990041625" duration="5949000" />
+      <workItem from="1706990041625" duration="6268000" />
+      <workItem from="1707068625467" duration="3864000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -418,14 +420,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706919353046</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp">
+      <option name="closed" value="true" />
+      <created>1706996312234</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1706996312234</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- fix tirar carta" />
     <MESSAGE value="- fix set cuerpo (a medias)" />
     <MESSAGE value="- fix setCuerpo (definitivo)" />
     <MESSAGE value="- tirarCarta() funcionando&#10;- arreglar mensaje ganador(deshabilitar entrada para los jugadores y mostrar el cartel del ganador)" />
@@ -450,7 +459,8 @@
     <MESSAGE value="- Luego de varias arduas horas con mucho calor y gracias al apoyo de mi compatriota german ritacco pudimos hacer andar la poronga de la imagen en la esquina izquiera, un pequeño paso para tomas pero un gran paso para aprobar la materia." />
     <MESSAGE value="- 2da parte, ahora hay que probar si puedo darle funcionalidad al label pero si no anda juro por dios que me mato en las puerta del salon el dia de rendir el final." />
     <MESSAGE value="- engranaje funcionando con clicks, new popUp para el menu opciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="- engranaje funcionando con clicks, new popUp para el menu opciones" />
+    <MESSAGE value="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

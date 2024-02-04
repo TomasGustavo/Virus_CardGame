@@ -5,6 +5,8 @@ import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
@@ -45,7 +47,8 @@ public class VistaGrafica implements IVista {
     private JMenu mnPartida;
     private JMenu mnOpciones;
     private JMenu mnAcercade;
-    private JMenuItem mniSalir;
+    private JButton btnOpcSalir;
+    private JButton btnOpcReglas;
     private JCheckBox cbxDesabilitarChat;
     private JMenuItem mniMostrarReglas;
     private JMenuItem mniComoJugar;
@@ -80,8 +83,8 @@ public class VistaGrafica implements IVista {
 
                 lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
                 lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
-                lblEngranaje.setBackground(Color.RED);
-                lblEngranaje.setOpaque(true);
+                //lblEngranaje.setBackground(Color.RED);
+                //lblEngranaje.setOpaque(true);
 
 
                 JPanel pnlContenedorEngranaje = new JPanel();
@@ -176,17 +179,73 @@ public class VistaGrafica implements IVista {
         JWindow popUp = new JWindow();
         Box verticalBox = Box.createVerticalBox();
 
-        popUp.setSize(250, splPrincipal.getHeight()); // setea el tamanio del popUp en base a la altura de la pantalla
+        JLabel lblFlechaAtras = new JLabel(new ImageIcon("src/padre/virus/resources/imagenes/FlechaAtras.png"));
+        lblFlechaAtras.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                popUp.setVisible(false);
+            }
+        });
+
+        JPanel panelIntermedio = new JPanel(new BorderLayout());
+        panelIntermedio.setBackground(new Color(169, 177, 176, 250));
+
+        panelIntermedio.add(lblFlechaAtras,BorderLayout.WEST);
+        lblFlechaAtras.setHorizontalAlignment(SwingConstants.LEFT);
+        lblFlechaAtras.setVerticalAlignment(SwingConstants.TOP);
+
+        verticalBox.setBorder(BorderFactory.createEmptyBorder(50,0,10,10));
+
+        panelIntermedio.add(verticalBox,BorderLayout.CENTER);
+
+        popUp.setSize(200, splPrincipal.getHeight()); // setea el tamanio del popUp en base a la altura de la pantalla
         popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // pone el popUp en la esuqina superiror izquierda
-        popUp.setBackground(new Color(33, 37, 43, 250)); // alfa aplica transparencia
+        popUp.setBackground(new Color(255, 255, 255, 250)); // alfa aplica transparencia
+
         JCheckBox deshabilitarChat = getjCheckBox();
+        btnOpcSalir = getbtnOpcSalir();
+        btnOpcReglas = getbtnOpcReglas();
 
         verticalBox.add(deshabilitarChat);
+        verticalBox.add(Box.createRigidArea(new Dimension(0,30)));
+        verticalBox.add(btnOpcReglas);
+        verticalBox.add(Box.createRigidArea(new Dimension(0,30)));
+        verticalBox.add(btnOpcSalir);
         popUp.getContentPane().setLayout(new BoxLayout(popUp.getContentPane(),BoxLayout.Y_AXIS));
-        popUp.getContentPane().add(verticalBox);
+        popUp.getContentPane().add(panelIntermedio);
 
         popUp.setVisible(true);
 
+
+    }
+
+    private JButton getbtnOpcReglas() {
+        JButton reglas = new JButton();
+        reglas.setText("Mostrar Reglas");
+        reglas.setBackground(ColorRGB.PINK);
+        reglas.setForeground(Color.black);
+        reglas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrarReglas();
+            }
+        });
+        return reglas;
+    }
+
+    private JButton getbtnOpcSalir() {
+        JButton salir = new JButton();
+        salir.setText("Abandonar Partida");
+        salir.setBackground(ColorRGB.PINK);
+        salir.setForeground(Color.black);
+        salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exit(0);
+            }
+        });
+        return salir;
     }
 
     /**
@@ -195,8 +254,9 @@ public class VistaGrafica implements IVista {
     private JCheckBox getjCheckBox() {
         JCheckBox deshabilitarChat = new JCheckBox();
         deshabilitarChat.setText("Deshabilitar Chat");
-        deshabilitarChat.setBackground(new Color(33,37,43));
-        deshabilitarChat.setForeground(Color.white);
+        deshabilitarChat.setBackground(ColorRGB.PINK);
+        deshabilitarChat.setOpaque(true);
+        deshabilitarChat.setForeground(Color.black);
         deshabilitarChat.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {

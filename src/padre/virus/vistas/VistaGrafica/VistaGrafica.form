@@ -283,14 +283,7 @@
               <visible value="true"/>
             </properties>
             <border type="none"/>
-            <children>
-              <component id="d093d" class="javax.swing.JMenuItem" binding="mniSalir">
-                <constraints/>
-                <properties>
-                  <text value="Salir"/>
-                </properties>
-              </component>
-            </children>
+            <children/>
           </grid>
           <grid id="c8cd1" class="javax.swing.JMenu" binding="mnOpciones" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints/>
