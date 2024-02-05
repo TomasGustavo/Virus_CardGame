@@ -5,8 +5,6 @@ import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
 import javax.swing.*;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
@@ -53,6 +51,9 @@ public class VistaGrafica implements IVista {
     private JPanel pnlJugadorNorth;
     private JPanel pnlJugadorEast;
     private JPanel pnlJugadorSouth;
+    private JPanel pnlMesaDeJuego;
+    private JScrollPane scpManoSur;
+    private JList lstManoSur;
 
     private JFrame frame;
 

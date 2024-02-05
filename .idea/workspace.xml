@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- boton flecha atras en popUp y nuevos btnSalir y btnReglas">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- Carga de los png de las cartas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
@@ -40,35 +40,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Correr Prueba.executor": "Run",
-    "Application.Main.executor": "Run",
-    "JAR Application.LibreriaRMIMVC.jar.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "458",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Universidad/POO/POO/Virus CardGame/LibreriaRMIMVC.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Correr Prueba.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.LibreriaRMIMVC.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;458&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Universidad/POO/POO/Virus CardGame/LibreriaRMIMVC.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Universidad\POO\POO\Virus CardGame" />
@@ -154,7 +154,8 @@
       <workItem from="1706906317393" duration="13026000" />
       <workItem from="1706990041625" duration="6268000" />
       <workItem from="1707068625467" duration="4088000" />
-      <workItem from="1707163750860" duration="2097000" />
+      <workItem from="1707163750860" duration="2375000" />
+      <workItem from="1707175270265" duration="1214000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -444,15 +445,29 @@
       <option name="project" value="LOCAL" />
       <updated>1707072668465</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- creacion CardPartda y seteo de los paneles de cada jugador">
+      <option name="closed" value="true" />
+      <created>1707166750307</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1707166750308</updated>
+    </task>
+    <task id="LOCAL-00038" summary="- Carga de los png de las cartas">
+      <option name="closed" value="true" />
+      <created>1707166775161</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1707166775161</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- tirarCarta() funcionando&#10;- arreglar mensaje ganador(deshabilitar entrada para los jugadores y mostrar el cartel del ganador)" />
-    <MESSAGE value="- muestra mensaje termino partida correctamente, a veces lo muestra 2 veces seguidas" />
     <MESSAGE value="- fix mazo descarte &#10;- se muestra el cuerpo de los rivales en pantalla" />
     <MESSAGE value="- fix fin de partida, mensaje para volver al menu principal" />
     <MESSAGE value="- add volver para atras en hacer jugada" />
@@ -476,7 +491,9 @@
     <MESSAGE value="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp" />
     <MESSAGE value="- new png flecha" />
     <MESSAGE value="- boton flecha atras en popUp y nuevos btnSalir y btnReglas" />
-    <option name="LAST_COMMIT_MESSAGE" value="- boton flecha atras en popUp y nuevos btnSalir y btnReglas" />
+    <MESSAGE value="- creacion CardPartda y seteo de los paneles de cada jugador" />
+    <MESSAGE value="- Carga de los png de las cartas" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Carga de los png de las cartas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
