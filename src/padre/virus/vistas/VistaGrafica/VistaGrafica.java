@@ -43,17 +43,16 @@ public class VistaGrafica implements IVista {
     private JLabel lblTituloChat;
     private JTextArea txtLog;
     private JTextPane txpChat;
-    private JMenuBar mnbMenu;
-    private JMenu mnPartida;
-    private JMenu mnOpciones;
-    private JMenu mnAcercade;
     private JButton btnOpcSalir;
     private JButton btnOpcReglas;
     private JCheckBox cbxDesabilitarChat;
-    private JMenuItem mniMostrarReglas;
-    private JMenuItem mniComoJugar;
     private JLabel lblEngranaje;
     private JLabel lblBackGround;
+    private JPanel pnlCardPartida;
+    private JPanel pnlJugadorWest;
+    private JPanel pnlJugadorNorth;
+    private JPanel pnlJugadorEast;
+    private JPanel pnlJugadorSouth;
 
     private JFrame frame;
 
@@ -153,6 +152,13 @@ public class VistaGrafica implements IVista {
                             JOptionPane.showMessageDialog(pnlContenedor, "Por favor ingrese su nombre de usuario!",
                                     "ERROR!!", JOptionPane.WARNING_MESSAGE);
                         }
+                    }
+                });
+
+                btnNuevaPartida.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        cambiarCardPanel(pnlCardPartida);
                     }
                 });
 
@@ -373,7 +379,9 @@ public class VistaGrafica implements IVista {
 
     @Override
     public void notificarMensaje(String texto) {
-        lblNotificaciones.setText(texto);
+        lblNotificaciones.setText(texto.toUpperCase());
+        lblNotificaciones.setBackground(Color.black);
+        lblNotificaciones.setForeground(ColorRGB.TIEL);
     }
 
     // TODO cambiar lo que seria el log por un chat general para hablar
