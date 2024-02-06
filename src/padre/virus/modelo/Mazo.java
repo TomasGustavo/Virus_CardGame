@@ -22,10 +22,10 @@ public class Mazo {
         mazo.add(carta);
     }
 
-    public ArrayList<String> obtenerMazo(){
-        ArrayList<String> cartas = new ArrayList<>();
+    public ArrayList<ICarta> obtenerMazo(){
+        ArrayList<ICarta> cartas = new ArrayList<>();
         for(Carta carta : mazo){
-            cartas.add(carta.toString());
+            cartas.add(carta);
         }
         return cartas;
     }
@@ -36,7 +36,7 @@ public class Mazo {
         }
     }
 
-    public Carta contruirCarta(Tipo tipo,Color color){
+    public Carta contruirCarta(Tipo tipo, Color color){
         switch (tipo){
             case CURA: return new Cura(color);
             case ORGANO: return new Organo(color);

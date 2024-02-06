@@ -85,17 +85,17 @@ public class Jugador {
     public ArrayList<Carta> getMano(){
         return mano;
     }
-    public ArrayList<String> obtenerCartas(){
-        ArrayList<String> cartas = new ArrayList<>();
+    public ArrayList<ICarta> obtenerCartas(){
+        ArrayList<ICarta> cartas = new ArrayList<>();
         for(Carta carta : mano){
-            cartas.add(carta.toString());
+            cartas.add(carta);
         }
         return cartas;
     }
-    public ArrayList<String> obtenerCuerpo(){
-        ArrayList<String> organos = new ArrayList<>();
+    public ArrayList<ICarta> obtenerCuerpo(){
+        ArrayList<ICarta> organos = new ArrayList<>();
         for(Organo organo : cuerpo){
-            organos.add(organo.toString());
+            organos.add(organo);
         }
         return organos;
     }

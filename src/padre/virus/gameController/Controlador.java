@@ -17,11 +17,11 @@ public class Controlador implements IControladorRemoto {
     int idJA;
     String Ganador;
     private boolean partidaIniciada = false;
-    private ArrayList<String> mazo;
+    private ArrayList<ICarta> mazo;
     private ArrayList<String> jugadores;
-    private ArrayList<String> cartas;
-    private ArrayList<String> organos;
-    private ArrayList<String> descarte;
+    private ArrayList<ICarta> cartas;
+    private ArrayList<ICarta> organos;
+    private ArrayList<ICarta> descarte;
 
     public Controlador(IVista vista){
 
@@ -151,7 +151,7 @@ public class Controlador implements IControladorRemoto {
         return nombreJugador.equals(jugadorActual);
     }
 
-    public ArrayList<String> obtenerCartas(){
+    public ArrayList<ICarta> obtenerCartas(){
         return cartas;
     }
 
@@ -204,7 +204,7 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
-    public ArrayList<String> obtenerOrganos(String jugadorDestino){
+    public ArrayList<ICarta> obtenerOrganos(String jugadorDestino){
         try {
             return modelo.obtenerOrganos(jugadorDestino);
         } catch (RemoteException e) {

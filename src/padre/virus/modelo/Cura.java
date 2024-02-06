@@ -1,6 +1,6 @@
 package padre.virus.modelo;
 
-public class Cura extends Carta{
+public class Cura extends Carta {
 
     public Cura(Color color){
         super (color,Tipo.CURA);

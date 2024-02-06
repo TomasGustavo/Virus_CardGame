@@ -1,14 +1,10 @@
 package padre.virus.modelo;
 
 import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
-import padre.virus.observer.Observable;
 import padre.virus.observer.Observador;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
 
 public class Modelo extends ObservableRemoto implements IModelo {
 
@@ -178,12 +174,12 @@ public class Modelo extends ObservableRemoto implements IModelo {
     //public void tirarTratamiento(Carta carta,Jugador jugador){}
 
     @Override
-    public ArrayList<String> obtenerMazo()throws RemoteException{
+    public ArrayList<ICarta> obtenerMazo()throws RemoteException{
         return mazo.obtenerMazo();
     }
 
     @Override
-    public ArrayList<String> obtenerCartas(String nombre)throws RemoteException{
+    public ArrayList<ICarta> obtenerCartas(String nombre)throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCartas();
@@ -193,7 +189,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     }
 
     @Override
-    public ArrayList<String> obtenerOrganos(String nombre)throws RemoteException{
+    public ArrayList<ICarta> obtenerOrganos(String nombre)throws RemoteException{
         for(Jugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCuerpo();
