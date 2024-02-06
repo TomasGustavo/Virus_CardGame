@@ -1,6 +1,7 @@
 package padre.virus.vistas.VistaConsola;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.ICarta;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola.Flujos.*;
 import padre.virus.vistas.IVista;
@@ -109,24 +110,25 @@ public class VistaConsola implements IVista {
     }
 
     @Override
-    public void mostrarCartas(ArrayList<String> cartas) {
+    public void mostrarCartas(ArrayList<ICarta> cartas) {
+
         printear("\n----------------------------------------------------------------------", ColorRGB.ORANGE);
         printear("\ntus cartas: \n", ColorRGB.CYAN);
         int i = 1;
-        for (String carta : cartas) {
-            printear(i + " - " + carta + "\n", ColorRGB.PINK);
+        for (ICarta carta : cartas) {
+            printear(i + " - Carta ["+ carta.toString() +"]\n", ColorRGB.PINK);
             i++;
         }
         printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(), ColorRGB.BLUE);
     }
 
-    public void mostrarCuerpo(ArrayList<String> organos) {
+    public void mostrarCuerpo(ArrayList<ICarta> organos) {
 
         printear("\n----------------------------------------------------------------------", ColorRGB.ORANGE);
         printear("\nTu Cuerpo\n", ColorRGB.CYAN);
         int i = 1;
-        for (String organo : organos) {
-            printear(i + " - " + organo + "\n", ColorRGB.TIEL);
+        for (ICarta organo : organos) {
+            printear(i + " - " + organo.toString() + "\n", ColorRGB.TIEL);
             i++;
         }
     }
@@ -137,20 +139,20 @@ public class VistaConsola implements IVista {
                 //printear("\n----------------------------------------------------------------------",Color.orange);
                 printear("\nCuerpo de " + i + ": ", ColorRGB.CYAN);
                 int j = 1;
-                for (String organo : controlador.obtenerOrganos(i)) {
-                    printear(j + " - " + organo + "  |  ", Color.white);
+                for (ICarta organo : controlador.obtenerOrganos(i)) {
+                    printear(j + " - " + organo.toString() + "  |  ", Color.white);
                     j++;
                 }
             }
         }
     }
 
-    public void mostrarCuerpoRival(ArrayList<String> organos) {
+    public void mostrarCuerpoRival(ArrayList<ICarta> organos) {
         printear("\n----------------------------------------------------------------------", ColorRGB.ORANGE);
         printear("\nCuerpo del Rival\n", ColorRGB.CYAN);
         int i = 1;
-        for (String organo : organos) {
-            printear(i + " - " + organo + "\n ", Color.white);
+        for (ICarta organo : organos) {
+            printear(i + " - " + organo.toString() + "\n ", Color.white);
             i++;
         }
         printear("\n", Color.white);
@@ -181,7 +183,7 @@ public class VistaConsola implements IVista {
     }
 
     @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas, ArrayList<String> organos) {
+    public void mostarInicioPartido(String jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
         mostrarTurno(jugadorActual);
         mostrarCuerpo(organos);
         mostrarCartas(cartas);
