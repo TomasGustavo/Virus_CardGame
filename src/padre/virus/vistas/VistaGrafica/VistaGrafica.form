@@ -245,17 +245,10 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <scrollpane id="5a689" binding="scpManoSur">
+                      <component id="a3f80" class="javax.swing.JList" binding="lstManoSur">
                         <constraints/>
                         <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="bfee7" class="javax.swing.JList" binding="lstManoSur">
-                            <constraints/>
-                            <properties/>
-                          </component>
-                        </children>
-                      </scrollpane>
+                      </component>
                     </children>
                   </grid>
                   <grid id="e5b2f" binding="pnlMesaDeJuego" layout-manager="BorderLayout" hgap="0" vgap="0">

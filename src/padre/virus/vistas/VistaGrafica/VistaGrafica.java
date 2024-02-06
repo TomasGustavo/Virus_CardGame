@@ -1,6 +1,7 @@
 package padre.virus.vistas.VistaGrafica;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.ICarta;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
@@ -52,8 +53,9 @@ public class VistaGrafica implements IVista {
     private JPanel pnlJugadorEast;
     private JPanel pnlJugadorSouth;
     private JPanel pnlMesaDeJuego;
-    private JScrollPane scpManoSur;
     private JList lstManoSur;
+
+    private DefaultListModel<ImageIcon> listaModeloSur;
 
     private JFrame frame;
 
@@ -68,6 +70,12 @@ public class VistaGrafica implements IVista {
                 frame.setPreferredSize(new Dimension(600, 600));
                 frame.setLocation(x, y);
                 frame.setVisible(true);
+
+                // Crea el listModel necesario para mostrar las cartas de la mano
+                listaModeloSur = new DefaultListModel<>();
+                lstManoSur.setModel(listaModeloSur);
+                lstManoSur.setBackground(new Color(0, 0, 0, 0)); // Setea el color en transparente
+                lstManoSur.setVisibleRowCount(1);
 
                 splPrincipal.remove(pnlMenu);
                 txtEscritura.setEnabled(false);
@@ -308,12 +316,29 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostrarCartas(ArrayList<String> cartas) {
+    public void mostrarCartas(ArrayList<ICarta> cartas) { // TODO cambiar todos los mostrar carta para que reciba de parametro un ICArta
+        listaModeloSur.removeAllElements();
+        for (ICarta carta : cartas) {
+            String tempTipo = String.valueOf(carta.getTipo());
+            tempTipo =Character.toUpperCase(tempTipo.charAt(0)) + tempTipo.substring(1).toLowerCase();
+
+            String tempColor= String.valueOf(carta.getColor());
+            tempColor =Character.toUpperCase(tempColor.charAt(0)) + tempColor.substring(1).toLowerCase();
+
+            String imagenActual = "ar/edu/unlu/poo/images/cartas/" +tempTipo + tempColor + ".png";
+            ImageIcon cartaActual = new ImageIcon(imagenActual);
+
+            listaModeloSur.addElement(cartaActual);
+        }
+        // Revalidar y repintar el panel
+        frame.revalidate();
+        frame.repaint();
+
 
     }
 
     @Override
-    public void mostrarCuerpo(ArrayList<String> organos) {
+    public void mostrarCuerpo(ArrayList<ICarta> organos) {
 
     }
 
@@ -338,7 +363,7 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<String> cartas, ArrayList<String> organos) {
+    public void mostarInicioPartido(String jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
 
     }
 
