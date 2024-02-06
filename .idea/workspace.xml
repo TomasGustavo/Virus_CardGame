@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- a">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Carta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/ICarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/ICarta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Mazo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Mazo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Tratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Tratamiento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
@@ -57,7 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Correr Prueba.executor": "Debug",
+    "Application.Correr Prueba.executor": "Run",
     "Application.Main.executor": "Run",
     "JAR Application.LibreriaRMIMVC.jar.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -79,7 +66,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.rainbow.brackets.root",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -170,7 +157,8 @@
       <workItem from="1707068625467" duration="4088000" />
       <workItem from="1707163750860" duration="2375000" />
       <workItem from="1707175270265" duration="1249000" />
-      <workItem from="1707176811485" duration="7683000" />
+      <workItem from="1707176811485" duration="8206000" />
+      <workItem from="1707185250012" duration="2032000" />
     </task>
     <task id="LOCAL-00001" summary="clases creadas">
       <option name="closed" value="true" />
@@ -484,7 +472,47 @@
       <option name="project" value="LOCAL" />
       <updated>1707176531330</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="- Cmabia a clase abstracta">
+      <option name="closed" value="true" />
+      <created>1707184792707</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1707184792708</updated>
+    </task>
+    <task id="LOCAL-00041" summary="- implementacion pasar ICarta en vez de String">
+      <option name="closed" value="true" />
+      <created>1707184855609</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1707184855609</updated>
+    </task>
+    <task id="LOCAL-00042" summary="- implementacion pasar ICarta en vez de String">
+      <option name="closed" value="true" />
+      <created>1707184886133</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1707184886133</updated>
+    </task>
+    <task id="LOCAL-00043" summary="- Cambio de parametros en los metodos a ICarta">
+      <option name="closed" value="true" />
+      <created>1707184910885</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1707184910885</updated>
+    </task>
+    <task id="LOCAL-00044" summary="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido">
+      <option name="closed" value="true" />
+      <created>1707184977292</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1707184977292</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,10 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- fix fin de partida, mensaje para volver al menu principal" />
-    <MESSAGE value="- add volver para atras en hacer jugada" />
-    <MESSAGE value="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)" />
-    <MESSAGE value="- add seleccion multiple para descarte&#10;)" />
     <MESSAGE value="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)" />
     <MESSAGE value="- creacion de propia paleta de colores" />
     <MESSAGE value="- FlujoAbandonarPartida acomodado, pasado como evento al controlador" />
@@ -527,7 +551,11 @@
     <MESSAGE value="- creacion CardPartda y seteo de los paneles de cada jugador" />
     <MESSAGE value="- Carga de los png de las cartas" />
     <MESSAGE value="- a" />
-    <option name="LAST_COMMIT_MESSAGE" value="- a" />
+    <MESSAGE value="- Cmabia a clase abstracta" />
+    <MESSAGE value="- implementacion pasar ICarta en vez de String" />
+    <MESSAGE value="- Cambio de parametros en los metodos a ICarta" />
+    <MESSAGE value="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

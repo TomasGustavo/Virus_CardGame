@@ -44,7 +44,6 @@ public class VistaGrafica implements IVista {
     private JTextPane txpChat;
     private JButton btnOpcSalir;
     private JButton btnOpcReglas;
-    private JCheckBox cbxDesabilitarChat;
     private JLabel lblEngranaje;
     private JLabel lblBackGround;
     private JPanel pnlCardPartida;
@@ -116,19 +115,6 @@ public class VistaGrafica implements IVista {
                 });
 
 
-                cbxDesabilitarChat.addItemListener(new ItemListener() {
-                    @Override
-                    public void itemStateChanged(ItemEvent e) {
-                        if(e.getStateChange() == ItemEvent.SELECTED){
-                            pnlChat.setVisible(false);
-                        } else{
-                            pnlChat.setVisible(true);
-                            splPrincipal.setDividerLocation(0.8);
-                        }
-                        pnlPrincipal.revalidate();
-                        pnlPrincipal.repaint();
-                    }
-                });
 
 
                 txtEscritura.addKeyListener(new KeyAdapter() {
@@ -189,7 +175,7 @@ public class VistaGrafica implements IVista {
         });
     }
 
-    // TODO sacar alto de Jmenu, manejar evento de redimencion del frame y el codigo de adentro hace que el alto del jWindow toma la altura del JMenu, revalidate, repaint y listo, darle un ancho fijo y agregarle funcion para que con un icono pueda volver para atras(JWindow.SetVisible(fasle))
+    // TODO hacer quie el popUp se mueva a l par que el frame
     private void mostrarConfiguracion(Component componente) {
         JWindow popUp = new JWindow();
         Box verticalBox = Box.createVerticalBox();
@@ -203,6 +189,7 @@ public class VistaGrafica implements IVista {
             }
         });
 
+
         JPanel panelIntermedio = new JPanel(new BorderLayout());
         panelIntermedio.setBackground(new Color(169, 177, 176, 250));
 
@@ -215,7 +202,7 @@ public class VistaGrafica implements IVista {
         panelIntermedio.add(verticalBox,BorderLayout.CENTER);
 
         popUp.setSize(200, splPrincipal.getHeight()); // setea el tamanio del popUp en base a la altura de la pantalla
-        popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // pone el popUp en la esuqina superiror izquierda
+        popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // pone el popUp en la esquina superiror izquierda
         popUp.setBackground(new Color(255, 255, 255, 250)); // alfa aplica transparencia
 
         JCheckBox deshabilitarChat = getjCheckBox();
@@ -224,9 +211,12 @@ public class VistaGrafica implements IVista {
 
         verticalBox.add(deshabilitarChat);
         verticalBox.add(Box.createRigidArea(new Dimension(0,30)));
+
         verticalBox.add(btnOpcReglas);
         verticalBox.add(Box.createRigidArea(new Dimension(0,30)));
+
         verticalBox.add(btnOpcSalir);
+
         popUp.getContentPane().setLayout(new BoxLayout(popUp.getContentPane(),BoxLayout.Y_AXIS));
         popUp.getContentPane().add(panelIntermedio);
 
@@ -235,11 +225,14 @@ public class VistaGrafica implements IVista {
 
     }
 
+
     private JButton getbtnOpcReglas() {
         JButton reglas = new JButton();
         reglas.setText("Mostrar Reglas");
         reglas.setBackground(ColorRGB.PINK);
         reglas.setForeground(Color.black);
+        reglas.setMaximumSize(new java.awt.Dimension(150, 30));
+        reglas.setAlignmentX(Component.CENTER_ALIGNMENT);
         reglas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -254,6 +247,8 @@ public class VistaGrafica implements IVista {
         salir.setText("Abandonar Partida");
         salir.setBackground(ColorRGB.PINK);
         salir.setForeground(Color.black);
+        salir.setMaximumSize(new java.awt.Dimension(150, 30));
+        salir.setAlignmentX(Component.CENTER_ALIGNMENT);
         salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -272,6 +267,8 @@ public class VistaGrafica implements IVista {
         deshabilitarChat.setBackground(ColorRGB.PINK);
         deshabilitarChat.setOpaque(true);
         deshabilitarChat.setForeground(Color.black);
+        deshabilitarChat.setMaximumSize(new java.awt.Dimension(150, 30));
+        deshabilitarChat.setAlignmentX(Component.CENTER_ALIGNMENT);
         deshabilitarChat.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {

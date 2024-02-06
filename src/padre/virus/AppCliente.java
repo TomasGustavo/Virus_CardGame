@@ -60,7 +60,7 @@ public class AppCliente {
                 int x = Integer.parseInt(args[4]);
                 int y = Integer.parseInt(args[5]);
                 //IVista vista = new VistaConsola(x, y);
-                IVista vista = new VistaConsola(x,y);
+                IVista vista = new VistaGrafica(x,y);
                 Controlador controlador = new Controlador(vista);
 
                 Cliente c = new Cliente(ip, Integer.parseInt(port), ipServidor, Integer.parseInt(portServidor));
