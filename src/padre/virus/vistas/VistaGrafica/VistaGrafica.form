@@ -240,15 +240,36 @@
                     <border type="none"/>
                     <children/>
                   </grid>
-                  <grid id="d180" binding="pnlJugadorSouth" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                  <grid id="d180" binding="pnlJugadorSouth" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints border-constraint="South"/>
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="a3f80" class="javax.swing.JList" binding="lstManoSur">
-                        <constraints/>
-                        <properties/>
+                      <component id="d5ff4" class="javax.swing.JLabel" binding="lblNombreSur">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value=""/>
+                        </properties>
                       </component>
+                      <scrollpane id="f6030" binding="scpManoSur">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-15423442"/>
+                          <verticalScrollBarPolicy value="21"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="6152c" class="javax.swing.JList" binding="lstManoSur">
+                            <constraints/>
+                            <properties/>
+                          </component>
+                        </children>
+                      </scrollpane>
                     </children>
                   </grid>
                   <grid id="e5b2f" binding="pnlMesaDeJuego" layout-manager="BorderLayout" hgap="0" vgap="0">

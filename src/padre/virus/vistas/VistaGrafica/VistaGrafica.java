@@ -12,6 +12,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -53,6 +54,8 @@ public class VistaGrafica implements IVista {
     private JPanel pnlJugadorSouth;
     private JPanel pnlMesaDeJuego;
     private JList lstManoSur;
+    private JLabel lblNombreSur;
+    private JScrollPane scpManoSur;
 
     private DefaultListModel<ImageIcon> listaModeloSur;
 
@@ -153,7 +156,8 @@ public class VistaGrafica implements IVista {
                 btnNuevaPartida.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        cambiarCardPanel(pnlCardPartida);
+
+                        controlador.Jugar();
                     }
                 });
 
@@ -175,7 +179,6 @@ public class VistaGrafica implements IVista {
         });
     }
 
-    // TODO hacer quie el popUp se mueva a l par que el frame
     private void mostrarConfiguracion(Component componente) {
         JWindow popUp = new JWindow();
         Box verticalBox = Box.createVerticalBox();
@@ -186,6 +189,15 @@ public class VistaGrafica implements IVista {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 popUp.setVisible(false);
+            }
+        });
+
+        frame.addComponentListener(new ComponentAdapter() {
+
+            @Override
+            public void componentMoved(ComponentEvent e) {
+
+                popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // mueve el popUp conforme se va moviendo el frame
             }
         });
 
@@ -313,7 +325,7 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostrarCartas(ArrayList<ICarta> cartas) { // TODO cambiar todos los mostrar carta para que reciba de parametro un ICArta
+    public void mostrarCartas(ArrayList<ICarta> cartas) {
         listaModeloSur.removeAllElements();
         for (ICarta carta : cartas) {
             String tempTipo = String.valueOf(carta.getTipo());
@@ -327,7 +339,10 @@ public class VistaGrafica implements IVista {
 
             listaModeloSur.addElement(cartaActual);
         }
+        scpManoSur.setPreferredSize(new Dimension(lstManoSur.getPreferredSize().width, lstManoSur.getPreferredSize().height + 18));
         // Revalidar y repintar el panel
+        scpManoSur.revalidate();
+        scpManoSur.repaint();
         frame.revalidate();
         frame.repaint();
 
@@ -346,6 +361,7 @@ public class VistaGrafica implements IVista {
 
     @Override
     public void mostrarTurno(String jugadorActual) {
+        lblNotificaciones.setText("Es el turno del Jugador "+jugadorActual);
 
     }
 
@@ -361,6 +377,17 @@ public class VistaGrafica implements IVista {
 
     @Override
     public void mostarInicioPartido(String jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
+        mostrarTurno(jugadorActual);
+        pnlJugadorEast.setVisible(false);
+        pnlJugadorWest.setVisible(false);
+        pnlJugadorNorth.setVisible(false);
+        scpManoSur.getViewport().setOpaque(false);
+
+        cambiarCardPanel(pnlCardPartida);
+
+        lblNombreSur.setForeground(ColorRGB.CYAN);
+        lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
+        mostrarCartas(cartas);
 
     }
 
@@ -407,7 +434,7 @@ public class VistaGrafica implements IVista {
         lblNotificaciones.setForeground(ColorRGB.TIEL);
     }
 
-    // TODO cambiar lo que seria el log por un chat general para hablar
+
 
     public void mostrarChat(String texto, String jugador){
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:MM: ");
