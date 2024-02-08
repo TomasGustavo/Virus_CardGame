@@ -351,7 +351,7 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostrarCuerpo(ArrayList<ICarta> organos) {
+    public void mostrarCuerpo(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
 
     }
 
