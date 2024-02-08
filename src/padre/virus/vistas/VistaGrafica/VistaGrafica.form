@@ -256,17 +256,19 @@
                       </component>
                       <scrollpane id="f6030" binding="scpManoSur">
                         <constraints>
-                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <background color="-15423442"/>
                           <verticalScrollBarPolicy value="21"/>
                         </properties>
-                        <border type="none"/>
+                        <border type="empty"/>
                         <children>
                           <component id="6152c" class="javax.swing.JList" binding="lstManoSur">
                             <constraints/>
-                            <properties/>
+                            <properties>
+                              <layoutOrientation value="2"/>
+                            </properties>
                           </component>
                         </children>
                       </scrollpane>

@@ -76,7 +76,7 @@ public class VistaGrafica implements IVista {
                 // Crea el listModel necesario para mostrar las cartas de la mano
                 listaModeloSur = new DefaultListModel<>();
                 lstManoSur.setModel(listaModeloSur);
-                lstManoSur.setBackground(new Color(0, 0, 0, 0)); // Setea el color en transparente
+                lstManoSur.setBackground(new Color(0, 0, 0, 25)); // Setea el color en transparente
                 lstManoSur.setVisibleRowCount(1);
 
                 splPrincipal.remove(pnlMenu);
@@ -329,17 +329,18 @@ public class VistaGrafica implements IVista {
         listaModeloSur.removeAllElements();
         for (ICarta carta : cartas) {
             String tempTipo = String.valueOf(carta.getTipo());
-            tempTipo =Character.toUpperCase(tempTipo.charAt(0)) + tempTipo.substring(1).toLowerCase();
+            tempTipo.toLowerCase();
 
             String tempColor= String.valueOf(carta.getColor());
-            tempColor =Character.toUpperCase(tempColor.charAt(0)) + tempColor.substring(1).toLowerCase();
+            tempColor.toLowerCase();
 
-            String imagenActual = "ar/edu/unlu/poo/images/cartas/" +tempTipo + tempColor + ".png";
+            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
+            //String imagenActual = "src/padre/virus/resources/imagenes/cartas/CuraAmarillaCrop.png";
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSur.addElement(cartaActual);
         }
-        scpManoSur.setPreferredSize(new Dimension(lstManoSur.getPreferredSize().width, lstManoSur.getPreferredSize().height + 18));
+        scpManoSur.setPreferredSize(new Dimension(lstManoSur.getPreferredSize().width, lstManoSur.getPreferredSize().height));
         // Revalidar y repintar el panel
         scpManoSur.revalidate();
         scpManoSur.repaint();
