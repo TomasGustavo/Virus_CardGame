@@ -79,6 +79,7 @@ public class VistaGrafica implements IVista {
 
     private DefaultListModel<ImageIcon> listaModeloSur;
     private DefaultListModel<ImageIcon> listaModeloSurOrganos;
+    private Image backgroundPartida = new ImageIcon("src/padre/virus/resources/imagenes/backGruond.jpg").getImage();
 
     private JFrame frame;
 
@@ -135,6 +136,8 @@ public class VistaGrafica implements IVista {
 
                 splPrincipal.revalidate();
                 splPrincipal.repaint();
+
+
 
 
                 lblEngranaje.addMouseListener(new MouseAdapter() {
