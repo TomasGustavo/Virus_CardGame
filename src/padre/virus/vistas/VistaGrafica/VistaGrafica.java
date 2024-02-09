@@ -12,7 +12,6 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -56,8 +55,30 @@ public class VistaGrafica implements IVista {
     private JList lstManoSur;
     private JLabel lblNombreSur;
     private JScrollPane scpManoSur;
+    private JPanel pnlMesa;
+    private JScrollPane scpOrganosSur;
+    private JList lstOrganosSur;
+    private JScrollPane scpOrgnaosNorte;
+    private JList lstOrganosNorte;
+    private JScrollPane scpOrganosWest;
+    private JList lstOrganosWest;
+    private JScrollPane scpOrganosEast;
+    private JList lstOrganosEast;
+    private JLabel lblNombreWest;
+    private JScrollPane scpManoWest;
+    private JList lstManoWest;
+    private JLabel lblNombreNorte;
+    private JScrollPane scpManoNorte;
+    private JList lstManoNorte;
+    private JLabel lblNombreEast;
+    private JScrollPane scpManoEast;
+    private JList lstManoEast;
+    private JPanel pnlCentroMesa;
+    private JLabel lblMazo;
+    private JLabel lblMazoDescarte;
 
     private DefaultListModel<ImageIcon> listaModeloSur;
+    private DefaultListModel<ImageIcon> listaModeloSurOrganos;
 
     private JFrame frame;
 
@@ -76,8 +97,13 @@ public class VistaGrafica implements IVista {
                 // Crea el listModel necesario para mostrar las cartas de la mano
                 listaModeloSur = new DefaultListModel<>();
                 lstManoSur.setModel(listaModeloSur);
-                lstManoSur.setBackground(new Color(0, 0, 0, 25)); // Setea el color en transparente
+                lstManoSur.setBackground(ColorRGB.TIEL);
                 lstManoSur.setVisibleRowCount(1);
+
+                listaModeloSurOrganos = new DefaultListModel<>();
+                lstOrganosSur.setModel(listaModeloSurOrganos);
+                lstOrganosSur.setBackground(new Color(0, 0, 255));
+                lstOrganosSur.setVisibleRowCount(1);
 
                 splPrincipal.remove(pnlMenu);
                 txtEscritura.setEnabled(false);
@@ -91,10 +117,12 @@ public class VistaGrafica implements IVista {
                 ImageIcon imgiEngranaje = new ImageIcon("src/padre/virus/resources/imagenes/Engranaje.png");
                 JLabel lblEngranaje = new JLabel(imgiEngranaje);
 
+                ImageIcon imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+                lblMazo.setIcon(imgiMazo);
+                lblMazoDescarte.setIcon(imgiMazo);
+
                 lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
                 lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
-                //lblEngranaje.setBackground(Color.RED);
-                //lblEngranaje.setOpaque(true);
 
 
                 JPanel pnlContenedorEngranaje = new JPanel();
@@ -335,7 +363,6 @@ public class VistaGrafica implements IVista {
             tempColor.toLowerCase();
 
             String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
-            //String imagenActual = "src/padre/virus/resources/imagenes/cartas/CuraAmarillaCrop.png";
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSur.addElement(cartaActual);
@@ -352,6 +379,28 @@ public class VistaGrafica implements IVista {
 
     @Override
     public void mostrarCuerpo(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+
+        lstOrganosSur.setAlignmentX(Component.CENTER_ALIGNMENT);
+        listaModeloSurOrganos.removeAllElements();
+        for (ICarta organo : organos) {
+            System.out.println(organo.toString());
+            String tempTipo = String.valueOf(organo.getTipo());
+            tempTipo.toLowerCase();
+
+            String tempColor= String.valueOf(organo.getColor());
+            tempColor.toLowerCase();
+
+            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
+            ImageIcon cartaActual = new ImageIcon(imagenActual);
+
+            listaModeloSurOrganos.addElement(cartaActual);
+        }
+        scpOrganosSur.setPreferredSize(new Dimension(lstOrganosSur.getPreferredSize().width, lstOrganosSur.getPreferredSize().height));
+        // Revalidar y repintar el panel
+        scpOrganosSur.revalidate();
+        scpOrganosSur.repaint();
+        frame.revalidate();
+        frame.repaint();
 
     }
 
@@ -379,9 +428,9 @@ public class VistaGrafica implements IVista {
     @Override
     public void mostarInicioPartido(String jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
         mostrarTurno(jugadorActual);
-        pnlJugadorEast.setVisible(false);
-        pnlJugadorWest.setVisible(false);
-        pnlJugadorNorth.setVisible(false);
+        pnlJugadorEast.setVisible(true);
+        pnlJugadorWest.setVisible(true);
+        pnlJugadorNorth.setVisible(true);
         scpManoSur.getViewport().setOpaque(false);
 
         cambiarCardPanel(pnlCardPartida);
@@ -389,6 +438,7 @@ public class VistaGrafica implements IVista {
         lblNombreSur.setForeground(ColorRGB.CYAN);
         lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
         mostrarCartas(cartas);
+        mostrarCuerpo(organos);
 
     }
 

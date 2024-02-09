@@ -64,7 +64,7 @@ public class Mazo {
         addToMazo(1,Tipo.ORGANO,Color.MULTICOLOR);//1
         addToMazo(1,Tipo.VIRUS,Color.MULTICOLOR);//1
         addToMazo(4,Tipo.CURA,Color.MULTICOLOR);//4
-        addToMazo(10,Tipo.TRATAMIENTO,Color.NONE);//10
+        //addToMazo(10,Tipo.TRATAMIENTO,Color.NONE);//10
     }
 
     public void BarajarMazo(){
