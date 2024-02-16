@@ -13,6 +13,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 import static java.lang.System.exit;
 
-public class VistaGrafica implements IVista {
+public class VistaGrafica implements IVista, Serializable {
     private Controlador controlador;
     private JPanel pnlPrincipal;
     private JLabel lblNotificaciones;
@@ -58,7 +59,7 @@ public class VistaGrafica implements IVista {
     private JLabel lblNombreSur;
     private JScrollPane scpManoSur;
     private JPanel pnlMesa;
-    private JScrollPane scpOrganosSur;
+    private JPanel scpOrganosSur;
     private JList lstOrganosSur;
     private JScrollPane scpOrgnaosNorte;
     private JList lstOrganosNorte;
@@ -70,7 +71,7 @@ public class VistaGrafica implements IVista {
     private JScrollPane scpManoWest;
     private JList lstManoWest;
     private JLabel lblNombreNorte;
-    private JScrollPane scpManoNorte;
+    private JPanel scpManoNorte;
     private JList lstManoNorte;
     private JLabel lblNombreEast;
     private JScrollPane scpManoEast;
@@ -82,6 +83,11 @@ public class VistaGrafica implements IVista {
     private JButton btnTirarVirus;
     private JButton btnCurar;
     private JButton btnDescartar;
+    private JPanel pnlContenedorJugadorSur;
+    private JPanel pnlContenedorBotones;
+
+    private ImageIcon imgiEngranaje;
+    private ImageIcon imgiMazo;
 
     private DefaultListModel<ImageIcon> listaModeloSur;
     private DefaultListModel<ImageIcon> listaModeloSurOrganos;
@@ -98,16 +104,14 @@ public class VistaGrafica implements IVista {
     private JFrame frame;
 
     public VistaGrafica(int x, int y) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
+
                 frame = new JFrame("Virus");
                 frame.setContentPane(pnlPrincipal);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setMinimumSize(new Dimension(500, 500));
                 frame.setPreferredSize(new Dimension(600, 600));
                 frame.setLocation(x, y);
-                frame.setVisible(true);
+                //frame.setVisible(true);
 
                 // Crea el listModel necesario para mostrar las cartas de la mano
                 listaModeloSur = new DefaultListModel<>();
@@ -117,7 +121,9 @@ public class VistaGrafica implements IVista {
 
                 listaModeloSurOrganos = new DefaultListModel<>();
                 lstOrganosSur.setModel(listaModeloSurOrganos);
-                lstOrganosSur.setBackground(new Color(0, 0, 255));
+                lstOrganosSur.setBackground(ColorRGB.DARK_TIEL);
+                scpOrganosSur.setBackground(ColorRGB.DARK_TIEL);
+                lstOrganosSur.setOpaque(true);
                 lstOrganosSur.setVisibleRowCount(1);
 
                 listaModeloNorte = new DefaultListModel<>();
@@ -127,49 +133,16 @@ public class VistaGrafica implements IVista {
 
                 listaModeloNorteOrganos = new DefaultListModel<>();
                 lstOrganosNorte.setModel(listaModeloNorteOrganos);
-                lstOrganosNorte.setBackground(new Color(0, 0, 255));
+                lstOrganosNorte.setBackground(ColorRGB.DARK_TIEL);
+                lstOrganosNorte.setOpaque(true);
                 lstOrganosNorte.setVisibleRowCount(1);
 
                 splPrincipal.remove(pnlMenu);
                 txtEscritura.setEnabled(false);
 
-                JPanel pnlSuperpuesto = new JPanel();
-                OverlayLayout overlayLayout = new OverlayLayout(pnlSuperpuesto);
-                pnlSuperpuesto.setLayout(overlayLayout);
-                pnlSuperpuesto.setPreferredSize(new Dimension(600,600));
-                splPrincipal.add(pnlSuperpuesto);
-
-                ImageIcon imgiEngranaje = new ImageIcon("src/padre/virus/resources/imagenes/Engranaje.png");
-                JLabel lblEngranaje = new JLabel(imgiEngranaje);
-
-                ImageIcon imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
-                lblMazo.setIcon(imgiMazo);
-                lblMazoDescarte.setIcon(imgiMazo);
-
-                lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
-                lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
-
-
-                JPanel pnlContenedorEngranaje = new JPanel();
-                pnlContenedorEngranaje.setLayout(new BorderLayout());
-                pnlContenedorEngranaje.add(lblEngranaje,BorderLayout.WEST);
-                pnlContenedorEngranaje.setOpaque(false);
-
-                pnlSuperpuesto.add(pnlContenedorEngranaje);
-                pnlSuperpuesto.add(pnlMenu);
-
-                splPrincipal.revalidate();
-                splPrincipal.repaint();
 
 
 
-                lblEngranaje.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        super.mouseClicked(e);
-                        mostrarConfiguracion(lblEngranaje);
-                    }
-                });
 
 
 
@@ -229,8 +202,6 @@ public class VistaGrafica implements IVista {
                     }
                 });
 
-            }
-        });
     }
 
     private void mostrarConfiguracion(Component componente) {
@@ -390,7 +361,6 @@ public class VistaGrafica implements IVista {
             tempColor.toLowerCase();
 
             String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
-            //String imagenActual = "src/padre/virus/resources/imagenes/Cartas/curarojo.png";
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSur.addElement(cartaActual);
@@ -438,7 +408,6 @@ public class VistaGrafica implements IVista {
         lstOrganosSur.setAlignmentX(Component.CENTER_ALIGNMENT);
         listaModeloSurOrganos.removeAllElements();
         for (ICarta organo : organos) {
-            System.out.println(organo.toString());
             String tempTipo = String.valueOf(organo.getTipo());
             tempTipo.toLowerCase();
 
@@ -450,7 +419,7 @@ public class VistaGrafica implements IVista {
 
             listaModeloSurOrganos.addElement(cartaActual);
         }
-        scpOrganosSur.setPreferredSize(new Dimension(lstOrganosSur.getPreferredSize().width, lstOrganosSur.getPreferredSize().height));
+        scpOrganosSur.setPreferredSize(new Dimension(lstOrganosSur.getPreferredSize().width, lstOrganosSur.getPreferredSize().height+2));
         // Revalidar y repintar el panel
         scpOrganosSur.revalidate();
         scpOrganosSur.repaint();
@@ -490,10 +459,14 @@ public class VistaGrafica implements IVista {
         pnlJugadorNorth.setVisible(true);
         scpManoSur.getViewport().setOpaque(false);
 
+        imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+        lblMazo.setIcon(imgiMazo);
+        lblMazoDescarte.setIcon(imgiMazo);
+
         cambiarCardPanel(pnlCardPartida);
 
         lblNombreSur.setForeground(ColorRGB.CYAN);
-        lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
+        lblNombreSur.setText(" "+controlador.getNombre().toUpperCase()+" ");
         lblNombreNorte.setText(controlador.getOponente().toUpperCase());
         mostrarCartas(cartas);
         mostrarCuerpo(organos);
@@ -502,7 +475,47 @@ public class VistaGrafica implements IVista {
 
     @Override
     public void mostrarNuevoJugador() {
-        notificarMensaje("El jugador "+controlador.getNombre()+" se ha unido a la partida");
+        frame.setVisible(true);
+        crearEngranaje();
+    }
+
+    private void crearEngranaje(){
+        JPanel pnlSuperpuesto = new JPanel();
+        OverlayLayout overlayLayout = new OverlayLayout(pnlSuperpuesto);
+        pnlSuperpuesto.setLayout(overlayLayout);
+        pnlSuperpuesto.setPreferredSize(new Dimension(600,600));
+        splPrincipal.add(pnlSuperpuesto);
+
+        ImageIcon imgiEngranaje = new ImageIcon("src/padre/virus/resources/imagenes/Engranaje.png");
+        JLabel lblEngranaje = new JLabel(imgiEngranaje);
+
+        ImageIcon imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+        lblMazo.setIcon(imgiMazo);
+        lblMazoDescarte.setIcon(imgiMazo);
+
+
+        lblEngranaje.setHorizontalAlignment(SwingConstants.LEFT);
+        lblEngranaje.setVerticalAlignment(SwingConstants.TOP);
+
+
+        JPanel pnlContenedorEngranaje = new JPanel();
+        pnlContenedorEngranaje.setLayout(new BorderLayout());
+        pnlContenedorEngranaje.add(lblEngranaje,BorderLayout.WEST);
+        pnlContenedorEngranaje.setOpaque(false);
+
+        pnlSuperpuesto.add(pnlContenedorEngranaje);
+        pnlSuperpuesto.add(pnlMenu);
+
+        lblEngranaje.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                mostrarConfiguracion(lblEngranaje);
+            }
+        });
+
+        splPrincipal.revalidate();
+        splPrincipal.repaint();
     }
 
     @Override

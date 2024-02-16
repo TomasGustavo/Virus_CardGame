@@ -12,6 +12,7 @@ public class ColorRGB {
     public static final Color ORANGE = new Color(202,145,29);
     public static final Color PINK = new Color(237,158,200);
     public static final Color TIEL = new Color(49,114,58);
+    public static final Color DARK_TIEL = new Color(9,74,18);
 
     private ColorRGB() {
         // Constructor privado para evitar instanciación
