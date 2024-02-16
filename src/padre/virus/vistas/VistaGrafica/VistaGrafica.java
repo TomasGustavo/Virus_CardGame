@@ -78,6 +78,10 @@ public class VistaGrafica implements IVista {
     private JPanel pnlCentroMesa;
     private JLabel lblMazo;
     private JLabel lblMazoDescarte;
+    private JButton btnTerminarTurno;
+    private JButton btnTirarVirus;
+    private JButton btnCurar;
+    private JButton btnDescartar;
 
     private DefaultListModel<ImageIcon> listaModeloSur;
     private DefaultListModel<ImageIcon> listaModeloSurOrganos;
@@ -498,7 +502,7 @@ public class VistaGrafica implements IVista {
 
     @Override
     public void mostrarNuevoJugador() {
-
+        notificarMensaje("El jugador "+controlador.getNombre()+" se ha unido a la partida");
     }
 
     @Override
