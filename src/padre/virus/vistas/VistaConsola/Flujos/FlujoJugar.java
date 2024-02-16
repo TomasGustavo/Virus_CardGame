@@ -1,6 +1,7 @@
 package padre.virus.vistas.VistaConsola.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.IJugador;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola.VistaConsola;
 
@@ -28,7 +29,7 @@ public class FlujoJugar extends Flujo{
                 return new FlujoPasarTurno(vista,controlador);
             }
             case "4" ->{
-                String nombre = controlador.abandonoPartida();
+                String nombre = controlador.abandonoPartida().getNombre();
                 return new FlujoAbandonarPartida(vista,controlador,nombre);
 
             }

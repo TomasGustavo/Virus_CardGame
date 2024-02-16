@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- Muestra organos propios correctamente">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- a">
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaamarilla.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaamarillo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaroja.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curarojo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/CuraAzul.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaazul.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoJugar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,6 +86,7 @@
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\resources\imagenes\Cartas" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\vistas\VistaGrafica" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\vistas\VistaConsola" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame" />
@@ -160,15 +173,9 @@
       <workItem from="1707187741439" duration="408000" />
       <workItem from="1707335935479" duration="4370000" />
       <workItem from="1707422158993" duration="2749000" />
-      <workItem from="1707502718720" duration="9487000" />
-    </task>
-    <task id="LOCAL-00002" summary="Me quiero morir">
-      <option name="closed" value="true" />
-      <created>1701054083711</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1701054083711</updated>
+      <workItem from="1707502718720" duration="9930000" />
+      <workItem from="1708034017333" duration="5981000" />
+      <workItem from="1708050135845" duration="3957000" />
     </task>
     <task id="LOCAL-00003" summary="Me quiero morir">
       <option name="closed" value="true" />
@@ -554,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707508686962</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="- a">
+      <option name="closed" value="true" />
+      <created>1707513101356</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1707513101357</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,13 +606,13 @@
     <MESSAGE value="- implementacion pasar ICarta en vez de String" />
     <MESSAGE value="- Cambio de parametros en los metodos a ICarta" />
     <MESSAGE value="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido" />
-    <MESSAGE value="- a" />
     <MESSAGE value="- intento fallido de mostrar las cartas" />
     <MESSAGE value="- redimension de imagenes de las cartas" />
     <MESSAGE value="- modificacion de mostrarCartas(), muestra imagenes correspondientes" />
     <MESSAGE value="- TODO" />
     <MESSAGE value="- Muestra organos propios correctamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Muestra organos propios correctamente" />
+    <MESSAGE value="- a" />
+    <option name="LAST_COMMIT_MESSAGE" value="- a" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

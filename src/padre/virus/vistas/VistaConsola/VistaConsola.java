@@ -2,6 +2,7 @@ package padre.virus.vistas.VistaConsola;
 
 import padre.virus.gameController.Controlador;
 import padre.virus.modelo.ICarta;
+import padre.virus.modelo.IJugador;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola.Flujos.*;
 import padre.virus.vistas.IVista;
@@ -159,8 +160,8 @@ public class VistaConsola implements IVista {
     }
 
     @Override
-    public void mostrarTurno(String jugadorActual) {
-        printear("\nEs el turno del jugador: " + jugadorActual, ColorRGB.ORANGE);
+    public void mostrarTurno(IJugador jugadorActual) {
+        printear("\nEs el turno del jugador: " + jugadorActual.getNombre(), ColorRGB.ORANGE);
     }
 
     @Override
@@ -183,7 +184,7 @@ public class VistaConsola implements IVista {
     }
 
     @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
+    public void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
         mostrarTurno(jugadorActual);
         mostrarCuerpo(organos);
         mostrarCartas(cartas);
@@ -247,7 +248,7 @@ public class VistaConsola implements IVista {
 
     public void abandonoPartida(String nombre) {
 
-        flujoActual = new FlujoPartidaTerminada(this, controlador, controlador.getJugadorActual(), false);
+        flujoActual = new FlujoPartidaTerminada(this, controlador, controlador.getJugadorActual().getNombre(), false);
         flujoActual.mostrarSiguienteTexto();
 
 

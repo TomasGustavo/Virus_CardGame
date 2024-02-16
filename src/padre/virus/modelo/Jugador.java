@@ -1,13 +1,13 @@
 package padre.virus.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Jugador {
+public class Jugador implements IJugador, Serializable {
     private String nombre;
     private ArrayList<Organo> cuerpo;
     private ArrayList<Carta> mano;
     private Boolean SuTurno;
-
     private static int ID = 0;
     private int IdJugador;
 
@@ -23,24 +23,6 @@ public class Jugador {
     public ArrayList<Organo> getCuerpo(){
         return cuerpo;
     }
-   /* public void setCuerpo(Organo organo){
-        // SI EL CUERPO ESTA VACIO AÑADE EL ORGNAO
-        if(this.cuerpo == null){
-            this.cuerpo.add(organo);
-        }else if(this.cuerpo.size() < 4){
-            boolean bandera = false;
-            // VERIFICA SI EL ORGANO A AGREGAR ES DE OTRO COLOR DE CUALQUIERA QUE YA HAYA EN EL CUERPO
-            for(int i =0;i<this.cuerpo.size();i++){
-                if(this.cuerpo.get(i).getColor().equals(organo.getColor())){
-                    bandera = true;
-                }
-            }
-            if (!bandera){
-                this.cuerpo.add(organo);
-            }
-        }
-    }*/
-
     public boolean setCuerpo(Carta organo) {
         // Si el cuerpo está vacío o tiene menos de 4 órganos
         if (this.cuerpo == null || this.cuerpo.size() < 4) {
@@ -51,7 +33,6 @@ public class Jugador {
                 this.cuerpo.add(org);
                 //System.out.println("paso...\n");
                 return true;
-
             }
         }
         return false;
@@ -82,6 +63,8 @@ public class Jugador {
     public String getNombre(){
         return nombre;
     }
+
+    public int getID(){return IdJugador;}
     public ArrayList<Carta> getMano(){
         return mano;
     }

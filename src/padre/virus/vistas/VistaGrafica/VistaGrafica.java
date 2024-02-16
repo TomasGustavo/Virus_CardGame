@@ -2,6 +2,7 @@ package padre.virus.vistas.VistaGrafica;
 
 import padre.virus.gameController.Controlador;
 import padre.virus.modelo.ICarta;
+import padre.virus.modelo.IJugador;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
@@ -12,6 +13,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.*;
+import java.rmi.RemoteException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -79,6 +81,14 @@ public class VistaGrafica implements IVista {
 
     private DefaultListModel<ImageIcon> listaModeloSur;
     private DefaultListModel<ImageIcon> listaModeloSurOrganos;
+
+    private DefaultListModel<ImageIcon> listaModeloNorte;
+    private DefaultListModel<ImageIcon> listaModeloNorteOrganos;
+    private DefaultListModel<ImageIcon> listaModeloEste;
+    private DefaultListModel<ImageIcon> listaModeloEsteOrganos;
+    private DefaultListModel<ImageIcon> listaModeloOeste;
+    private DefaultListModel<ImageIcon> listaModeloOesteOrganos;
+
     private Image backgroundPartida = new ImageIcon("src/padre/virus/resources/imagenes/backGruond.jpg").getImage();
 
     private JFrame frame;
@@ -105,6 +115,16 @@ public class VistaGrafica implements IVista {
                 lstOrganosSur.setModel(listaModeloSurOrganos);
                 lstOrganosSur.setBackground(new Color(0, 0, 255));
                 lstOrganosSur.setVisibleRowCount(1);
+
+                listaModeloNorte = new DefaultListModel<>();
+                lstManoNorte.setModel(listaModeloNorte);
+                lstManoNorte.setBackground(ColorRGB.TIEL);
+                lstManoNorte.setVisibleRowCount(1);
+
+                listaModeloNorteOrganos = new DefaultListModel<>();
+                lstOrganosNorte.setModel(listaModeloNorteOrganos);
+                lstOrganosNorte.setBackground(new Color(0, 0, 255));
+                lstOrganosNorte.setVisibleRowCount(1);
 
                 splPrincipal.remove(pnlMenu);
                 txtEscritura.setEnabled(false);
@@ -136,7 +156,6 @@ public class VistaGrafica implements IVista {
 
                 splPrincipal.revalidate();
                 splPrincipal.repaint();
-
 
 
 
@@ -356,8 +375,9 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostrarCartas(ArrayList<ICarta> cartas) {
+    public void mostrarCartas(ArrayList<ICarta> cartas) throws RemoteException {
         listaModeloSur.removeAllElements();
+        //System.out.println(cartas.size());
         for (ICarta carta : cartas) {
             String tempTipo = String.valueOf(carta.getTipo());
             tempTipo.toLowerCase();
@@ -366,17 +386,45 @@ public class VistaGrafica implements IVista {
             tempColor.toLowerCase();
 
             String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
+            //String imagenActual = "src/padre/virus/resources/imagenes/Cartas/curarojo.png";
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSur.addElement(cartaActual);
         }
+        //System.out.println(listaModeloSur.size());
+        mostrarManoJugadores();
         scpManoSur.setPreferredSize(new Dimension(lstManoSur.getPreferredSize().width, lstManoSur.getPreferredSize().height));
         // Revalidar y repintar el panel
         scpManoSur.revalidate();
         scpManoSur.repaint();
         frame.revalidate();
         frame.repaint();
+    }
 
+    private void mostrarManoJugadores() throws RemoteException {
+        int jugadorID = (controlador.getIdJA()+1)%controlador.listaJugadores().size();
+        String jugadorNombre = controlador.listaJugadores().get(jugadorID);
+        int cantidadJugadores = controlador.listaJugadores().size()-1;
+        switch (cantidadJugadores){
+            case 1 -> actualizarManoNorte(controlador.getManoContrincante(jugadorNombre));
+            //case 2 -> actualizarManoOeste(controlador.getManoContrincante(jugadorNombre));
+            //case 3 -> actualizarManoEste(controlador.getManoContrincante(jugadorNombre));
+        }
+
+    }
+
+    private void actualizarManoNorte(ArrayList<ICarta> cartas){
+        listaModeloNorte.removeAllElements();
+        for(int i = 0 ; i<cartas.size();i++){
+            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+            listaModeloNorte.addElement(cartaActual);
+        }
+        scpManoNorte.setPreferredSize(new Dimension(lstManoNorte.getPreferredSize().width, lstManoNorte.getPreferredSize().height));
+        // Revalidar y repintar el panel
+        scpManoNorte.revalidate();
+        scpManoNorte.repaint();
+        frame.revalidate();
+        frame.repaint();
 
     }
 
@@ -413,8 +461,8 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostrarTurno(String jugadorActual) {
-        lblNotificaciones.setText("Es el turno del Jugador "+jugadorActual);
+    public void mostrarTurno(IJugador jugadorActual) {
+        lblNotificaciones.setText("Es el turno del Jugador "+jugadorActual.getNombre());
 
     }
 
@@ -429,10 +477,12 @@ public class VistaGrafica implements IVista {
     }
 
     @Override
-    public void mostarInicioPartido(String jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) {
+    public void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException {
         mostrarTurno(jugadorActual);
-        pnlJugadorEast.setVisible(true);
-        pnlJugadorWest.setVisible(true);
+        pnlJugadorEast.setVisible(false);
+        pnlJugadorWest.setVisible(false);
+        scpOrganosEast.setVisible(false);
+        scpOrganosWest.setVisible(false);
         pnlJugadorNorth.setVisible(true);
         scpManoSur.getViewport().setOpaque(false);
 
@@ -440,6 +490,7 @@ public class VistaGrafica implements IVista {
 
         lblNombreSur.setForeground(ColorRGB.CYAN);
         lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
+        lblNombreNorte.setText(controlador.getOponente().toUpperCase());
         mostrarCartas(cartas);
         mostrarCuerpo(organos);
 

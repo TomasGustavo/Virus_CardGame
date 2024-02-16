@@ -11,7 +11,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     private ArrayList<Observador> observadores;
     private Mazo mazo;
     private Mazo mazoDescarte;
-    private final ArrayList<Jugador> jugadores;
+    private final ArrayList<IJugador> jugadores;
     private String mensaje;
     private String jug;
 
@@ -31,12 +31,14 @@ public class Modelo extends ObservableRemoto implements IModelo {
 */
 
     @Override
-    public void agregarJugador(String nombre) throws RemoteException {
-        if(jugadores.size() < 6){
-            Jugador jugador = new Jugador(nombre);
-            jugadores.add(jugador);
-            this.notificarObservadores(Eventos.NUEVO_JUGADOR);
-        }
+    public IJugador agregarJugador(String nombre) throws RemoteException {
+
+        IJugador jugador = new Jugador(nombre);
+        jugadores.add(jugador);
+        this.notificarObservadores(Eventos.NUEVO_JUGADOR);
+        return jugador;
+
+
     }
 
     @Override
@@ -56,27 +58,27 @@ public class Modelo extends ObservableRemoto implements IModelo {
     }
 
     @Override
-    public String cambiarTurno(int jugadorID) throws RemoteException{
+    public IJugador cambiarTurno(int jugadorID) throws RemoteException{
         int indice = (jugadorID + 1) % jugadores.size();
-        String jActual = turnoActual();
-        Jugador jugador = jugadores.get(indice);
+        //String jActual = turnoActual();
+        IJugador jugador = jugadores.get(indice);
         jugador.setSuTurno(true);
-        return jugador.getNombre();
+        return jugador;
     }
 
     @Override
     public void hayGandor() throws RemoteException{
-        for(Jugador i : jugadores){
+        for(IJugador i : jugadores){
             if(obtenerOrganos(i.getNombre()).size() == 4 && i.organosSanos()){
                 partidaTerminada(i.getNombre());
             }
         }
     }
     @Override
-    public String turnoActual() throws RemoteException{
-        for(Jugador jugador : jugadores){
+    public IJugador turnoActual() throws RemoteException{
+        for(IJugador jugador : jugadores){
             if(jugador.isTurno()){
-                return jugador.getNombre();
+                return jugador;
             }
         }
         return null;
@@ -85,7 +87,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
     private void RepartirCartas(){
         mazo.BarajarMazo();
-        for (Jugador i : jugadores){
+        for (IJugador i : jugadores){
             for(int j = 0; j<3 ; j++){
                 Carta carta = mazo.TomarCarta();
                 if(carta instanceof Organo){
@@ -97,7 +99,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
         }
     }
     @Override
-    public void tomarCarta(String nombreJugador) throws RemoteException{
+    public void tomarCarta(IJugador nombreJugador) throws RemoteException{
         int j;
         if(mazo.obtenerMazo().isEmpty()){
             for(Carta carta : mazoDescarte.getMazo()){
@@ -105,8 +107,8 @@ public class Modelo extends ObservableRemoto implements IModelo {
             }
             mazoDescarte.vaciarMazo();
         }
-        for(Jugador i : jugadores){
-            if(i.getNombre().equals(nombreJugador)){
+        for(IJugador i : jugadores){
+            if(i.getNombre().equals(nombreJugador.getNombre())){
                 j = i.getMano().size();
                 while(i.getMano().size() < 3 && j < 3){
                     Carta carta = mazo.TomarCarta();
@@ -127,7 +129,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     @Override
     public ArrayList<String> obtenerJugadores() throws RemoteException{
         ArrayList<String> ListaJugadores = new ArrayList<>();
-        for(Jugador jugador : jugadores){
+        for(IJugador jugador : jugadores){
             ListaJugadores.add(jugador.getNombre());
         }
         return ListaJugadores;
@@ -135,8 +137,8 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
     @Override
     public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta, int IdOrgano) throws RemoteException{
-        Jugador jugadororigen = obtenerJugadorPorNombre(jugadorOrigen);
-        Jugador jugadordestino = obtenerJugadorPorNombre(jugadorDestino);
+        IJugador jugadororigen = obtenerJugadorPorNombre(jugadorOrigen);
+        IJugador jugadordestino = obtenerJugadorPorNombre(jugadorDestino);
         if(jugadorOrigen != null && jugadordestino != null){
             boolean jugada = true;
             try {
@@ -162,8 +164,8 @@ public class Modelo extends ObservableRemoto implements IModelo {
         notificarObservadores(Eventos.TERMINO_TURNO);
     }
 
-    private Jugador obtenerJugadorPorNombre(String nombre){
-        for(Jugador jugador : jugadores){
+    private IJugador obtenerJugadorPorNombre(String nombre){
+        for(IJugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador;
             }
@@ -171,7 +173,10 @@ public class Modelo extends ObservableRemoto implements IModelo {
         return null;
     }
 
-    //public void tirarTratamiento(Carta carta,Jugador jugador){}
+    public String getOponente(int jugadorID) throws RemoteException{
+        int id = (jugadorID+1)%jugadores.size();
+        return jugadores.get(id).getNombre();
+    }
 
     @Override
     public ArrayList<ICarta> obtenerMazo()throws RemoteException{
@@ -180,7 +185,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
     @Override
     public ArrayList<ICarta> obtenerCartas(String nombre)throws RemoteException{
-        for(Jugador jugador : jugadores){
+        for(IJugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCartas();
             }
@@ -190,7 +195,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
     @Override
     public ArrayList<ICarta> obtenerOrganos(String nombre)throws RemoteException{
-        for(Jugador jugador : jugadores){
+        for(IJugador jugador : jugadores){
             if(jugador.getNombre().equals(nombre)){
                 return jugador.obtenerCuerpo();
             }
@@ -210,9 +215,9 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
 
     @Override
-    public void descartar(String nombreJugador, int opcion)throws RemoteException{
-        for(Jugador jugador : jugadores){
-            if(jugador.getNombre().equals(nombreJugador)){
+    public void descartar(IJugador nombreJugador, int opcion)throws RemoteException{
+        for(IJugador jugador : jugadores){
+            if(jugador.getNombre().equals(nombreJugador.getNombre())){
                 actualizarMazoDescarte(jugador.getMano().get(opcion));
                 jugador.descartar(opcion);
                 tomarCarta(nombreJugador);
@@ -225,9 +230,9 @@ public class Modelo extends ObservableRemoto implements IModelo {
         mazoDescarte.add(carta);
     }
     @Override
-    public void terminarTurno(String nombreJugador)throws RemoteException{
-        for(Jugador jugador : jugadores){
-            if(jugador.getNombre().equals(nombreJugador)){
+    public void terminarTurno(IJugador nombreJugador)throws RemoteException{
+        for(IJugador jugador : jugadores){
+            if(jugador.getNombre().equals(nombreJugador.getNombre())){
                 notificarObservadores(Eventos.TERMINO_TURNO);
             }
         }

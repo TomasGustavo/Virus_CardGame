@@ -341,8 +341,8 @@
                             <constraints/>
                             <properties>
                               <layoutOrientation value="2"/>
-                              <minimumSize width="120" height="95"/>
-                              <preferredSize width="120" height="95"/>
+                              <minimumSize width="190" height="100"/>
+                              <preferredSize width="190" height="100"/>
                               <selectionMode value="1"/>
                               <visibleRowCount value="3"/>
                             </properties>

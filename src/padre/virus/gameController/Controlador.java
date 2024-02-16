@@ -12,8 +12,8 @@ public class Controlador implements IControladorRemoto {
 
     private IModelo modelo;
     private IVista vista;
-    private String nombreJugador;
-    String jugadorActual;
+    private IJugador nombreJugador;
+    IJugador jugadorActual;
     int idJA;
     String Ganador;
     private boolean partidaIniciada = false;
@@ -52,8 +52,8 @@ public class Controlador implements IControladorRemoto {
                     this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
-                    cartas = this.modelo.obtenerCartas(nombreJugador);
-                    organos = this.modelo.obtenerOrganos(nombreJugador);
+                    cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
+                    organos = this.modelo.obtenerOrganos(nombreJugador.getNombre());
                     jugadorActual = this.modelo.turnoActual();
                     mazo = this.modelo.obtenerMazo();
                     idJA = 0;
@@ -61,25 +61,25 @@ public class Controlador implements IControladorRemoto {
                     this.vista.mostarInicioPartido(jugadorActual,cartas,organos);
                 }
                 case ROBO_CARTA -> {
-                    cartas = this.modelo.obtenerCartas(nombreJugador);
+                    cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
                 }
                 case TERMINO_TURNO -> {
-                    cartas = this.modelo.obtenerCartas(nombreJugador);
+                    cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
                     if(jugadorActual.equals(nombreJugador)){
                         vista.mostrarTurno(jugadorActual);
                         this.modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
-                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
+                        vista.mostrarCuerposEnLista(nombreJugador.getNombre(),jugadores);
+                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
                     }
                     jugadorActual = this.modelo.cambiarTurno(idJA);
-                    vista.notificarMensaje("Es turno del jugador: " + jugadorActual);
-                    if(jugadorActual.equals(nombreJugador)){
+                    vista.notificarMensaje("Es turno del jugador: " + jugadorActual.getNombre());
+                    if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
                         vista.mostrarTurno(jugadorActual);
                         this.modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
-                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador));
+                        vista.mostrarCuerposEnLista(nombreJugador.getNombre(),jugadores);
+                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
                         vista.mostrarCartas(cartas);
                         vista.HabilitarTurno();
                     }
@@ -96,7 +96,7 @@ public class Controlador implements IControladorRemoto {
                     vista.partidaTerminada(Ganador);
                 }
                 case ABANDONO_PARTIDA -> {
-                    vista.abandonoPartida(nombreJugador);
+                    vista.abandonoPartida(nombreJugador.getNombre());
                 }
 
                 case MENSAJE_CHAT -> {
@@ -123,25 +123,22 @@ public class Controlador implements IControladorRemoto {
 
     public void AgregarJugador(String nombre){
         try {
-            this.nombreJugador = nombre;
-            modelo.agregarJugador(nombre);
+            nombreJugador = modelo.agregarJugador(nombre);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
 
     }
 
+    public int getIdJA(){return nombreJugador.getID();}
+
     public String getNombre() {
-        return nombreJugador;
+        return nombreJugador.getNombre();
     }
 
-    public String getJugadorActual(){
+    public IJugador getJugadorActual(){
         return jugadorActual;
     }
-
-    //public void partidaTerminada(String nombreGanador) {
-    //    modelo.partidaTerminada(nombreGanador);
-    //}
 
     public boolean isPartidaIniciada(){
         return partidaIniciada;
@@ -155,9 +152,22 @@ public class Controlador implements IControladorRemoto {
         return cartas;
     }
 
+    public ArrayList<ICarta> getManoContrincante(String nombre) throws RemoteException {
+        return modelo.obtenerCartas(nombre);
+    }
+
+    public String getOponente(){
+        try{
+            return modelo.getOponente(nombreJugador.getID());
+        } catch (RemoteException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public void actualizarMano(){
         try {
-            cartas = this.modelo.obtenerCartas(nombreJugador);
+            cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
             vista.mostrarCartas(cartas);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
@@ -198,7 +208,7 @@ public class Controlador implements IControladorRemoto {
 
     public void tirarCarta(String jugadorDestino,Integer idCarta,int idOrgano){
         try {
-            modelo.tirarCarta(jugadorActual,jugadorDestino,idCarta,idOrgano);
+            modelo.tirarCarta(jugadorActual.getNombre(),jugadorDestino,idCarta,idOrgano);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -218,7 +228,7 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
-    public String abandonoPartida(){
+    public IJugador abandonoPartida(){
         try {
             modelo.abandonoPartida();
             return nombreJugador;
