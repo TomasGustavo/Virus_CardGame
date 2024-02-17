@@ -105,6 +105,9 @@ public class VistaGrafica implements IVista, Serializable {
 
     public VistaGrafica(int x, int y) {
 
+
+                // constructor de la ventana
+
                 frame = new JFrame("Virus");
                 frame.setContentPane(pnlPrincipal);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -142,10 +145,7 @@ public class VistaGrafica implements IVista, Serializable {
 
 
 
-
-
-
-
+                // funcionalidad de los botones
 
                 txtEscritura.addKeyListener(new KeyAdapter() {
                     @Override
@@ -199,6 +199,13 @@ public class VistaGrafica implements IVista, Serializable {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         exit(0);
+                    }
+                });
+
+                btnTerminarTurno.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        controlador.pasoTurno();
                     }
                 });
 
@@ -452,6 +459,11 @@ public class VistaGrafica implements IVista, Serializable {
     @Override
     public void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException {
         mostrarTurno(jugadorActual);
+
+        //deshabilita los botones de las vistas las cuales no sea su turno
+        //if(!controlador.getNombre().equals(jugadorActual.getNombre())){
+            deshabilitarEntradas(false);
+        //}
         pnlJugadorEast.setVisible(false);
         pnlJugadorWest.setVisible(false);
         scpOrganosEast.setVisible(false);
@@ -530,12 +542,29 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void terminarTurno() {
+        deshabilitarEntradas(true);
+    }
+
+    private void deshabilitarEntradas(boolean terminoTurno){
+        if((!controlador.getNombre().equals(controlador.getJugadorActual().getNombre())) || terminoTurno){
+            btnTirarVirus.setEnabled(false);
+            btnCurar.setEnabled(false);
+            btnDescartar.setEnabled(false);
+            btnTerminarTurno.setEnabled(false);
+            frame.revalidate();
+            frame.repaint();
+        }
 
     }
 
     @Override
     public void HabilitarTurno() {
-
+        btnTirarVirus.setEnabled(true);
+        btnCurar.setEnabled(true);
+        btnDescartar.setEnabled(true);
+        btnTerminarTurno.setEnabled(true);
+        frame.revalidate();
+        frame.repaint();
     }
 
     @Override

@@ -356,6 +356,7 @@
                       <component id="d5ff4" class="javax.swing.JLabel" binding="lblNombreSur">
                         <constraints border-constraint="West"/>
                         <properties>
+                          <horizontalTextPosition value="11"/>
                           <opaque value="false"/>
                           <preferredSize width="50" height="17"/>
                           <text value="hola"/>
