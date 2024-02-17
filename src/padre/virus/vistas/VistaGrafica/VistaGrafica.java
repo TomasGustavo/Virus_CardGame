@@ -559,12 +559,15 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void HabilitarTurno() {
+
         btnTirarVirus.setEnabled(true);
         btnCurar.setEnabled(true);
         btnDescartar.setEnabled(true);
         btnTerminarTurno.setEnabled(true);
         frame.revalidate();
         frame.repaint();
+
+
     }
 
     @Override
