@@ -390,7 +390,9 @@
                                   <layoutOrientation value="2"/>
                                   <minimumSize width="181" height="96"/>
                                   <opaque value="false"/>
-                                  <preferredSize width="186" height="97"/>
+                                  <preferredSize width="188" height="99"/>
+                                  <selectionBackground color="-3407854"/>
+                                  <selectionForeground color="-65490"/>
                                   <selectionMode value="1"/>
                                   <visibleRowCount value="3"/>
                                 </properties>

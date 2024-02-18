@@ -133,7 +133,15 @@ public class Modelo extends ObservableRemoto implements IModelo {
             ListaJugadores.add(jugador.getNombre());
         }
         return ListaJugadores;
-    }
+    } //TODO cambiar TODO a Ijugadores porque si no es un dolor de pija.
+
+    public ArrayList<IJugador> obtenerIJugadores() throws RemoteException{
+        ArrayList<IJugador> ListaJugadores = new ArrayList<>();
+        for(IJugador jugador : jugadores){
+            ListaJugadores.add(jugador);
+        }
+        return ListaJugadores;
+    } //TODO despues borrar esto
 
     @Override
     public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta, int IdOrgano) throws RemoteException{
@@ -161,6 +169,8 @@ public class Modelo extends ObservableRemoto implements IModelo {
                 e.printStackTrace();
             }
         }
+        jugadororigen.setSuTurno(false);
+        cambiarTurno(jugadororigen.getID());
         notificarObservadores(Eventos.TERMINO_TURNO);
     }
 
@@ -233,10 +243,13 @@ public class Modelo extends ObservableRemoto implements IModelo {
     public void terminarTurno(IJugador nombreJugador)throws RemoteException{
         for(IJugador jugador : jugadores){
             if(jugador.getNombre().equals(nombreJugador.getNombre())){
+                jugador.setSuTurno(false);
+                cambiarTurno(jugador.getID());
                 notificarObservadores(Eventos.TERMINO_TURNO);
             }
         }
     }
+
 
     @Override
     public void partidaTerminada(String ganador)throws RemoteException{

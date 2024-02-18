@@ -1,6 +1,7 @@
 package padre.virus.vistas.VistaGrafica;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.DialogTirarVirus;
 import padre.virus.modelo.ICarta;
 import padre.virus.modelo.IJugador;
 import padre.virus.vistas.ColorRGB;
@@ -99,116 +100,123 @@ public class VistaGrafica implements IVista, Serializable {
     private DefaultListModel<ImageIcon> listaModeloOeste;
     private DefaultListModel<ImageIcon> listaModeloOesteOrganos;
 
-    private Image backgroundPartida = new ImageIcon("src/padre/virus/resources/imagenes/backGruond.jpg").getImage();
+    private Image backgroundPartida;
 
     private JFrame frame;
 
     public VistaGrafica(int x, int y) {
 
 
-                // constructor de la ventana
+        // constructor de la ventana
 
-                frame = new JFrame("Virus");
-                frame.setContentPane(pnlPrincipal);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setMinimumSize(new Dimension(500, 500));
-                frame.setPreferredSize(new Dimension(600, 600));
-                frame.setLocation(x, y);
-                //frame.setVisible(true);
+        frame = new JFrame("Virus");
+        frame.setContentPane(pnlPrincipal);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(600, 600));
+        frame.setLocation(x, y);
+        //frame.setVisible(true);
 
-                // Crea el listModel necesario para mostrar las cartas de la mano
-                listaModeloSur = new DefaultListModel<>();
-                lstManoSur.setModel(listaModeloSur);
-                lstManoSur.setBackground(ColorRGB.TIEL);
-                lstManoSur.setVisibleRowCount(1);
+        // Crea el listModel necesario para mostrar las cartas de la mano
+        listaModeloSur = new DefaultListModel<>();
+        lstManoSur.setModel(listaModeloSur);
+        lstManoSur.setBackground(ColorRGB.TIEL);
+        lstManoSur.setVisibleRowCount(1);
 
-                listaModeloSurOrganos = new DefaultListModel<>();
-                lstOrganosSur.setModel(listaModeloSurOrganos);
-                lstOrganosSur.setBackground(ColorRGB.DARK_TIEL);
-                scpOrganosSur.setBackground(ColorRGB.DARK_TIEL);
-                lstOrganosSur.setOpaque(true);
-                lstOrganosSur.setVisibleRowCount(1);
+        listaModeloSurOrganos = new DefaultListModel<>();
+        lstOrganosSur.setModel(listaModeloSurOrganos);
+        lstOrganosSur.setBackground(ColorRGB.DARK_TIEL);
+        scpOrganosSur.setBackground(ColorRGB.DARK_TIEL);
+        lstOrganosSur.setOpaque(true);
+        lstOrganosSur.setVisibleRowCount(1);
 
-                listaModeloNorte = new DefaultListModel<>();
-                lstManoNorte.setModel(listaModeloNorte);
-                lstManoNorte.setBackground(ColorRGB.TIEL);
-                lstManoNorte.setVisibleRowCount(1);
+        listaModeloNorte = new DefaultListModel<>();
+        lstManoNorte.setModel(listaModeloNorte);
+        lstManoNorte.setBackground(ColorRGB.TIEL);
+        lstManoNorte.setVisibleRowCount(1);
 
-                listaModeloNorteOrganos = new DefaultListModel<>();
-                lstOrganosNorte.setModel(listaModeloNorteOrganos);
-                lstOrganosNorte.setBackground(ColorRGB.DARK_TIEL);
-                lstOrganosNorte.setOpaque(true);
-                lstOrganosNorte.setVisibleRowCount(1);
+        listaModeloNorteOrganos = new DefaultListModel<>();
+        lstOrganosNorte.setModel(listaModeloNorteOrganos);
+        lstOrganosNorte.setBackground(ColorRGB.DARK_TIEL);
+        lstOrganosNorte.setOpaque(true);
+        lstOrganosNorte.setVisibleRowCount(1);
 
-                splPrincipal.remove(pnlMenu);
-                txtEscritura.setEnabled(false);
+        splPrincipal.remove(pnlMenu);
+        txtEscritura.setEnabled(false);
 
+        // funcionalidad de los botones
 
+        txtEscritura.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    controlador.actualizarChat(txtEscritura.getText(), txtNombreJugador.getText());
+                    txtEscritura.setText("");
+                }
+            }
+        });
 
-                // funcionalidad de los botones
+        btnAceptar.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                txtEscritura.addKeyListener(new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        super.keyPressed(e);
-                        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                            controlador.actualizarChat(txtEscritura.getText(),txtNombreJugador.getText());
-                            txtEscritura.setText("");
-                        }
-                    }
-                });
+                if (!txtNombreJugador.getText().isEmpty()) {
+                    txtEscritura.setEnabled(true);
+                    controlador.AgregarJugador(txtNombreJugador.getText());
+                    agregarTitulo();
+                    cambiarCardPanel(pnlCardMenuPrincipal);
+                    notificarMensaje("El jugador " + txtNombreJugador.getText() + " se ha unido");
+                } else {
+                    JOptionPane.showMessageDialog(pnlContenedor, "Por favor ingrese su nombre de usuario!",
+                            "ERROR!!", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
 
-                btnAceptar.addActionListener(new ActionListener() {
-                    /**
-                     * Invoked when an action occurs.
-                     *
-                     * @param e the event to be processed
-                     */
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
+        btnNuevaPartida.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                        if (!txtNombreJugador.getText().isEmpty()) {
-                            txtEscritura.setEnabled(true);
-                            controlador.AgregarJugador(txtNombreJugador.getText());
-                            agregarTitulo();
-                            cambiarCardPanel(pnlCardMenuPrincipal);
-                            notificarMensaje("El jugador "+txtNombreJugador.getText()+" se ha unido");
-                        } else {
-                            JOptionPane.showMessageDialog(pnlContenedor, "Por favor ingrese su nombre de usuario!",
-                                    "ERROR!!", JOptionPane.WARNING_MESSAGE);
-                        }
-                    }
-                });
+                controlador.Jugar();
+            }
+        });
 
-                btnNuevaPartida.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
+        btnMostrarJugadores.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlador.listaJugadores();
+            }
+        });
 
-                        controlador.Jugar();
-                    }
-                });
+        btnSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exit(0);
+            }
+        });
 
-                btnMostrarJugadores.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        controlador.listaJugadores();
-                    }
-                });
+        btnTerminarTurno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlador.pasoTurno();
+            }
+        });
 
-                btnSalir.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        exit(0);
-                    }
-                });
+        btnTirarVirus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DialogTirarVirus dialog = new DialogTirarVirus(controlador.listaIJugadores(), controlador.getJugadorActual(), controlador,lstManoSur.getSelectedIndex());
+                dialog.pack();
+                dialog.setVisible(true);
 
-                btnTerminarTurno.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        controlador.pasoTurno();
-                    }
-                });
-
+            }
+        });
     }
 
     private void mostrarConfiguracion(Component componente) {
@@ -229,7 +237,7 @@ public class VistaGrafica implements IVista, Serializable {
             @Override
             public void componentMoved(ComponentEvent e) {
 
-                popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // mueve el popUp conforme se va moviendo el frame
+                popUp.setLocation(frame.getLocationOnScreen().x + 8, frame.getLocationOnScreen().y + 32); // mueve el popUp conforme se va moviendo el frame
             }
         });
 
@@ -237,16 +245,16 @@ public class VistaGrafica implements IVista, Serializable {
         JPanel panelIntermedio = new JPanel(new BorderLayout());
         panelIntermedio.setBackground(new Color(169, 177, 176, 250));
 
-        panelIntermedio.add(lblFlechaAtras,BorderLayout.WEST);
+        panelIntermedio.add(lblFlechaAtras, BorderLayout.WEST);
         lblFlechaAtras.setHorizontalAlignment(SwingConstants.LEFT);
         lblFlechaAtras.setVerticalAlignment(SwingConstants.TOP);
 
-        verticalBox.setBorder(BorderFactory.createEmptyBorder(50,0,10,10));
+        verticalBox.setBorder(BorderFactory.createEmptyBorder(50, 0, 10, 10));
 
-        panelIntermedio.add(verticalBox,BorderLayout.CENTER);
+        panelIntermedio.add(verticalBox, BorderLayout.CENTER);
 
         popUp.setSize(200, splPrincipal.getHeight()); // setea el tamanio del popUp en base a la altura de la pantalla
-        popUp.setLocation(frame.getLocationOnScreen().x+8,frame.getLocationOnScreen().y+32); // pone el popUp en la esquina superiror izquierda
+        popUp.setLocation(frame.getLocationOnScreen().x + 8, frame.getLocationOnScreen().y + 32); // pone el popUp en la esquina superiror izquierda
         popUp.setBackground(new Color(255, 255, 255, 250)); // alfa aplica transparencia
 
         JCheckBox deshabilitarChat = getjCheckBox();
@@ -254,14 +262,14 @@ public class VistaGrafica implements IVista, Serializable {
         btnOpcReglas = getbtnOpcReglas();
 
         verticalBox.add(deshabilitarChat);
-        verticalBox.add(Box.createRigidArea(new Dimension(0,30)));
+        verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
 
         verticalBox.add(btnOpcReglas);
-        verticalBox.add(Box.createRigidArea(new Dimension(0,30)));
+        verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
 
         verticalBox.add(btnOpcSalir);
 
-        popUp.getContentPane().setLayout(new BoxLayout(popUp.getContentPane(),BoxLayout.Y_AXIS));
+        popUp.getContentPane().setLayout(new BoxLayout(popUp.getContentPane(), BoxLayout.Y_AXIS));
         popUp.getContentPane().add(panelIntermedio);
 
         popUp.setVisible(true);
@@ -316,9 +324,9 @@ public class VistaGrafica implements IVista, Serializable {
         deshabilitarChat.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if(e.getStateChange() == ItemEvent.SELECTED){
+                if (e.getStateChange() == ItemEvent.SELECTED) {
                     pnlChat.setVisible(false);
-                } else{
+                } else {
                     pnlChat.setVisible(true);
                     splPrincipal.setDividerLocation(0.8);
                 }
@@ -364,10 +372,10 @@ public class VistaGrafica implements IVista, Serializable {
             String tempTipo = String.valueOf(carta.getTipo());
             tempTipo.toLowerCase();
 
-            String tempColor= String.valueOf(carta.getColor());
+            String tempColor = String.valueOf(carta.getColor());
             tempColor.toLowerCase();
 
-            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
+            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSur.addElement(cartaActual);
@@ -383,10 +391,10 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     private void mostrarManoJugadores() throws RemoteException {
-        int jugadorID = (controlador.getIdJA()+1)%controlador.listaJugadores().size();
+        int jugadorID = (controlador.getIdJA() + 1) % controlador.listaJugadores().size();
         String jugadorNombre = controlador.listaJugadores().get(jugadorID);
-        int cantidadJugadores = controlador.listaJugadores().size()-1;
-        switch (cantidadJugadores){
+        int cantidadJugadores = controlador.listaJugadores().size() - 1;
+        switch (cantidadJugadores) {
             case 1 -> actualizarManoNorte(controlador.getManoContrincante(jugadorNombre));
             //case 2 -> actualizarManoOeste(controlador.getManoContrincante(jugadorNombre));
             //case 3 -> actualizarManoEste(controlador.getManoContrincante(jugadorNombre));
@@ -394,9 +402,9 @@ public class VistaGrafica implements IVista, Serializable {
 
     }
 
-    private void actualizarManoNorte(ArrayList<ICarta> cartas){
+    private void actualizarManoNorte(ArrayList<ICarta> cartas) {
         listaModeloNorte.removeAllElements();
-        for(int i = 0 ; i<cartas.size();i++){
+        for (int i = 0; i < cartas.size(); i++) {
             ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
             listaModeloNorte.addElement(cartaActual);
         }
@@ -418,15 +426,15 @@ public class VistaGrafica implements IVista, Serializable {
             String tempTipo = String.valueOf(organo.getTipo());
             tempTipo.toLowerCase();
 
-            String tempColor= String.valueOf(organo.getColor());
+            String tempColor = String.valueOf(organo.getColor());
             tempColor.toLowerCase();
 
-            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" +tempTipo + tempColor + ".png";
+            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSurOrganos.addElement(cartaActual);
         }
-        scpOrganosSur.setPreferredSize(new Dimension(lstOrganosSur.getPreferredSize().width, lstOrganosSur.getPreferredSize().height+2));
+        scpOrganosSur.setPreferredSize(new Dimension(lstOrganosSur.getPreferredSize().width, lstOrganosSur.getPreferredSize().height + 2));
         // Revalidar y repintar el panel
         scpOrganosSur.revalidate();
         scpOrganosSur.repaint();
@@ -442,7 +450,7 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void mostrarTurno(IJugador jugadorActual) {
-        lblNotificaciones.setText("Es el turno del Jugador "+jugadorActual.getNombre());
+        lblNotificaciones.setText("Es el turno del Jugador " + jugadorActual.getNombre());
 
     }
 
@@ -458,11 +466,14 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException {
+
+        backgroundPartida = new ImageIcon("src/padre/virus/resources/imagenes/backGruond.jpg").getImage();
+
         mostrarTurno(jugadorActual);
 
         //deshabilita los botones de las vistas las cuales no sea su turno
         //if(!controlador.getNombre().equals(jugadorActual.getNombre())){
-            deshabilitarEntradas(false);
+        deshabilitarEntradas(false);
         //}
         pnlJugadorEast.setVisible(false);
         pnlJugadorWest.setVisible(false);
@@ -478,7 +489,7 @@ public class VistaGrafica implements IVista, Serializable {
         cambiarCardPanel(pnlCardPartida);
 
         lblNombreSur.setForeground(ColorRGB.CYAN);
-        lblNombreSur.setText(" "+controlador.getNombre().toUpperCase()+" ");
+        lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
         lblNombreNorte.setText(controlador.getOponente().toUpperCase());
         mostrarCartas(cartas);
         mostrarCuerpo(organos);
@@ -491,11 +502,11 @@ public class VistaGrafica implements IVista, Serializable {
         crearEngranaje();
     }
 
-    private void crearEngranaje(){
+    private void crearEngranaje() {
         JPanel pnlSuperpuesto = new JPanel();
         OverlayLayout overlayLayout = new OverlayLayout(pnlSuperpuesto);
         pnlSuperpuesto.setLayout(overlayLayout);
-        pnlSuperpuesto.setPreferredSize(new Dimension(600,600));
+        pnlSuperpuesto.setPreferredSize(new Dimension(600, 600));
         splPrincipal.add(pnlSuperpuesto);
 
         ImageIcon imgiEngranaje = new ImageIcon("src/padre/virus/resources/imagenes/Engranaje.png");
@@ -512,7 +523,7 @@ public class VistaGrafica implements IVista, Serializable {
 
         JPanel pnlContenedorEngranaje = new JPanel();
         pnlContenedorEngranaje.setLayout(new BorderLayout());
-        pnlContenedorEngranaje.add(lblEngranaje,BorderLayout.WEST);
+        pnlContenedorEngranaje.add(lblEngranaje, BorderLayout.WEST);
         pnlContenedorEngranaje.setOpaque(false);
 
         pnlSuperpuesto.add(pnlContenedorEngranaje);
@@ -543,10 +554,11 @@ public class VistaGrafica implements IVista, Serializable {
     @Override
     public void terminarTurno() {
         deshabilitarEntradas(true);
+        System.out.println("paso por terminarTurno()");
     }
 
-    private void deshabilitarEntradas(boolean terminoTurno){
-        if((!controlador.getNombre().equals(controlador.getJugadorActual().getNombre())) || terminoTurno){
+    private void deshabilitarEntradas(boolean terminoTurno) {
+        if ((!controlador.getNombre().equals(controlador.getJugadorActual().getNombre())) || terminoTurno) {
             btnTirarVirus.setEnabled(false);
             btnCurar.setEnabled(false);
             btnDescartar.setEnabled(false);
@@ -559,13 +571,14 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void HabilitarTurno() {
-
-        btnTirarVirus.setEnabled(true);
-        btnCurar.setEnabled(true);
-        btnDescartar.setEnabled(true);
-        btnTerminarTurno.setEnabled(true);
-        frame.revalidate();
-        frame.repaint();
+        if ((controlador.getNombre().equals(controlador.getJugadorActual().getNombre()))) {
+            btnTirarVirus.setEnabled(true);
+            btnCurar.setEnabled(true);
+            btnDescartar.setEnabled(true);
+            btnTerminarTurno.setEnabled(true);
+            frame.revalidate();
+            frame.repaint();
+        }
 
 
     }
@@ -589,13 +602,12 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
 
-
-    public void mostrarChat(String texto, String jugador){
+    public void mostrarChat(String texto, String jugador) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:MM: ");
         printear(LocalDateTime.now().format(formato), ColorRGB.CYAN);
-        printear(jugador+": ",ColorRGB.YELLOW);
-        printear(texto,ColorRGB.GREEN);
-        printear("\n",Color.white);
+        printear(jugador + ": ", ColorRGB.YELLOW);
+        printear(texto, ColorRGB.GREEN);
+        printear("\n", Color.white);
     }
 
     public void printear(String texto, Color color) {

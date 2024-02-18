@@ -65,15 +65,15 @@ public class Controlador implements IControladorRemoto {
                 }
                 case TERMINO_TURNO -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
-                    if(jugadorActual.equals(nombreJugador)){
-                        vista.mostrarTurno(jugadorActual);
+                    if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
+                        //vista.mostrarTurno(jugadorActual);
                         this.modelo.tomarCarta(nombreJugador);
                         vista.mostrarCuerposEnLista(nombreJugador.getNombre(),jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
                     }
-                    jugadorActual = this.modelo.cambiarTurno(idJA);
+                    jugadorActual = this.modelo.turnoActual();
                     vista.notificarMensaje("Es turno del jugador: " + jugadorActual.getNombre());
                     if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
                         vista.mostrarTurno(jugadorActual);
@@ -112,6 +112,14 @@ public class Controlador implements IControladorRemoto {
         return jugadores;
     }
 
+    public ArrayList<IJugador> listaIJugadores(){
+        try {
+            return modelo.obtenerIJugadores();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int obtenerMazo() {
 
         try {
@@ -145,15 +153,19 @@ public class Controlador implements IControladorRemoto {
     }
 
     public boolean isTurno(){
-        return nombreJugador.equals(jugadorActual);
+        return nombreJugador.getNombre().equals(jugadorActual.getNombre());
     }
 
     public ArrayList<ICarta> obtenerCartas(){
         return cartas;
     }
 
-    public ArrayList<ICarta> getManoContrincante(String nombre) throws RemoteException {
-        return modelo.obtenerCartas(nombre);
+    public ArrayList<ICarta> getManoContrincante(String nombre) {
+        try {
+            return modelo.obtenerCartas(nombre);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getOponente(){
