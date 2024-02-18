@@ -159,6 +159,15 @@ public class Controlador implements IControladorRemoto {
     public ArrayList<ICarta> obtenerCartas(){
         return cartas;
     }
+    public boolean esCura(int indice){
+        boolean cura = false;
+        for(ICarta carta : obtenerCartas()){
+            if(carta instanceof Cura){
+                cura = true;
+            }
+        }
+        return cura;
+    }
 
     public ArrayList<ICarta> getManoContrincante(String nombre) {
         try {

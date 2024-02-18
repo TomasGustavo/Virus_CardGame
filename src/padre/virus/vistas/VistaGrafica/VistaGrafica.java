@@ -113,8 +113,8 @@ public class VistaGrafica implements IVista, Serializable {
         frame = new JFrame("Virus");
         frame.setContentPane(pnlPrincipal);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(500, 500));
-        frame.setPreferredSize(new Dimension(600, 600));
+        frame.setMinimumSize(new Dimension(450, 400));
+        frame.setPreferredSize(new Dimension(900, 700));
         frame.setLocation(x, y);
         //frame.setVisible(true);
 
@@ -243,6 +243,21 @@ public class VistaGrafica implements IVista, Serializable {
                     btnDescartar.setEnabled(false);
                 }else{
                     notificarMensaje("No puede descartar sin antes seleccionar una o mas cartas de su mano");
+                }
+            }
+        });
+
+        btnCurar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int idCarta = lstManoSur.getSelectedIndex()+1;
+                if(idCarta != -1 && controlador.esCura(idCarta) && lstOrganosSur.getSelectedIndex() !=-1){
+                    controlador.tirarCarta(controlador.getNombre(),idCarta,lstOrganosSur.getSelectedIndex()+1);
+                    controlador.actualizarMano();
+                    mostrarCuerpo(controlador.obtenerOrganos(controlador.getNombre()));
+                    notificarMensaje("Cura realiza con exito!");
+                }else{
+                    notificarMensaje("No puede curarse sin antes seleccionar una carta de CURA y un ORGANO");
                 }
             }
         });
