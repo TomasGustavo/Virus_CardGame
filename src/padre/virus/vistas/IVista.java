@@ -22,6 +22,7 @@ public interface IVista {
     void mostrarNuevoJugador();
     public void cartelInicioPartida();
     public void mostrarTexto(String txt);
+    public void actualizarMazo(int mazo, int descarte);
     void terminarTurno();
     void HabilitarTurno();
     void partidaTerminada(String jugadorActual);

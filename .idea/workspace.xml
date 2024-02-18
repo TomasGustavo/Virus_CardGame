@@ -4,36 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- btnDescartas funcionando">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- agregado de imagenes nuevas&#10;- redimension del contenedor de las cartas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaamarillo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaamarillo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaazul.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaazul.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curamulticolor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curamulticolor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curarojo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curarojo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaverde.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/curaverde.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/dorsomazo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/dorsomazo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoamarillo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoamarillo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoamarilloinfectado.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoamarilloinfectado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoamarilloinmune.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoamarilloinmune.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoazul.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoazul.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoazulinfectado.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoazulinfectado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoazulinmune.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoazulinmune.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organomulticolor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organomulticolor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organomulticolorinfectado.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organomulticolorinfectado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organomulticolorinmune.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organomulticolorinmune.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organorojo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organorojo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organorojoinfectado.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organorojoinfectado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organorojoinmune.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organorojoinmune.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoverde.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoverde.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoverdeinfectado.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoverdeinfectado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoverdeinmune.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/organoverdeinmune.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusamarillo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusamarillo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusazul.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusazul.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusmulticolor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusmulticolor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusrojo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusrojo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusverde.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/Cartas/virusverde.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Eventos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Eventos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
@@ -79,7 +57,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "418",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "444",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -196,23 +174,7 @@
       <workItem from="1708117221894" duration="9364000" />
       <workItem from="1708135299575" duration="2641000" />
       <workItem from="1708257884193" duration="33000" />
-      <workItem from="1708258115055" duration="13871000" />
-    </task>
-    <task id="LOCAL-00014" summary="- fix mazo descarte &#10;- se muestra el cuerpo de los rivales en pantalla">
-      <option name="closed" value="true" />
-      <created>1706140823361</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1706140823361</updated>
-    </task>
-    <task id="LOCAL-00015" summary="- fix fin de partida, mensaje para volver al menu principal">
-      <option name="closed" value="true" />
-      <created>1706141481952</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1706141481952</updated>
+      <workItem from="1708258115055" duration="18707000" />
     </task>
     <task id="LOCAL-00016" summary="- add volver para atras en hacer jugada">
       <option name="closed" value="true" />
@@ -590,7 +552,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708269651666</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="- modificacion Cura() en Organo">
+      <option name="closed" value="true" />
+      <created>1708277662065</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1708277662066</updated>
+    </task>
+    <task id="LOCAL-00064" summary="- agregado de imagenes nuevas&#10;- redimension del contenedor de las cartas">
+      <option name="closed" value="true" />
+      <created>1708277688039</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1708277688039</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,8 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp" />
-    <MESSAGE value="- new png flecha" />
     <MESSAGE value="- boton flecha atras en popUp y nuevos btnSalir y btnReglas" />
     <MESSAGE value="- creacion CardPartda y seteo de los paneles de cada jugador" />
     <MESSAGE value="- Carga de los png de las cartas" />
@@ -633,7 +609,9 @@
     <MESSAGE value="- modificacion de ICarta para poder usar esSano() y esInmune() con los organos." />
     <MESSAGE value="- logo.png" />
     <MESSAGE value="- btnDescartas funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="- btnDescartas funcionando" />
+    <MESSAGE value="- modificacion Cura() en Organo" />
+    <MESSAGE value="- agregado de imagenes nuevas&#10;- redimension del contenedor de las cartas" />
+    <option name="LAST_COMMIT_MESSAGE" value="- agregado de imagenes nuevas&#10;- redimension del contenedor de las cartas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -644,5 +622,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="descartes[0]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -20,6 +20,8 @@ import java.rmi.RemoteException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import static java.lang.System.exit;
 
@@ -87,6 +89,10 @@ public class VistaGrafica implements IVista, Serializable {
     private JButton btnDescartar;
     private JPanel pnlContenedorJugadorSur;
     private JPanel pnlContenedorBotones;
+    private JLabel lblCartasMazo;
+    private JLabel lblCartasDescarte;
+    private JLabel lblNumeroDescarte;
+    private JLabel lblNumeroMazo;
 
     private ImageIcon imgiEngranaje;
     private ImageIcon imgiMazo;
@@ -234,8 +240,10 @@ public class VistaGrafica implements IVista, Serializable {
             public void actionPerformed(ActionEvent e) {
                 if(lstManoSur.getSelectedIndices() != null){
                     int descartes[] = lstManoSur.getSelectedIndices();
+                    int j = lstManoSur.getSelectedIndices().length -1;
                     for(int i : descartes){
-                        controlador.descartar(i);
+                        controlador.descartar(j);
+                        j--;
                     }
                     controlador.actualizarMano();
                     mostrarCuerpo(controlador.obtenerOrganos(controlador.getNombre()));
@@ -473,6 +481,11 @@ public class VistaGrafica implements IVista, Serializable {
 
     }
 
+    public void actualizarMazo(int mazo, int descarte){
+        lblNumeroMazo.setText(""+mazo);
+        lblNumeroDescarte.setText(""+descarte);
+    }
+
     @Override
     public void mostrarCuerpo(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
 
@@ -550,6 +563,8 @@ public class VistaGrafica implements IVista, Serializable {
         imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
         lblMazo.setIcon(imgiMazo);
         lblMazoDescarte.setIcon(imgiMazo);
+        lblNumeroMazo.setText(""+controlador.obtenerMazo());
+        lblNumeroDescarte.setText(""+controlador.obtenerMazoDescarte());
 
         cambiarCardPanel(pnlCardPartida);
 

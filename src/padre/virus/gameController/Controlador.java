@@ -4,6 +4,7 @@ import ar.edu.unlu.rmimvc.cliente.IControladorRemoto;
 import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
 import padre.virus.modelo.*;
 import padre.virus.vistas.IVista;
+import padre.virus.vistas.VistaGrafica.VistaGrafica;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -98,6 +99,9 @@ public class Controlador implements IControladorRemoto {
                 case ABANDONO_PARTIDA -> {
                     vista.abandonoPartida(nombreJugador.getNombre());
                 }
+                case ACTUALIZAR_MAZOS -> {
+                    vista.actualizarMazo(obtenerMazo(),obtenerMazoDescarte());
+                }
 
                 case MENSAJE_CHAT -> {
 
@@ -128,6 +132,15 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
+    public int obtenerMazoDescarte() {
+
+        try {
+            return modelo.obtenerMazoDescarte().size();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public void AgregarJugador(String nombre){
         try {

@@ -124,6 +124,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
                 }
             }
         }
+        notificarObservadores(Eventos.ACTUALIZAR_MAZOS);
     }
 
     @Override
@@ -192,6 +193,9 @@ public class Modelo extends ObservableRemoto implements IModelo {
     public ArrayList<ICarta> obtenerMazo()throws RemoteException{
         return mazo.obtenerMazo();
     }
+    public ArrayList<ICarta> obtenerMazoDescarte() throws RemoteException{
+        return mazoDescarte.obtenerMazo();
+    }
 
     @Override
     public ArrayList<ICarta> obtenerCartas(String nombre)throws RemoteException{
@@ -231,7 +235,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
                 actualizarMazoDescarte(jugador.getMano().get(opcion));
                 jugador.descartar(opcion);
                 tomarCarta(nombreJugador);
-                //notificar(Eventos.TERMINO_TURNO);
+                notificarObservadores(Eventos.ACTUALIZAR_MAZOS);
             }
         }
     }

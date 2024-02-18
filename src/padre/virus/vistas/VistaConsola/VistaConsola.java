@@ -120,7 +120,7 @@ public class VistaConsola implements IVista {
             printear(i + " - Carta ["+ carta.toString() +"]\n", ColorRGB.PINK);
             i++;
         }
-        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(), ColorRGB.BLUE);
+
     }
 
     public void mostrarCuerpo(ArrayList<ICarta> organos) {
@@ -244,6 +244,11 @@ public class VistaConsola implements IVista {
 
     public void mostrarTexto(String txt) {
         appendColorPosicion(txt, ColorRGB.GREEN, 0);
+    }
+
+    @Override
+    public void actualizarMazo(int mazo, int descarte) {
+        printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(), ColorRGB.BLUE);
     }
 
     public void abandonoPartida(String nombre) {

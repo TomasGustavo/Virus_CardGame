@@ -24,6 +24,7 @@ public interface IModelo extends IObservableRemoto {
     void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta, int IdOrgano) throws RemoteException;
 
     ArrayList<ICarta> obtenerMazo() throws RemoteException;
+    public ArrayList<ICarta> obtenerMazoDescarte() throws RemoteException;
 
     ArrayList<ICarta> obtenerCartas(String nombre) throws RemoteException;
 
