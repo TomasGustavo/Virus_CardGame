@@ -4,6 +4,7 @@ import padre.virus.gameController.Controlador;
 import padre.virus.modelo.DialogTirarVirus;
 import padre.virus.modelo.ICarta;
 import padre.virus.modelo.IJugador;
+import padre.virus.modelo.Organo;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
@@ -231,7 +232,18 @@ public class VistaGrafica implements IVista, Serializable {
         btnDescartar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if(lstManoSur.getSelectedIndices() != null){
+                    int descartes[] = lstManoSur.getSelectedIndices();
+                    for(int i : descartes){
+                        controlador.descartar(i);
+                    }
+                    controlador.actualizarMano();
+                    mostrarCuerpo(controlador.obtenerOrganos(controlador.getNombre()));
+                    notificarMensaje("Descarte Exitoso");
+                    btnDescartar.setEnabled(false);
+                }else{
+                    notificarMensaje("No puede descartar sin antes seleccionar una o mas cartas de su mano");
+                }
             }
         });
     }
@@ -453,6 +465,7 @@ public class VistaGrafica implements IVista, Serializable {
         listaModeloSurOrganos.removeAllElements();
         String imagenActual;
         for (ICarta organo : organos) {
+            organo = (Organo) organo;
             String tempTipo = String.valueOf(organo.getTipo());
             tempTipo.toLowerCase();
 

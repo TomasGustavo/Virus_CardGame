@@ -18,4 +18,14 @@ public class Virus extends Carta {
         }
         return infectado;
     }
+
+    @Override
+    public boolean estaSano() {
+        return false;
+    }
+
+    @Override
+    public boolean esInmune() {
+        return false;
+    }
 }

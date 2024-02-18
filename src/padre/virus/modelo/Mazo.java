@@ -41,7 +41,6 @@ public class Mazo {
             case CURA: return new Cura(color);
             case ORGANO: return new Organo(color);
             case VIRUS: return new Virus(color);
-            case TRATAMIENTO: return new Tratamiento(color);
             default: throw new IllegalArgumentException("Tipo de carta invalido");
         }
     }
@@ -57,14 +56,13 @@ public class Mazo {
                 .stream()
                 .forEach(color -> {
                     addToMazo(5,Tipo.ORGANO,color);//5
-                    addToMazo(4,Tipo.VIRUS,color);//4
+                    addToMazo(5,Tipo.VIRUS,color);//4
                     addToMazo(4,Tipo.CURA,color);//4
                 });
 
-        addToMazo(1,Tipo.ORGANO,Color.MULTICOLOR);//1
-        addToMazo(1,Tipo.VIRUS,Color.MULTICOLOR);//1
+        addToMazo(3,Tipo.ORGANO,Color.MULTICOLOR);//1
+        addToMazo(3,Tipo.VIRUS,Color.MULTICOLOR);//1
         addToMazo(4,Tipo.CURA,Color.MULTICOLOR);//4
-        //addToMazo(10,Tipo.TRATAMIENTO,Color.NONE);//10
     }
 
     public void BarajarMazo(){

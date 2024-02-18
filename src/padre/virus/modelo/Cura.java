@@ -19,4 +19,14 @@ public class Cura extends Carta {
         }
         return curado;
     }
+
+    @Override
+    public boolean estaSano() {
+        return false;
+    }
+
+    @Override
+    public boolean esInmune() {
+        return false;
+    }
 }
