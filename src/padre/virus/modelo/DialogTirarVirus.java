@@ -18,6 +18,7 @@ public class DialogTirarVirus extends JDialog {
     private JComboBox cbxSeleccionarOrgano;
 
     public DialogTirarVirus(ArrayList<IJugador> jugadores, IJugador jugadorActual, Controlador controlador,Integer IDCartaSeleccionada) {
+
         this.jugadores= jugadores;
         this.jugadorActual= jugadorActual;
         this.controlador = controlador;

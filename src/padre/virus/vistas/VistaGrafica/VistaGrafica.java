@@ -211,9 +211,26 @@ public class VistaGrafica implements IVista, Serializable {
         btnTirarVirus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DialogTirarVirus dialog = new DialogTirarVirus(controlador.listaIJugadores(), controlador.getJugadorActual(), controlador,lstManoSur.getSelectedIndex());
-                dialog.pack();
-                dialog.setVisible(true);
+
+                if(!sinOrganos()){
+                    if(lstManoSur.getSelectedIndex() != -1){
+                        DialogTirarVirus dialog = new DialogTirarVirus(controlador.listaIJugadores(), controlador.getJugadorActual(), controlador,lstManoSur.getSelectedIndex());
+                        dialog.setPreferredSize(new Dimension(400,200));
+                        dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
+                        dialog.pack();
+                        dialog.setVisible(true);
+                    }else {
+                        notificarMensaje("No puede tirar un virus sin antes seleccionar uno de los que tenga en su mano!!!");
+                    }
+                }else {
+                    notificarMensaje("Ningun Oponente tiene Organo/s aun");
+                }
+            }
+        });
+
+        btnDescartar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
             }
         });
@@ -364,6 +381,18 @@ public class VistaGrafica implements IVista, Serializable {
 
     }
 
+    private boolean sinOrganos(){
+        boolean sinorgano = true;
+        for(IJugador oponente : controlador.listaIJugadores()){
+            if(!oponente.getNombre().equals(controlador.getNombre())){
+                if(oponente.getCuerpo().size() > 0 ){
+                    sinorgano = false;
+                }
+            }
+        }
+        return sinorgano;
+    }
+
     @Override
     public void mostrarCartas(ArrayList<ICarta> cartas) throws RemoteException {
         listaModeloSur.removeAllElements();
@@ -422,6 +451,7 @@ public class VistaGrafica implements IVista, Serializable {
 
         lstOrganosSur.setAlignmentX(Component.CENTER_ALIGNMENT);
         listaModeloSurOrganos.removeAllElements();
+        String imagenActual;
         for (ICarta organo : organos) {
             String tempTipo = String.valueOf(organo.getTipo());
             tempTipo.toLowerCase();
@@ -429,7 +459,14 @@ public class VistaGrafica implements IVista, Serializable {
             String tempColor = String.valueOf(organo.getColor());
             tempColor.toLowerCase();
 
-            String imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
+            if(organo.estaSano()){
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
+                if(organo.esInmune()){
+                    imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "inmune.png";
+                }
+            }else{
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "infectado.png";
+            }
             ImageIcon cartaActual = new ImageIcon(imagenActual);
 
             listaModeloSurOrganos.addElement(cartaActual);

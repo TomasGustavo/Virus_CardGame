@@ -7,5 +7,7 @@ public interface ICarta {
 
     Color getColor();
 
+    boolean estaSano();
+    boolean esInmune();
     Tipo getTipo();
 }
