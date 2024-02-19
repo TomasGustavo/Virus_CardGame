@@ -1,8 +1,11 @@
 package padre.virus.modelo;
 
 import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
+import padre.virus.Save;
 import padre.virus.observer.Observador;
+import padre.virus.serializacion.Serializador;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -11,9 +14,10 @@ public class Modelo extends ObservableRemoto implements IModelo {
     private ArrayList<Observador> observadores;
     private Mazo mazo;
     private Mazo mazoDescarte;
-    private final ArrayList<IJugador> jugadores;
+    private ArrayList<IJugador> jugadores;
     private String mensaje;
     private String jug;
+    private static Serializador serializador;
 
     String ganador;
 
@@ -128,10 +132,10 @@ public class Modelo extends ObservableRemoto implements IModelo {
     }
 
     @Override
-    public ArrayList<String> obtenerJugadores() throws RemoteException{
-        ArrayList<String> ListaJugadores = new ArrayList<>();
+    public ArrayList<IJugador> obtenerJugadores() throws RemoteException{
+        ArrayList<IJugador> ListaJugadores = new ArrayList<>();
         for(IJugador jugador : jugadores){
-            ListaJugadores.add(jugador.getNombre());
+            ListaJugadores.add(jugador);
         }
         return ListaJugadores;
     } //TODO cambiar TODO a Ijugadores porque si no es un dolor de pija.
@@ -264,10 +268,10 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
     }
 
-    public void mostrarChat(String txt,String jugador){
+    public void mostrarChat(String txt,IJugador jugador){
         try {
             this.mensaje = txt;
-            this.jug = jugador;
+            this.jug = jugador.getNombre();
             notificarObservadores(Eventos.MENSAJE_CHAT);
 
         } catch (RemoteException e) {
@@ -279,5 +283,50 @@ public class Modelo extends ObservableRemoto implements IModelo {
     }
     public String getJug(){
         return jug;
+    }
+
+    // METODOS RELACIONADOS AL GUARDADO Y CARGA DE PARTIDAS
+
+    public void guardarPartida(String nombrePartida)throws RemoteException{
+        ArrayList<Save> saves = getPartidasGuardadas();
+        if(saves.size()<3){
+            Save partida = new Save(nombrePartida,this);
+            saves.add(partida);
+            agregarPartidaGuardada(saves);
+        }
+    }
+
+    private ArrayList<Save> getPartidasGuardadas(){
+        ArrayList<Save> saves = new ArrayList<>();
+        serializador = new Serializador("ArchivosDeGuardado.dat");
+        Object[] guardado = serializador.readObjects();
+        if(guardado != null){
+            for(int i = 0; i < guardado.length; i++){
+                saves.add((Save) guardado[i]);
+            }
+        }
+        return saves;
+    }
+
+    private void agregarPartidaGuardada(ArrayList<Save> partidas){
+        serializador.writeOneObject(partidas.get(0));
+        for (Save partida : partidas) {
+            serializador.addOneObject(partida);
+        }
+    }
+
+    public void cargarPartida(int idPartida)throws RemoteException{
+        ArrayList<Save> partidas = getPartidasGuardadas();
+        if(partidas.size() >= idPartida){
+            Save carga = partidas.get(idPartida);
+            Modelo juego = carga.getPartidaGuardada();
+            cargarDatos(juego);
+        }
+    }
+    private void cargarDatos(Modelo juego) throws RemoteException {
+        this.mazo = juego.mazo;
+        this.mazoDescarte = juego.mazoDescarte;
+        this.jugadores = juego.obtenerIJugadores();
+
     }
 }
