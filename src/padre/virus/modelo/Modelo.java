@@ -16,7 +16,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     private Mazo mazoDescarte;
     private ArrayList<IJugador> jugadores;
     private String mensaje;
-    private String jug;
+    private IJugador jug;
     private static Serializador serializador;
 
     String ganador;
@@ -138,15 +138,8 @@ public class Modelo extends ObservableRemoto implements IModelo {
             ListaJugadores.add(jugador);
         }
         return ListaJugadores;
-    } //TODO cambiar TODO a Ijugadores porque si no es un dolor de pija.
+    }
 
-    public ArrayList<IJugador> obtenerIJugadores() throws RemoteException{
-        ArrayList<IJugador> ListaJugadores = new ArrayList<>();
-        for(IJugador jugador : jugadores){
-            ListaJugadores.add(jugador);
-        }
-        return ListaJugadores;
-    } //TODO despues borrar esto
 
     @Override
     public void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta, int IdOrgano) throws RemoteException{
@@ -271,7 +264,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     public void mostrarChat(String txt,IJugador jugador){
         try {
             this.mensaje = txt;
-            this.jug = jugador.getNombre();
+            this.jug = jugador;
             notificarObservadores(Eventos.MENSAJE_CHAT);
 
         } catch (RemoteException e) {
@@ -281,7 +274,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     public String getMensaje(){
         return mensaje;
     }
-    public String getJug(){
+    public IJugador getJug(){
         return jug;
     }
 
@@ -326,7 +319,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
     private void cargarDatos(Modelo juego) throws RemoteException {
         this.mazo = juego.mazo;
         this.mazoDescarte = juego.mazoDescarte;
-        this.jugadores = juego.obtenerIJugadores();
+        this.jugadores = juego.obtenerJugadores();
 
     }
 }

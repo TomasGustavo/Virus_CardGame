@@ -17,8 +17,8 @@ public interface IVista {
     public void mostrarCuerposEnLista(IJugador jugador,ArrayList<IJugador> jugadores);
     void mostrarTurno(IJugador jugadorActual);
     void mostrarJugadores(ArrayList<IJugador> jugadores);
-    void mostrarNuevoJugador(IJugador jugador); // TODO convertidor a IJugador
-    void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException; // TODO convertidor a IJugador
+    void mostrarNuevoJugador(IJugador jugador);
+    void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException;
     void mostrarNuevoJugador();
     public void cartelInicioPartida();
     public void mostrarTexto(String txt);
@@ -26,9 +26,9 @@ public interface IVista {
     void terminarTurno();
     void HabilitarTurno();
     void partidaTerminada(String jugadorActual);
-    void abandonoPartida(String nombre); // TODO convertidor a IJugador
+    void abandonoPartida(IJugador nombre); // TODO convertidor a IJugador
     void notificarMensaje(String texto);
     //void printearNotificacion(String jugadorActual, Color color);
     void printear(String texto,Color color);
-    void mostrarChat(String texto, String nombreJugador); // TODO convertidor a IJugador
+    void mostrarChat(String texto, IJugador nombreJugador);
 }

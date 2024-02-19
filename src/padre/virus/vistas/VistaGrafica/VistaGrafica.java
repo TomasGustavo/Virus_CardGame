@@ -671,8 +671,8 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     @Override
-    public void abandonoPartida(String nombre) {
-
+    public void abandonoPartida(IJugador nombre) {
+        notificarMensaje("El jugador "+nombre.getNombre()+" ha abanado la partida");
     }
 
 
@@ -684,10 +684,10 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
 
-    public void mostrarChat(String texto, String jugador) {
+    public void mostrarChat(String texto, IJugador jugador) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:MM: ");
         printear(LocalDateTime.now().format(formato), ColorRGB.CYAN);
-        printear(jugador + ": ", ColorRGB.YELLOW);
+        printear(jugador.getNombre() + ": ", ColorRGB.YELLOW);
         printear(texto, ColorRGB.GREEN);
         printear("\n", Color.white);
     }

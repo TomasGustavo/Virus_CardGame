@@ -118,7 +118,7 @@ public class Controlador implements IControladorRemoto {
 
     public ArrayList<IJugador> listaIJugadores(){
         try {
-            return modelo.obtenerIJugadores();
+            return modelo.obtenerJugadores();
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

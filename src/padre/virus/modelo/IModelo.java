@@ -19,7 +19,6 @@ public interface IModelo extends IObservableRemoto {
     void tomarCarta(IJugador nombreJugador) throws RemoteException;
 
     ArrayList<IJugador> obtenerJugadores() throws RemoteException;
-    public ArrayList<IJugador> obtenerIJugadores() throws RemoteException; //TODO tambien borrar esto
 
     void tirarCarta(String jugadorOrigen, String jugadorDestino, Integer IdCarta, int IdOrgano) throws RemoteException;
 
@@ -43,5 +42,5 @@ public interface IModelo extends IObservableRemoto {
 
     void mostrarChat(String txt,IJugador jugador) throws RemoteException;
     String getMensaje() throws RemoteException;
-    String getJug() throws RemoteException;
+    IJugador getJug() throws RemoteException;
 }

@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- ajuste de interfaz grafica&#10;- nueva manera de mostrar cartas en mazo&#10;- fix seleccion de cartas en VistaGrafica">
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/Save.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/serializacion/AddableObjectOutputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/serializacion/Serializador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- new metodos en Modelo relacionados a serializacion">
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/IVista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,31 +176,7 @@
       <workItem from="1708257884193" duration="33000" />
       <workItem from="1708258115055" duration="18846000" />
       <workItem from="1708307625157" duration="914000" />
-      <workItem from="1708372349664" duration="6022000" />
-    </task>
-    <task id="LOCAL-00017" summary="- add poder descartar varias veces, hay que arreglar para que sea maximo 3 veces (deje todo como estaba antes, mañana mirar bien&#10;)">
-      <option name="closed" value="true" />
-      <created>1706153263730</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1706153263730</updated>
-    </task>
-    <task id="LOCAL-00018" summary="- add seleccion multiple para descarte&#10;)">
-      <option name="closed" value="true" />
-      <created>1706219877806</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1706219877806</updated>
-    </task>
-    <task id="LOCAL-00019" summary="- cambio en la manera de mostrar quien se unio a la partida&#10;&#10;)">
-      <option name="closed" value="true" />
-      <created>1706222139846</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1706222139846</updated>
+      <workItem from="1708372349664" duration="6856000" />
     </task>
     <task id="LOCAL-00020" summary="- creacion de propia paleta de colores">
       <option name="closed" value="true" />
@@ -575,7 +546,31 @@
       <option name="project" value="LOCAL" />
       <updated>1708282321420</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="- change class jugadors en Controlador, String to IJugador">
+      <option name="closed" value="true" />
+      <created>1708379237301</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1708379237301</updated>
+    </task>
+    <task id="LOCAL-00067" summary="- new classes para serializacion">
+      <option name="closed" value="true" />
+      <created>1708379253805</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1708379253805</updated>
+    </task>
+    <task id="LOCAL-00068" summary="- new metodos en Modelo relacionados a serializacion">
+      <option name="closed" value="true" />
+      <created>1708379274344</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1708379274344</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,9 +588,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- creacion CardPartda y seteo de los paneles de cada jugador" />
-    <MESSAGE value="- Carga de los png de las cartas" />
-    <MESSAGE value="- Cmabia a clase abstracta" />
     <MESSAGE value="- implementacion pasar ICarta en vez de String" />
     <MESSAGE value="- Cambio de parametros en los metodos a ICarta" />
     <MESSAGE value="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido" />
@@ -618,7 +610,10 @@
     <MESSAGE value="- modificacion Cura() en Organo" />
     <MESSAGE value="- agregado de imagenes nuevas&#10;- redimension del contenedor de las cartas" />
     <MESSAGE value="- ajuste de interfaz grafica&#10;- nueva manera de mostrar cartas en mazo&#10;- fix seleccion de cartas en VistaGrafica" />
-    <option name="LAST_COMMIT_MESSAGE" value="- ajuste de interfaz grafica&#10;- nueva manera de mostrar cartas en mazo&#10;- fix seleccion de cartas en VistaGrafica" />
+    <MESSAGE value="- change class jugadors en Controlador, String to IJugador" />
+    <MESSAGE value="- new classes para serializacion" />
+    <MESSAGE value="- new metodos en Modelo relacionados a serializacion" />
+    <option name="LAST_COMMIT_MESSAGE" value="- new metodos en Modelo relacionados a serializacion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

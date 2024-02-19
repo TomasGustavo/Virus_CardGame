@@ -76,7 +76,7 @@ public class VistaConsola implements IVista {
         }
     }
 
-    public void mostrarChat(String texto, String nombreJugador) {
+    public void mostrarChat(String texto, IJugador nombreJugador) {
         System.out.println(texto);
     }
 
@@ -251,7 +251,7 @@ public class VistaConsola implements IVista {
         printear("\nCartas restantes en el  mazo: " + controlador.obtenerMazo(), ColorRGB.BLUE);
     }
 
-    public void abandonoPartida(String nombre) {
+    public void abandonoPartida(IJugador nombre) {
 
         flujoActual = new FlujoPartidaTerminada(this, controlador, controlador.getJugadorActual().getNombre(), false);
         flujoActual.mostrarSiguienteTexto();
