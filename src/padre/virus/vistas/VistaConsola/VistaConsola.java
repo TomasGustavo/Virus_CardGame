@@ -134,13 +134,13 @@ public class VistaConsola implements IVista {
         }
     }
 
-    public void mostrarCuerposEnLista(String jugador, ArrayList<String> jugadores) {
-        for (String i : jugadores) {
-            if (!i.equals(jugador)) {
+    public void mostrarCuerposEnLista(IJugador jugador, ArrayList<IJugador> jugadores) {
+        for (IJugador i : jugadores) {
+            if (!i.getNombre().equals(jugador.getNombre())) {
                 //printear("\n----------------------------------------------------------------------",Color.orange);
                 printear("\nCuerpo de " + i + ": ", ColorRGB.CYAN);
                 int j = 1;
-                for (ICarta organo : controlador.obtenerOrganos(i)) {
+                for (ICarta organo : controlador.obtenerOrganos(i.getNombre())) {
                     printear(j + " - " + organo.toString() + "  |  ", Color.white);
                     j++;
                 }
@@ -165,15 +165,15 @@ public class VistaConsola implements IVista {
     }
 
     @Override
-    public void mostrarJugadores(ArrayList<String> jugadores) {
-        for (String jugador : jugadores) {
-            printear("\n1 - " + jugador + "\n", ColorRGB.ORANGE);
+    public void mostrarJugadores(ArrayList<IJugador> jugadores) {
+        for (IJugador jugador : jugadores) {
+            printear("\n1 - " + jugador.getNombre() + "\n", ColorRGB.ORANGE);
         }
     }
 
     @Override
-    public void mostrarNuevoJugador(String jugador) {
-        printear("\n\nEl jugador " + jugador + " se unio correctamente\n\n", ColorRGB.GREEN);
+    public void mostrarNuevoJugador(IJugador jugador) {
+        printear("\n\nEl jugador " + jugador.getNombre() + " se unio correctamente\n\n", ColorRGB.GREEN);
 
     }
 

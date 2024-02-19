@@ -93,6 +93,7 @@ public class VistaGrafica implements IVista, Serializable {
     private JLabel lblCartasDescarte;
     private JLabel lblNumeroDescarte;
     private JLabel lblNumeroMazo;
+    private JLabel lblLogoTitulo;
 
     private ImageIcon imgiEngranaje;
     private ImageIcon imgiMazo;
@@ -150,6 +151,7 @@ public class VistaGrafica implements IVista, Serializable {
 
         splPrincipal.remove(pnlMenu);
         txtEscritura.setEnabled(false);
+
 
         // funcionalidad de los botones
 
@@ -456,10 +458,10 @@ public class VistaGrafica implements IVista, Serializable {
 
     private void mostrarManoJugadores() throws RemoteException {
         int jugadorID = (controlador.getIdJA() + 1) % controlador.listaJugadores().size();
-        String jugadorNombre = controlador.listaJugadores().get(jugadorID);
+        IJugador jugadorNombre = controlador.listaJugadores().get(jugadorID);
         int cantidadJugadores = controlador.listaJugadores().size() - 1;
         switch (cantidadJugadores) {
-            case 1 -> actualizarManoNorte(controlador.getManoContrincante(jugadorNombre));
+            case 1 -> actualizarManoNorte(controlador.getManoContrincante(jugadorNombre.getNombre()));
             //case 2 -> actualizarManoOeste(controlador.getManoContrincante(jugadorNombre));
             //case 3 -> actualizarManoEste(controlador.getManoContrincante(jugadorNombre));
         }
@@ -522,7 +524,7 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     @Override
-    public void mostrarCuerposEnLista(String jugador, ArrayList<String> jugadores) {
+    public void mostrarCuerposEnLista(IJugador jugador, ArrayList<IJugador> jugadores) {
 
     }
 
@@ -533,12 +535,12 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     @Override
-    public void mostrarJugadores(ArrayList<String> jugadores) {
+    public void mostrarJugadores(ArrayList<IJugador> jugadores) {
 
     }
 
     @Override
-    public void mostrarNuevoJugador(String jugador) {
+    public void mostrarNuevoJugador(IJugador jugador) {
 
     }
 

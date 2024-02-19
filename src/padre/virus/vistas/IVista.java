@@ -14,10 +14,10 @@ public interface IVista {
     void mostrar();
     void mostrarCartas(ArrayList<ICarta> cartas) throws RemoteException;
     public void mostrarCuerpo(ArrayList<ICarta> organos);
-    public void mostrarCuerposEnLista(String jugador,ArrayList<String> jugadores); // TODO convertidor a IJugador
-    void mostrarTurno(IJugador jugadorActual); // TODO convertidor a IJugador
-    void mostrarJugadores(ArrayList<String> jugadores); // TODO convertidor a IJugador
-    void mostrarNuevoJugador(String jugador); // TODO convertidor a IJugador
+    public void mostrarCuerposEnLista(IJugador jugador,ArrayList<IJugador> jugadores);
+    void mostrarTurno(IJugador jugadorActual);
+    void mostrarJugadores(ArrayList<IJugador> jugadores);
+    void mostrarNuevoJugador(IJugador jugador); // TODO convertidor a IJugador
     void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException; // TODO convertidor a IJugador
     void mostrarNuevoJugador();
     public void cartelInicioPartida();

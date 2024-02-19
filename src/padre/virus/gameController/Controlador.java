@@ -19,7 +19,7 @@ public class Controlador implements IControladorRemoto {
     String Ganador;
     private boolean partidaIniciada = false;
     private ArrayList<ICarta> mazo;
-    private ArrayList<String> jugadores;
+    private ArrayList<IJugador> jugadores;
     private ArrayList<ICarta> cartas;
     private ArrayList<ICarta> organos;
     private ArrayList<ICarta> descarte;
@@ -50,7 +50,7 @@ public class Controlador implements IControladorRemoto {
             switch((Eventos) evento) {
                 case NUEVO_JUGADOR -> {
                     jugadores = this.modelo.obtenerJugadores();
-                    this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 )+" se ha unido a la partida\n");
+                    this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 ).getNombre()+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
                     cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
@@ -69,7 +69,7 @@ public class Controlador implements IControladorRemoto {
                     if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
                         //vista.mostrarTurno(jugadorActual);
                         this.modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerposEnLista(nombreJugador.getNombre(),jugadores);
+                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
                         vista.mostrarCartas(cartas);
                         vista.terminarTurno();
@@ -79,7 +79,7 @@ public class Controlador implements IControladorRemoto {
                     if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
                         vista.mostrarTurno(jugadorActual);
                         this.modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerposEnLista(nombreJugador.getNombre(),jugadores);
+                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
                         vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
                         vista.mostrarCartas(cartas);
                         vista.HabilitarTurno();
@@ -112,7 +112,7 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
-    public ArrayList<String> listaJugadores(){
+    public ArrayList<IJugador> listaJugadores(){
         return jugadores;
     }
 
@@ -273,8 +273,8 @@ public class Controlador implements IControladorRemoto {
 
     public void actualizarChat(String txt, String jugador){
         try {
-            for(String j: jugadores){
-                if(jugador.equals(j)){
+            for(IJugador j: jugadores){
+                if(jugador.equals(j.getNombre())){
 
                     modelo.mostrarChat(txt,j);
                 }
