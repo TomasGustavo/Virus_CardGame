@@ -26,7 +26,7 @@ public interface IVista {
     void terminarTurno();
     void HabilitarTurno();
     void partidaTerminada(String jugadorActual);
-    void abandonoPartida(IJugador nombre); // TODO convertidor a IJugador
+    void abandonoPartida(IJugador nombre);
     void notificarMensaje(String texto);
     //void printearNotificacion(String jugadorActual, Color color);
     void printear(String texto,Color color);

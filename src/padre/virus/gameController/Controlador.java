@@ -97,7 +97,7 @@ public class Controlador implements IControladorRemoto {
                     vista.partidaTerminada(Ganador);
                 }
                 case ABANDONO_PARTIDA -> {
-                    vista.abandonoPartida(nombreJugador.getNombre());
+                    vista.abandonoPartida(nombreJugador);
                 }
                 case ACTUALIZAR_MAZOS -> {
                     vista.actualizarMazo(obtenerMazo(),obtenerMazoDescarte());
