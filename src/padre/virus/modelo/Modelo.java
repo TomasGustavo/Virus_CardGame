@@ -5,11 +5,13 @@ import padre.virus.Save;
 import padre.virus.observer.Observador;
 import padre.virus.serializacion.Serializador;
 
+import javax.security.sasl.SaslClient;
 import java.io.Serializable;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class Modelo extends ObservableRemoto implements IModelo {
+public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
     private ArrayList<Observador> observadores;
     private Mazo mazo;
@@ -282,7 +284,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
 
     public void guardarPartida(String nombrePartida)throws RemoteException{
         ArrayList<Save> saves = getPartidasGuardadas();
-        if(saves.size()<3){
+        if(saves.size()<4){
             Save partida = new Save(nombrePartida,this);
             saves.add(partida);
             agregarPartidaGuardada(saves);
@@ -301,7 +303,7 @@ public class Modelo extends ObservableRemoto implements IModelo {
         return saves;
     }
 
-    private void agregarPartidaGuardada(ArrayList<Save> partidas){
+    private void agregarPartidaGuardada(ArrayList<Save> partidas){ // TODO mirar porque guarda la partida 2 veces
         serializador.writeOneObject(partidas.get(0));
         for (Save partida : partidas) {
             serializador.addOneObject(partida);
@@ -321,5 +323,26 @@ public class Modelo extends ObservableRemoto implements IModelo {
         this.mazoDescarte = juego.mazoDescarte;
         this.jugadores = juego.obtenerJugadores();
 
+    }
+
+    public ArrayList<String> getListaPartidas() throws RemoteException{
+        ArrayList<Save> partidas = getPartidasGuardadas();
+        ArrayList<String> listaSaves = new ArrayList<>();
+        if(!partidas.isEmpty()){
+            for(Save actual : partidas){
+                listaSaves.add(actual.toString());
+            }
+        }
+        return listaSaves;
+    }
+
+    public void reEscribirPartida(int posicion, String nombreSave)throws RemoteException{
+        ArrayList<Save> partidas = getPartidasGuardadas();
+        if(partidas.size() >= posicion){
+            Save partida = new Save(nombreSave,this);
+            partidas.remove(posicion);
+            partidas.add(posicion,partida);
+            agregarPartidaGuardada(partidas);
+        }
     }
 }

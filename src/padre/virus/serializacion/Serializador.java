@@ -8,29 +8,40 @@ public class Serializador {
     private final String fileName;
 
     public Serializador(String fileName) {
+        super();
         this.fileName = fileName;
     }
 
     public boolean writeOneObject(Object obj) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+        boolean respuesta = false;
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName));
             oos.writeObject(obj);
             oos.close();
-            return true;
+            respuesta = true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
+        return respuesta;
     }
 
     public boolean addOneObject(Object obj) {
-        try (AddableObjectOutputStream oos = new AddableObjectOutputStream(new FileOutputStream(fileName, true))) {
+        boolean respuesta = false;
+        try {
+            AddableObjectOutputStream oos = new AddableObjectOutputStream (new FileOutputStream(fileName,true));
             oos.writeObject(obj);
             oos.close();
-            return true;
+            respuesta = true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
+        return respuesta;
     }
 
 

@@ -1,6 +1,7 @@
 package padre.virus.modelo;
 
 import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
+import padre.virus.Save;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -43,4 +44,9 @@ public interface IModelo extends IObservableRemoto {
     void mostrarChat(String txt,IJugador jugador) throws RemoteException;
     String getMensaje() throws RemoteException;
     IJugador getJug() throws RemoteException;
+
+    void guardarPartida(String nombrePartida)throws RemoteException;
+    void cargarPartida(int idPartida)throws RemoteException;
+    ArrayList<String> getListaPartidas() throws RemoteException;
+    void reEscribirPartida(int posicion, String nombreSave)throws RemoteException;
 }

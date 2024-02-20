@@ -1,6 +1,8 @@
 package padre.virus.modelo;
 
-public enum Color {
+import java.io.Serializable;
+
+public enum Color implements Serializable {
         NONE,
         ROJO,
         AZUL,

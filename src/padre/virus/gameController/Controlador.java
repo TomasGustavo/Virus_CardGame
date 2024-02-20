@@ -2,6 +2,7 @@ package padre.virus.gameController;
 
 import ar.edu.unlu.rmimvc.cliente.IControladorRemoto;
 import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
+import padre.virus.Save;
 import padre.virus.modelo.*;
 import padre.virus.vistas.IVista;
 import padre.virus.vistas.VistaGrafica.VistaGrafica;
@@ -102,7 +103,6 @@ public class Controlador implements IControladorRemoto {
                 case ACTUALIZAR_MAZOS -> {
                     vista.actualizarMazo(obtenerMazo(),obtenerMazoDescarte());
                 }
-
                 case MENSAJE_CHAT -> {
 
                     vista.mostrarChat(this.modelo.getMensaje(), this.modelo.getJug());
@@ -155,6 +155,9 @@ public class Controlador implements IControladorRemoto {
 
     public String getNombre() {
         return nombreJugador.getNombre();
+    }
+    public IJugador getJugador(){
+        return nombreJugador;
     }
 
     public IJugador getJugadorActual(){
@@ -282,6 +285,31 @@ public class Controlador implements IControladorRemoto {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void guardarPartida(String nombreSave){
+        try {
+            modelo.guardarPartida(nombreSave);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void sobreEscribirPartida(int posicion,String nombreSave){
+        try {
+            modelo.reEscribirPartida(posicion,nombreSave);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<String> getPartidasGuardadas(){
+        ArrayList<String> partidas;
+        try {
+            partidas = modelo.getListaPartidas();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+        return partidas;
     }
 
 

@@ -1,10 +1,12 @@
 package padre.virus.modelo;
 
+import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Stream;
 
-public class Mazo {
+public class Mazo implements Serializable{
 
-    private List<Carta> mazo;
+    private ArrayList<Carta> mazo;
 
     public Mazo (boolean vacio){
         this.mazo = new ArrayList<>();
@@ -14,7 +16,7 @@ public class Mazo {
 
     }
 
-    public List<Carta> getMazo(){
+    public ArrayList<Carta> getMazo(){
         return mazo;
     }
 
@@ -52,14 +54,11 @@ public class Mazo {
     }
 
     public void buildMazo(){
-        Arrays.asList(Color.ROJO,Color.VERDE,Color.AZUL,Color.AMARILLO)
-                .stream()
-                .forEach(color -> {
-                    addToMazo(5,Tipo.ORGANO,color);//5
-                    addToMazo(5,Tipo.VIRUS,color);//4
-                    addToMazo(4,Tipo.CURA,color);//4
-                });
-
+        for(Color color : Arrays.asList(Color.ROJO,Color.AMARILLO,Color.AZUL,Color.VERDE)){
+            addToMazo(5,Tipo.ORGANO,color);//5
+            addToMazo(5,Tipo.VIRUS,color);//4
+            addToMazo(4,Tipo.CURA,color);//4
+        }
         addToMazo(3,Tipo.ORGANO,Color.MULTICOLOR);//1
         addToMazo(3,Tipo.VIRUS,Color.MULTICOLOR);//1
         addToMazo(4,Tipo.CURA,Color.MULTICOLOR);//4

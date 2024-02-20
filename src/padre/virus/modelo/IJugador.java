@@ -3,7 +3,7 @@ package padre.virus.modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public interface IJugador {
+public interface IJugador{
 
     ArrayList<Organo> getCuerpo();
     boolean setCuerpo(Carta organo);

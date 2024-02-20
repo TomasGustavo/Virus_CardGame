@@ -1,6 +1,7 @@
 package padre.virus.vistas.VistaConsola.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.IJugador;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola.VistaConsola;
 
@@ -17,9 +18,9 @@ public class FlujoSeleccionarJugador extends Flujo{
             if(opcion == 0){
                 return new FlujoJugar(vista,controlador);
             }
-            String jugadorDestino = controlador.listaJugadores().get(opcion-1);
+            IJugador jugadorDestino = controlador.listaJugadores().get(opcion-1);
 
-            return new FlujoSeleccionCarta(vista,controlador,jugadorDestino,false,null);
+            return new FlujoSeleccionCarta(vista,controlador,jugadorDestino.getNombre(),false,null);
 
         } catch (NumberFormatException e){
             vista.printear("\nNumero de jugador fuera de rango\n", ColorRGB.RED);
@@ -30,8 +31,8 @@ public class FlujoSeleccionarJugador extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         int i = 1;
-        for(String jugador: controlador.listaJugadores()){
-            vista.printear(i + " - "+ jugador+"\n", ColorRGB.ORANGE);
+        for(IJugador jugador: controlador.listaJugadores()){
+            vista.printear(i + " - "+ jugador.getNombre()+"\n", ColorRGB.ORANGE);
             i++;
         }
         vista.printear("-------------------------------------------------------------------\n",ColorRGB.MAGENTA);

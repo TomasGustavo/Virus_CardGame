@@ -26,6 +26,6 @@ public class Save implements Serializable {
 
     @Override
     public String toString() {
-        return "Nombre del Save: "+ nombreArchivo + "Fecha: "+fecha+"-"+hora;
+        return "Nombre del Save: "+ nombreArchivo + " | Fecha: "+fecha+" - "+hora;
     }
 }

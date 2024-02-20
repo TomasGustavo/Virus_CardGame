@@ -1,10 +1,7 @@
 package padre.virus.vistas.VistaGrafica;
 
 import padre.virus.gameController.Controlador;
-import padre.virus.modelo.DialogTirarVirus;
-import padre.virus.modelo.ICarta;
-import padre.virus.modelo.IJugador;
-import padre.virus.modelo.Organo;
+import padre.virus.modelo.*;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
@@ -14,14 +11,13 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.Color;
 import java.awt.event.*;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 import static java.lang.System.exit;
 
@@ -51,6 +47,8 @@ public class VistaGrafica implements IVista, Serializable {
     private JTextPane txpChat;
     private JButton btnOpcSalir;
     private JButton btnOpcReglas;
+    private JButton btnGuardarPartida;
+    private JButton btnCargarPartida;
     private JLabel lblEngranaje;
     private JLabel lblBackGround;
     private JPanel pnlCardPartida;
@@ -314,11 +312,20 @@ public class VistaGrafica implements IVista, Serializable {
         JCheckBox deshabilitarChat = getjCheckBox();
         btnOpcSalir = getbtnOpcSalir();
         btnOpcReglas = getbtnOpcReglas();
+        btnGuardarPartida = getbtnGuardarPartida();
+        btnCargarPartida = getbtnCargarPartida();
+
 
         verticalBox.add(deshabilitarChat);
         verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
 
         verticalBox.add(btnOpcReglas);
+        verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
+
+        verticalBox.add(btnGuardarPartida);
+        verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
+
+        verticalBox.add(btnCargarPartida);
         verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
 
         verticalBox.add(btnOpcSalir);
@@ -358,7 +365,7 @@ public class VistaGrafica implements IVista, Serializable {
         salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                exit(0);
+                abandonoPartida(controlador.getJugador());
             }
         });
         return salir;
@@ -391,6 +398,50 @@ public class VistaGrafica implements IVista, Serializable {
         return deshabilitarChat;
     }
 
+    private JButton getbtnGuardarPartida(){
+        JButton btnGuardar = new JButton();
+        btnGuardar.setText("Guardar Partida");
+        btnGuardar.setBackground(ColorRGB.PINK);
+        btnGuardar.setOpaque(true);
+        btnGuardar.setForeground(Color.black);
+        btnGuardar.setMaximumSize(new java.awt.Dimension(150, 30));
+        btnGuardar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(partidaIniciada()){
+                    DialogGuardarPartida dialog = new DialogGuardarPartida(controlador);
+                    dialog.setPreferredSize(new Dimension(400,200));
+                    dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
+                    dialog.pack();
+                    dialog.setVisible(true);
+                    while(dialog.getNombre() == null && dialog.getNombre().isEmpty()){
+                        notificarMensaje("Ingrese un nombre para la partida antes de guardarla!!!");
+                    }
+                    controlador.guardarPartida(dialog.getNombre());
+                    //controlador.sobreEscribirPartida(dialog.getIndexOpcion(),dialog.getNombre());
+                }else{
+                    notificarMensaje("No puede guardar la partida hasta que esta no este iniciada!!");
+                }
+            }
+        });
+
+        return btnGuardar;
+    }
+
+    private JButton getbtnCargarPartida(){
+        JButton btnCargar = new JButton();
+        btnCargar.setText("Cargar Partida");
+        btnCargar.setBackground(ColorRGB.PINK);
+        btnCargar.setOpaque(true);
+        btnCargar.setForeground(Color.black);
+        btnCargar.setMaximumSize(new java.awt.Dimension(150, 30));
+        btnCargar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        return btnCargar;
+    }
+
     private void agregarTitulo() {
 
     }
@@ -405,6 +456,13 @@ public class VistaGrafica implements IVista, Serializable {
         // Revalidar y repintar el panel
         pnlMenu.revalidate();
         pnlMenu.repaint();
+    }
+
+    private boolean partidaIniciada(){
+        if(pnlCardPartida.isVisible()){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -672,6 +730,7 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void abandonoPartida(IJugador nombre) {
+        cambiarCardPanel(pnlCardPartida);
         notificarMensaje("El jugador "+nombre.getNombre()+" ha abanado la partida");
     }
 

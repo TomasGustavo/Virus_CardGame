@@ -1,6 +1,7 @@
 package padre.virus.vistas.VistaConsola.Flujos;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.IJugador;
 import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.VistaConsola.VistaConsola;
 
@@ -48,8 +49,8 @@ public class FlujoMenuPrincipal extends Flujo{
 
     private void mostrarJugadores(){
         vista.printear("\nJugadores: \n",Color.white);
-        for(String jugador : controlador.listaJugadores()){
-            vista.printear("- "+ jugador + "\n",ColorRGB.ORANGE);
+        for(IJugador jugador : controlador.listaJugadores()){
+            vista.printear("- "+ jugador.getNombre() + "\n",ColorRGB.ORANGE);
         }
         vista.printear("\n",Color.white);
     }
