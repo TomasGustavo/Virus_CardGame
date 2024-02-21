@@ -305,8 +305,8 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
     private void agregarPartidaGuardada(ArrayList<Save> partidas){ // TODO mirar porque guarda la partida 2 veces
         serializador.writeOneObject(partidas.get(0));
-        for (Save partida : partidas) {
-            serializador.addOneObject(partida);
+        for (int i = 1; i<partidas.size();i++) {
+            serializador.addOneObject(partidas.get(i));
         }
     }
 
