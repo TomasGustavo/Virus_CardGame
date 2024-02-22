@@ -926,7 +926,7 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     @Override
-    public void partidaTerminada(String jugadorActual) {
+    public void partidaTerminada(String jugadorActual) { // TODO arreglar esta cagada
         deshabilitarEntradas(true);
        /* DialogPartidaFinalizada dialog = new DialogPartidaFinalizada();
         dialog.setPreferredSize(new Dimension(400,200));
