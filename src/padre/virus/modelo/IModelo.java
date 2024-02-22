@@ -13,7 +13,7 @@ public interface IModelo extends IObservableRemoto {
 
     IJugador cambiarTurno(int jugadorID) throws RemoteException;
 
-    void hayGandor() throws RemoteException;
+    boolean hayGandor() throws RemoteException;
 
     IJugador turnoActual() throws RemoteException;
 
@@ -46,7 +46,8 @@ public interface IModelo extends IObservableRemoto {
     IJugador getJug() throws RemoteException;
 
     void guardarPartida(String nombrePartida)throws RemoteException;
-    void cargarPartida(int idPartida)throws RemoteException;
+    void cargarPartida(int idPartida,String host)throws RemoteException;
     ArrayList<String> getListaPartidas() throws RemoteException;
-    void reEscribirPartida(int posicion, String nombreSave)throws RemoteException;
+    boolean esHost(IJugador jugador) throws RemoteException;
+    //void reEscribirPartida(int posicion, String nombreSave)throws RemoteException;
 }

@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- serializacion andando&#10;- btnCargarPartida falta hacer&#10;- guarda las partidas 2 veces">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix agregarPartidadGuardada(), las guarda correctamente">
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogPartidaFinalizada.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogPartidaFinalizada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ArchivosDeGuardado.dat" beforeDir="false" afterPath="$PROJECT_DIR$/ArchivosDeGuardado.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +54,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Correr Prueba.executor": "Debug",
+    "Application.Correr Prueba.executor": "Run",
     "Application.Main.executor": "Run",
     "JAR Application.LibreriaRMIMVC.jar.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "183",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "237",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "272",
     "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Universidad/POO/POO/Virus CardGame/LibreriaRMIMVC.jar",
@@ -176,15 +189,8 @@
       <workItem from="1708372349664" duration="6955000" />
       <workItem from="1708379896590" duration="4000" />
       <workItem from="1708456086941" duration="13781000" />
-      <workItem from="1708543288290" duration="962000" />
-    </task>
-    <task id="LOCAL-00023" summary="- fix array de descarte, ordena descendente para no calcular corriminetos en el indice de las cartas.">
-      <option name="closed" value="true" />
-      <created>1706557886685</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1706557886685</updated>
+      <workItem from="1708543288290" duration="18729000" />
+      <workItem from="1708573684212" duration="6241000" />
     </task>
     <task id="LOCAL-00024" summary="- implementacion RMI MVC (unidad de testeo realizada)">
       <option name="closed" value="true" />
@@ -570,7 +576,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708471175138</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="- fix agregarPartidadGuardada(), las guarda correctamente">
+      <option name="closed" value="true" />
+      <created>1708544631788</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1708544631788</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +602,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Implementado metodo MostrarCartas() en vista grafica, con carga de png incluido" />
     <MESSAGE value="- intento fallido de mostrar las cartas" />
     <MESSAGE value="- redimension de imagenes de las cartas" />
     <MESSAGE value="- modificacion de mostrarCartas(), muestra imagenes correspondientes" />
@@ -613,7 +626,8 @@
     <MESSAGE value="- new metodos en Modelo relacionados a serializacion" />
     <MESSAGE value="- mas cambios de Ijugador" />
     <MESSAGE value="- serializacion andando&#10;- btnCargarPartida falta hacer&#10;- guarda las partidas 2 veces" />
-    <option name="LAST_COMMIT_MESSAGE" value="- serializacion andando&#10;- btnCargarPartida falta hacer&#10;- guarda las partidas 2 veces" />
+    <MESSAGE value="- fix agregarPartidadGuardada(), las guarda correctamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix agregarPartidadGuardada(), las guarda correctamente" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -624,19 +638,15 @@
         </breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java</url>
-          <line>89</line>
+          <line>96</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java</url>
-          <line>306</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="descartes[0]" />
+        <watch expression="juego" />
       </configuration>
     </watches-manager>
   </component>

@@ -18,6 +18,8 @@ import java.rmi.RemoteException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import static java.lang.System.exit;
 
@@ -63,11 +65,11 @@ public class VistaGrafica implements IVista, Serializable {
     private JPanel pnlMesa;
     private JPanel scpOrganosSur;
     private JList lstOrganosSur;
-    private JScrollPane scpOrgnaosNorte;
+    private JPanel scpOrgnaosNorte;
     private JList lstOrganosNorte;
-    private JScrollPane scpOrganosWest;
+    private JPanel scpOrganosWest;
     private JList lstOrganosWest;
-    private JScrollPane scpOrganosEast;
+    private JPanel scpOrganosEast;
     private JList lstOrganosEast;
     private JLabel lblNombreWest;
     private JScrollPane scpManoWest;
@@ -124,21 +126,22 @@ public class VistaGrafica implements IVista, Serializable {
         //frame.setVisible(true);
 
         // Crea el listModel necesario para mostrar las cartas de la mano
+        // cartas y organos Sur
         listaModeloSur = new DefaultListModel<>();
         lstManoSur.setModel(listaModeloSur);
-        lstManoSur.setBackground(ColorRGB.TIEL);
+        lstManoSur.setBackground(ColorRGB.DARK_TIEL);
         lstManoSur.setVisibleRowCount(1);
 
         listaModeloSurOrganos = new DefaultListModel<>();
         lstOrganosSur.setModel(listaModeloSurOrganos);
         lstOrganosSur.setBackground(ColorRGB.DARK_TIEL);
-        scpOrganosSur.setBackground(ColorRGB.DARK_TIEL);
         lstOrganosSur.setOpaque(true);
         lstOrganosSur.setVisibleRowCount(1);
 
+        // cartas y organos Norte
         listaModeloNorte = new DefaultListModel<>();
         lstManoNorte.setModel(listaModeloNorte);
-        lstManoNorte.setBackground(ColorRGB.TIEL);
+        lstManoNorte.setBackground(ColorRGB.DARK_TIEL);
         lstManoNorte.setVisibleRowCount(1);
 
         listaModeloNorteOrganos = new DefaultListModel<>();
@@ -146,6 +149,30 @@ public class VistaGrafica implements IVista, Serializable {
         lstOrganosNorte.setBackground(ColorRGB.DARK_TIEL);
         lstOrganosNorte.setOpaque(true);
         lstOrganosNorte.setVisibleRowCount(1);
+
+        // cartas y organos Oeste
+        listaModeloOeste = new DefaultListModel<>();
+        lstManoWest.setModel(listaModeloOeste);
+        lstManoWest.setBackground(ColorRGB.DARK_TIEL);
+        lstManoWest.setVisibleRowCount(1);
+
+        listaModeloOesteOrganos = new DefaultListModel<>();
+        lstOrganosWest.setModel(listaModeloOesteOrganos);
+        lstOrganosWest.setBackground(ColorRGB.DARK_TIEL);
+        lstOrganosWest.setOpaque(true);
+        lstOrganosWest.setVisibleRowCount(1);
+
+        // cartas y organos Este
+        listaModeloEste = new DefaultListModel<>();
+        lstManoEast.setModel(listaModeloEste);
+        lstManoEast.setBackground(ColorRGB.DARK_TIEL);
+        lstManoEast.setVisibleRowCount(1);
+
+        listaModeloEsteOrganos = new DefaultListModel<>();
+        lstOrganosEast.setModel(listaModeloEsteOrganos);
+        lstOrganosEast.setBackground(ColorRGB.DARK_TIEL);
+        lstOrganosEast.setOpaque(true);
+        lstOrganosEast.setVisibleRowCount(1);
 
         splPrincipal.remove(pnlMenu);
         txtEscritura.setEnabled(false);
@@ -239,12 +266,14 @@ public class VistaGrafica implements IVista, Serializable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(lstManoSur.getSelectedIndices() != null){
-                    int descartes[] = lstManoSur.getSelectedIndices();
-                    int j = lstManoSur.getSelectedIndices().length -1;
-                    for(int i : descartes){
-                        controlador.descartar(j);
-                        j--;
+                    int[] descartes = lstManoSur.getSelectedIndices();
+                    Integer[] des = new Integer[descartes.length];
+
+                    extracted(descartes, des);
+                    for(Integer i : des){
+                        controlador.descartar(i);
                     }
+
                     controlador.actualizarMano();
                     mostrarCuerpo(controlador.obtenerOrganos(controlador.getNombre()));
                     notificarMensaje("Descarte Exitoso");
@@ -269,6 +298,27 @@ public class VistaGrafica implements IVista, Serializable {
                 }
             }
         });
+    }
+
+    private void crearListModel() {
+
+    }
+
+
+    private void asignarNombre(){
+        if(controlador.esHost()){
+            lblNombreSur.setText(controlador.getNombre()+" * ");
+        }else{
+            lblNombreSur.setText(controlador.getNombre());
+        }
+        lblNombreNorte.setText(controlador.getOponente());
+
+    }
+    private static void extracted(int[] descartes, Integer[] des) {
+        for(int p = 0; p< descartes.length; p++){
+            des[p] = descartes[p];
+        }
+        Arrays.sort(des,Collections.reverseOrder());
     }
 
     private void mostrarConfiguracion(Component componente) {
@@ -315,6 +365,9 @@ public class VistaGrafica implements IVista, Serializable {
         btnGuardarPartida = getbtnGuardarPartida();
         btnCargarPartida = getbtnCargarPartida();
 
+        if(controlador.getPartidasGuardadas().isEmpty()){
+            btnCargarPartida.setEnabled(false);
+        }
 
         verticalBox.add(deshabilitarChat);
         verticalBox.add(Box.createRigidArea(new Dimension(0, 30)));
@@ -411,16 +464,8 @@ public class VistaGrafica implements IVista, Serializable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(partidaIniciada()){
-                    DialogGuardarPartida dialog = new DialogGuardarPartida(controlador);
-                    dialog.setPreferredSize(new Dimension(400,200));
-                    dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
-                    dialog.pack();
-                    dialog.setVisible(true);
-                    while(dialog.getNombre() == null && dialog.getNombre().isEmpty()){
-                        notificarMensaje("Ingrese un nombre para la partida antes de guardarla!!!");
-                    }
-                    controlador.guardarPartida(dialog.getNombre());
-                    //controlador.sobreEscribirPartida(dialog.getIndexOpcion(),dialog.getNombre());
+                    DialogGuardarPartida dialog = new DialogGuardarPartida(controlador,true);
+                    setDimensionDialog(dialog);
                 }else{
                     notificarMensaje("No puede guardar la partida hasta que esta no este iniciada!!");
                 }
@@ -439,7 +484,27 @@ public class VistaGrafica implements IVista, Serializable {
         btnCargar.setMaximumSize(new java.awt.Dimension(150, 30));
         btnCargar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnCargar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!controlador.isPartidaIniciada()){
+                    DialogGuardarPartida dialog = new DialogGuardarPartida(controlador,false);
+                    dialog.deshabilitarEntradaTexto();
+                    setDimensionDialog(dialog);
+                }else{
+                    notificarMensaje("No podes cargar una partida si ya estas jugando una!");
+                }
+            }
+        });
+
         return btnCargar;
+    }
+
+    private void setDimensionDialog(DialogGuardarPartida dialog) {
+        dialog.setPreferredSize(new Dimension(500,200));
+        dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
+        dialog.pack();
+        dialog.setVisible(true);
     }
 
     private void agregarTitulo() {
@@ -505,7 +570,7 @@ public class VistaGrafica implements IVista, Serializable {
             listaModeloSur.addElement(cartaActual);
         }
         //System.out.println(listaModeloSur.size());
-        mostrarManoJugadores();
+        mostrarJugadores();
         scpManoSur.setPreferredSize(new Dimension(lstManoSur.getPreferredSize().width, lstManoSur.getPreferredSize().height));
         // Revalidar y repintar el panel
         scpManoSur.revalidate();
@@ -514,19 +579,28 @@ public class VistaGrafica implements IVista, Serializable {
         frame.repaint();
     }
 
-    private void mostrarManoJugadores() throws RemoteException {
+    private void mostrarJugadores() throws RemoteException {
         int jugadorID = (controlador.getIdJA() + 1) % controlador.listaJugadores().size();
         IJugador jugadorNombre = controlador.listaJugadores().get(jugadorID);
         int cantidadJugadores = controlador.listaJugadores().size() - 1;
         switch (cantidadJugadores) {
-            case 1 -> actualizarManoNorte(controlador.getManoContrincante(jugadorNombre.getNombre()));
-            //case 2 -> actualizarManoOeste(controlador.getManoContrincante(jugadorNombre));
-            //case 3 -> actualizarManoEste(controlador.getManoContrincante(jugadorNombre));
+            case 1 -> {
+                actualizarNorte(controlador.getManoContrincante(jugadorNombre.getNombre()));
+                mostrarCuerpoNorte(controlador.obtenerOrganos(jugadorNombre.getNombre()));
+            }
+            case 2 -> {
+                actualizarOeste(controlador.getManoContrincante(jugadorNombre.getNombre()));
+                mostrarCuerpoWest(controlador.obtenerOrganos(jugadorNombre.getNombre()));
+            }
+            case 3 -> {
+                actualizarEste(controlador.getManoContrincante(jugadorNombre.getNombre()));
+                mostrarCuerpoEast(controlador.obtenerOrganos(jugadorNombre.getNombre()));
+            }
         }
 
     }
 
-    private void actualizarManoNorte(ArrayList<ICarta> cartas) {
+    private void actualizarNorte(ArrayList<ICarta> cartas) {
         listaModeloNorte.removeAllElements();
         for (int i = 0; i < cartas.size(); i++) {
             ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
@@ -538,7 +612,32 @@ public class VistaGrafica implements IVista, Serializable {
         scpManoNorte.repaint();
         frame.revalidate();
         frame.repaint();
-
+    }
+    private void actualizarOeste(ArrayList<ICarta> cartas) {
+        listaModeloOeste.removeAllElements();
+        for (int i = 0; i < cartas.size(); i++) {
+            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+            listaModeloOeste.addElement(cartaActual);
+        }
+        scpManoWest.setPreferredSize(new Dimension(lstManoWest.getPreferredSize().width, lstManoWest.getPreferredSize().height));
+        // Revalidar y repintar el panel
+        scpManoWest.revalidate();
+        scpManoWest.repaint();
+        frame.revalidate();
+        frame.repaint();
+    }
+    private void actualizarEste(ArrayList<ICarta> cartas) {
+        listaModeloEste.removeAllElements();
+        for (int i = 0; i < cartas.size(); i++) {
+            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+            listaModeloEste.addElement(cartaActual);
+        }
+        scpManoEast.setPreferredSize(new Dimension(lstManoEast.getPreferredSize().width, lstManoEast.getPreferredSize().height));
+        // Revalidar y repintar el panel
+        scpManoEast.revalidate();
+        scpManoEast.repaint();
+        frame.revalidate();
+        frame.repaint();
     }
 
     public void actualizarMazo(int mazo, int descarte){
@@ -578,8 +677,110 @@ public class VistaGrafica implements IVista, Serializable {
         scpOrganosSur.repaint();
         frame.revalidate();
         frame.repaint();
-
     }
+
+    private void mostrarCuerpoNorte(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+
+        lstOrganosNorte.setAlignmentX(Component.CENTER_ALIGNMENT);
+        listaModeloNorteOrganos.removeAllElements();
+        String imagenActual;
+        for (ICarta organo : organos) {
+            organo = (Organo) organo;
+            String tempTipo = String.valueOf(organo.getTipo());
+            tempTipo.toLowerCase();
+
+            String tempColor = String.valueOf(organo.getColor());
+            tempColor.toLowerCase();
+
+            if(organo.estaSano()){
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
+                if(organo.esInmune()){
+                    imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "inmune.png";
+                }
+            }else{
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "infectado.png";
+            }
+            ImageIcon cartaActual = new ImageIcon(imagenActual);
+
+            listaModeloNorteOrganos.addElement(cartaActual);
+        }
+
+        scpOrgnaosNorte.setPreferredSize(new Dimension(lstOrganosNorte.getPreferredSize().width, lstOrganosNorte.getPreferredSize().height + 2));
+        // Revalidar y repintar el panel
+        scpOrgnaosNorte.revalidate();
+        scpOrgnaosNorte.repaint();
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    private void mostrarCuerpoWest(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+
+        lstOrganosWest.setAlignmentX(Component.CENTER_ALIGNMENT);
+        listaModeloOesteOrganos.removeAllElements();
+        String imagenActual;
+        for (ICarta organo : organos) {
+            organo = (Organo) organo;
+            String tempTipo = String.valueOf(organo.getTipo());
+            tempTipo.toLowerCase();
+
+            String tempColor = String.valueOf(organo.getColor());
+            tempColor.toLowerCase();
+
+            if(organo.estaSano()){
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
+                if(organo.esInmune()){
+                    imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "inmune.png";
+                }
+            }else{
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "infectado.png";
+            }
+            ImageIcon cartaActual = new ImageIcon(imagenActual);
+
+            listaModeloOesteOrganos.addElement(cartaActual);
+        }
+
+        scpOrganosWest.setPreferredSize(new Dimension(lstOrganosWest.getPreferredSize().width, lstOrganosWest.getPreferredSize().height + 2));
+        // Revalidar y repintar el panel
+        scpOrganosWest.revalidate();
+        scpOrganosWest.repaint();
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    private void mostrarCuerpoEast(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+
+        lstOrganosEast.setAlignmentX(Component.CENTER_ALIGNMENT);
+        listaModeloEsteOrganos.removeAllElements();
+        String imagenActual;
+        for (ICarta organo : organos) {
+            organo = (Organo) organo;
+            String tempTipo = String.valueOf(organo.getTipo());
+            tempTipo.toLowerCase();
+
+            String tempColor = String.valueOf(organo.getColor());
+            tempColor.toLowerCase();
+
+            if(organo.estaSano()){
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + ".png";
+                if(organo.esInmune()){
+                    imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "inmune.png";
+                }
+            }else{
+                imagenActual = "src/padre/virus/resources/imagenes/Cartas/" + tempTipo + tempColor + "infectado.png";
+            }
+            ImageIcon cartaActual = new ImageIcon(imagenActual);
+
+            listaModeloEsteOrganos.addElement(cartaActual);
+        }
+
+        scpOrganosEast.setPreferredSize(new Dimension(lstOrganosEast.getPreferredSize().width, lstOrganosEast.getPreferredSize().height + 2));
+        // Revalidar y repintar el panel
+        scpOrganosEast.revalidate();
+        scpOrganosEast.repaint();
+        frame.revalidate();
+        frame.repaint();
+    }
+
 
     @Override
     public void mostrarCuerposEnLista(IJugador jugador, ArrayList<IJugador> jugadores) {
@@ -628,6 +829,7 @@ public class VistaGrafica implements IVista, Serializable {
 
         cambiarCardPanel(pnlCardPartida);
 
+        //asignarNombre();
         lblNombreSur.setForeground(ColorRGB.CYAN);
         lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
         lblNombreNorte.setText(controlador.getOponente().toUpperCase());
@@ -725,12 +927,46 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void partidaTerminada(String jugadorActual) {
+        deshabilitarEntradas(true);
+       /* DialogPartidaFinalizada dialog = new DialogPartidaFinalizada();
+        dialog.setPreferredSize(new Dimension(400,200));
+        dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
+        dialog.pack();
+        dialog.setVisible(true);
+        cambiarCardPanel(pnlCardMenuPrincipal);
 
+        */
+        popUpFinal();
+
+    }
+
+    private void popUpFinal(){
+        JWindow pFinal = new JWindow();
+        pFinal.setLocationRelativeTo(null);
+        pFinal.setPreferredSize(new Dimension(400,500));
+        JPanel contenedor = new JPanel(new GridLayout());
+        JLabel text = new JLabel();
+        text.setText("gracias por jugar");
+        JButton boton = new JButton();
+        boton.setText("Volver al menu");
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cambiarCardPanel(pnlCardMenuPrincipal);
+            }
+        });
+        contenedor.add(text);
+        contenedor.add(boton);
+        pFinal.add(contenedor);
+        pFinal.pack();
+        pFinal.setVisible(true);
+        frame.revalidate();
+        frame.repaint();
     }
 
     @Override
     public void abandonoPartida(IJugador nombre) {
-        cambiarCardPanel(pnlCardPartida);
+        cambiarCardPanel(pnlCardMenuPrincipal);
         notificarMensaje("El jugador "+nombre.getNombre()+" ha abanado la partida");
     }
 

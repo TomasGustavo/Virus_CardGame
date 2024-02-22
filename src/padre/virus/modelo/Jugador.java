@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Jugador implements IJugador, Serializable {
     private String nombre;
+    private boolean esHost;
     private ArrayList<Organo> cuerpo;
     private ArrayList<Carta> mano;
     private Boolean SuTurno;
@@ -37,6 +38,10 @@ public class Jugador implements IJugador, Serializable {
         }
         return false;
     }
+    public void setEsHost(boolean host){
+        esHost = host;
+    }
+    public boolean getEsHost(){return esHost;}
 
     private boolean contieneOrganoConMismoColor(Color color) {
         if (this.cuerpo != null) {

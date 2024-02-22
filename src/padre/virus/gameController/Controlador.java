@@ -54,6 +54,7 @@ public class Controlador implements IControladorRemoto {
                     this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 ).getNombre()+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
+                    partidaIniciada = true;
                     cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
                     organos = this.modelo.obtenerOrganos(nombreJugador.getNombre());
                     jugadorActual = this.modelo.turnoActual();
@@ -66,30 +67,32 @@ public class Controlador implements IControladorRemoto {
                     cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
                 }
                 case TERMINO_TURNO -> {
-                    cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
-                    if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
-                        //vista.mostrarTurno(jugadorActual);
-                        this.modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
-                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
-                        vista.mostrarCartas(cartas);
-                        vista.terminarTurno();
-                    }
-                    jugadorActual = this.modelo.turnoActual();
-                    vista.notificarMensaje("Es turno del jugador: " + jugadorActual.getNombre());
-                    if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
-                        vista.mostrarTurno(jugadorActual);
-                        this.modelo.tomarCarta(nombreJugador);
-                        vista.mostrarCuerposEnLista(nombreJugador,jugadores);
-                        vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
-                        vista.mostrarCartas(cartas);
-                        vista.HabilitarTurno();
-                    }
-                    if(idJA == jugadores.size() - 1){
-                        idJA = 0;
-                    }
-                    else{
-                        idJA++;
+                    if(Ganador==null){
+                        cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
+                        if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
+                            //vista.mostrarTurno(jugadorActual);
+                            this.modelo.tomarCarta(nombreJugador);
+                            vista.mostrarCuerposEnLista(nombreJugador,jugadores);
+                            vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
+                            vista.mostrarCartas(cartas);
+                            vista.terminarTurno();
+                        }
+                        jugadorActual = this.modelo.turnoActual();
+                        vista.notificarMensaje("Es turno del jugador: " + jugadorActual.getNombre());
+                        if(jugadorActual.getNombre().equals(nombreJugador.getNombre())){
+                            vista.mostrarTurno(jugadorActual);
+                            this.modelo.tomarCarta(nombreJugador);
+                            vista.mostrarCuerposEnLista(nombreJugador,jugadores);
+                            vista.mostrarCuerpo(this.modelo.obtenerOrganos(nombreJugador.getNombre()));
+                            vista.mostrarCartas(cartas);
+                            vista.HabilitarTurno();
+                        }
+                        if(idJA == jugadores.size() - 1){
+                            idJA = 0;
+                        }
+                        else{
+                            idJA++;
+                        }
                     }
 
                 }
@@ -104,7 +107,6 @@ public class Controlador implements IControladorRemoto {
                     vista.actualizarMazo(obtenerMazo(),obtenerMazoDescarte());
                 }
                 case MENSAJE_CHAT -> {
-
                     vista.mostrarChat(this.modelo.getMensaje(), this.modelo.getJug());
                 }
 
@@ -141,6 +143,13 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
+    public boolean esHost(){
+        try {
+            return modelo.esHost(nombreJugador);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void AgregarJugador(String nombre){
         try {
@@ -294,6 +303,15 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
+
+    public void cargarPartida(int idSave){
+        try {
+            modelo.cargarPartida(idSave,nombreJugador.getNombre());
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    /*
     public void sobreEscribirPartida(int posicion,String nombreSave){
         try {
             modelo.reEscribirPartida(posicion,nombreSave);
@@ -301,6 +319,8 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
+
+     */
 
     public ArrayList<String> getPartidasGuardadas(){
         ArrayList<String> partidas;

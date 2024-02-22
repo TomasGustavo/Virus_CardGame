@@ -22,6 +22,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     private static Serializador serializador;
 
     String ganador;
+    private boolean partidaCargada = false;
 
 
     public Modelo(){
@@ -41,21 +42,33 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
         IJugador jugador = new Jugador(nombre);
         jugadores.add(jugador);
+        if(jugadores.size() ==1){
+            jugador.setEsHost(true);
+        }else{
+            jugador.setEsHost(false);
+        }
         this.notificarObservadores(Eventos.NUEVO_JUGADOR);
         return jugador;
+    }
 
-
+    public boolean esHost(IJugador jugador) throws RemoteException{
+        return jugador.getEsHost();
     }
 
     @Override
     public void jugar() throws RemoteException{
-        if(jugadores.size() >=2){
-            this.mazo = new Mazo(false);
-            this.mazoDescarte = new Mazo(true);
-            mazo.BarajarMazo();
-            RepartirCartas();
-            asignarTurno();
-            this.notificarObservadores(Eventos.PARTIDA_INICIADA);
+        if(!partidaCargada){
+            if(jugadores.size() >=2){
+                this.mazo = new Mazo(false);
+                this.mazoDescarte = new Mazo(true);
+                mazo.BarajarMazo();
+                RepartirCartas();
+                asignarTurno();
+                this.notificarObservadores(Eventos.PARTIDA_INICIADA);
+            }
+        }else{
+            partidaCargada = false;
+            notificarObservadores(Eventos.PARTIDA_INICIADA);
         }
     }
 
@@ -65,6 +78,9 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
     @Override
     public IJugador cambiarTurno(int jugadorID) throws RemoteException{
+        if(hayGandor()){
+            notificarObservadores(Eventos.PARTIDA_FINALIZADA);
+        }
         int indice = (jugadorID + 1) % jugadores.size();
         //String jActual = turnoActual();
         IJugador jugador = jugadores.get(indice);
@@ -73,12 +89,14 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     }
 
     @Override
-    public void hayGandor() throws RemoteException{
+    public boolean hayGandor() throws RemoteException{
         for(IJugador i : jugadores){
             if(obtenerOrganos(i.getNombre()).size() == 4 && i.organosSanos()){
                 partidaTerminada(i.getNombre());
+                return true;
             }
         }
+        return false;
     }
     @Override
     public IJugador turnoActual() throws RemoteException{
@@ -257,9 +275,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     @Override
     public void partidaTerminada(String ganador)throws RemoteException{
         this.ganador = ganador;
-        //if(turnoActual().equals(ganador)){
-        notificarObservadores(Eventos.PARTIDA_FINALIZADA);
-        //}
+
 
     }
 
@@ -285,7 +301,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     public void guardarPartida(String nombrePartida)throws RemoteException{
         ArrayList<Save> saves = getPartidasGuardadas();
         if(saves.size()<4){
-            Save partida = new Save(nombrePartida,this);
+            Save partida = new Save(nombrePartida,this,jugadores.get(0).getNombre());
             saves.add(partida);
             agregarPartidaGuardada(saves);
         }
@@ -310,18 +326,23 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
         }
     }
 
-    public void cargarPartida(int idPartida)throws RemoteException{
+    public void cargarPartida(int idPartida,String host)throws RemoteException{
         ArrayList<Save> partidas = getPartidasGuardadas();
         if(partidas.size() >= idPartida){
             Save carga = partidas.get(idPartida);
             Modelo juego = carga.getPartidaGuardada();
-            cargarDatos(juego);
+            IJugador hostCargado = juego.jugadores.get(0);
+            if(hostCargado.getNombre().equals(host)){
+                cargarDatos(juego);
+            }
+            //notificarObservadores(Eventos.PARTIDA_INICIADA);
         }
     }
     private void cargarDatos(Modelo juego) throws RemoteException {
         this.mazo = juego.mazo;
         this.mazoDescarte = juego.mazoDescarte;
         this.jugadores = juego.obtenerJugadores();
+        this.partidaCargada = true;
 
     }
 
@@ -336,6 +357,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
         return listaSaves;
     }
 
+   /*
     public void reEscribirPartida(int posicion, String nombreSave)throws RemoteException{
         ArrayList<Save> partidas = getPartidasGuardadas();
         if(partidas.size() >= posicion){
@@ -345,4 +367,6 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
             agregarPartidaGuardada(partidas);
         }
     }
+
+    */
 }

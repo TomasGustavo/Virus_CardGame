@@ -18,5 +18,7 @@ public interface IJugador{
     void setMano(ArrayList<Carta> mano);
     void tomarCarta(Carta carta);
     void descartar(int carta);
+    void setEsHost(boolean host);
+    boolean getEsHost();
 
 }

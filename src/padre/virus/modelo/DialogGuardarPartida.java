@@ -15,17 +15,20 @@ public class DialogGuardarPartida extends JDialog {
     private JTextField txtNombrePartida;
     private JComboBox cbxListaPartidas;
     private Controlador controlador;
+    boolean esGuardar;
 
-    public DialogGuardarPartida(Controlador controlador) {
+    public DialogGuardarPartida(Controlador controlador, boolean esGuardar) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
         this.controlador = controlador;
+        this.esGuardar = esGuardar;
 
 
         buttonOK.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onOK(esGuardar);
             }
         });
 
@@ -56,8 +59,12 @@ public class DialogGuardarPartida extends JDialog {
         }
     }
 
-    private void onOK() {
-        // add your code here
+    private void onOK(boolean esGuardar) {
+        if(esGuardar){
+            controlador.guardarPartida(getNombre());
+        }else{
+            controlador.cargarPartida(getIndexOpcion());
+        }
         dispose();
     }
 
@@ -91,7 +98,7 @@ public class DialogGuardarPartida extends JDialog {
                 cbxListaPartidas.addItem(i);
             }
         }
-        for (int i = saves.size(); i < 3; i++) {
+        for (int i = saves.size(); i < 4; i++) {
             cbxListaPartidas.addItem(i+"- "+j);
         }
 
