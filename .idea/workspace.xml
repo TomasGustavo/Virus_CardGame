@@ -4,29 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- demasiadas cosas, ya ni me acuerdo">
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogMostrarReglas.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogMostrarReglas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoCargarPartida.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoGuardarPartida.java" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- me quiero morir x2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArchivosDeGuardado.dat" beforeDir="false" afterPath="$PROJECT_DIR$/ArchivosDeGuardado.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/AppServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/AppServidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoDescartar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoEsperandoTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoEsperandoTurno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoJugar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoMenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoVacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoVacio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Tipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Tipo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,23 +212,7 @@
       <workItem from="1708456086941" duration="13781000" />
       <workItem from="1708543288290" duration="18729000" />
       <workItem from="1708573684212" duration="6447000" />
-      <workItem from="1708626429939" duration="13798000" />
-    </task>
-    <task id="LOCAL-00026" summary="- menu nuevo jugador&#10;- menu principal hecho">
-      <option name="closed" value="true" />
-      <created>1706742052808</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1706742052808</updated>
-    </task>
-    <task id="LOCAL-00027" summary="- chat global implementado, falta agregar nombre de ususario quien escribe.">
-      <option name="closed" value="true" />
-      <created>1706757596663</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1706757596663</updated>
+      <workItem from="1708626429939" duration="15428000" />
     </task>
     <task id="LOCAL-00028" summary="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje">
       <option name="closed" value="true" />
@@ -626,7 +590,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708580614711</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="- me quiero morir">
+      <option name="closed" value="true" />
+      <created>1708646917821</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1708646917822</updated>
+    </task>
+    <task id="LOCAL-00076" summary="- me quiero morir x2">
+      <option name="closed" value="true" />
+      <created>1708646948034</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1708646948034</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,8 +624,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- redimension de imagenes de las cartas" />
-    <MESSAGE value="- modificacion de mostrarCartas(), muestra imagenes correspondientes" />
     <MESSAGE value="- TODO" />
     <MESSAGE value="- Muestra organos propios correctamente" />
     <MESSAGE value="- ajuste de tamaño de imagenes y nombre" />
@@ -669,7 +647,9 @@
     <MESSAGE value="- serializacion andando&#10;- btnCargarPartida falta hacer&#10;- guarda las partidas 2 veces" />
     <MESSAGE value="- fix agregarPartidadGuardada(), las guarda correctamente" />
     <MESSAGE value="- demasiadas cosas, ya ni me acuerdo" />
-    <option name="LAST_COMMIT_MESSAGE" value="- demasiadas cosas, ya ni me acuerdo" />
+    <MESSAGE value="- me quiero morir" />
+    <MESSAGE value="- me quiero morir x2" />
+    <option name="LAST_COMMIT_MESSAGE" value="- me quiero morir x2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

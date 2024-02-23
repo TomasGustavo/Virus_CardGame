@@ -7,6 +7,6 @@ public enum Tipo implements Serializable {
 
     ORGANO,
     VIRUS,
-    CURA,
-    TRATAMIENTO
+    CURA;
+
 }

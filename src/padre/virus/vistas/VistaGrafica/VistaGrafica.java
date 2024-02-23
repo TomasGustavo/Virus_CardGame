@@ -229,7 +229,7 @@ public class VistaGrafica implements IVista, Serializable {
         btnMostrarJugadores.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controlador.listaJugadores();
+                mostrarJugadores(controlador.listaJugadores());
             }
         });
 
@@ -790,6 +790,13 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void mostrarJugadores(ArrayList<IJugador> jugadores) {
+        String str = "";
+        int i = 1;
+        for(IJugador jugador:jugadores){
+            str += i+"-"+jugador.getNombre()+"  ";
+            i++;
+        }
+        notificarMensaje(str);
     }
 
     @Override
@@ -808,10 +815,15 @@ public class VistaGrafica implements IVista, Serializable {
         //if(!controlador.getNombre().equals(jugadorActual.getNombre())){
         deshabilitarEntradas(false);
         //}
-        pnlJugadorEast.setVisible(false);
-        pnlJugadorWest.setVisible(false);
-        scpOrganosEast.setVisible(false);
-        scpOrganosWest.setVisible(false);
+        if(controlador.listaJugadores().size()==3){
+            pnlJugadorWest.setVisible(true);
+            scpOrganosWest.setVisible(true);
+            lblNombreWest.setText(controlador.listaJugadores().get(2).getNombre());
+        } else if (controlador.listaJugadores().size()>3) {
+            pnlJugadorEast.setVisible(true);
+            scpOrganosEast.setVisible(true);
+            lblNombreWest.setText(controlador.listaJugadores().get(3).getNombre());
+        }
         pnlJugadorNorth.setVisible(true);
         scpManoSur.getViewport().setOpaque(false);
 
