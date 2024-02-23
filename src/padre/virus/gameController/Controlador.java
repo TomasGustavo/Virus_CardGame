@@ -270,7 +270,7 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
-    private void reiniciar(){
+    public void reiniciar(){
         try {
             modelo.reiniciar();
         } catch (RemoteException e) {

@@ -257,7 +257,7 @@
                         <constraints border-constraint="South"/>
                         <properties>
                           <foreground color="-1731295"/>
-                          <opaque value="true"/>
+                          <opaque value="false"/>
                           <text value="Label"/>
                         </properties>
                       </component>
@@ -297,7 +297,7 @@
                         <properties>
                           <foreground color="-4259829"/>
                           <horizontalAlignment value="2"/>
-                          <opaque value="true"/>
+                          <opaque value="false"/>
                           <text value="Label"/>
                         </properties>
                       </component>
@@ -347,7 +347,7 @@
                         <constraints border-constraint="North"/>
                         <properties>
                           <foreground color="-14585991"/>
-                          <opaque value="true"/>
+                          <opaque value="false"/>
                           <text value="Label"/>
                         </properties>
                       </component>
@@ -384,7 +384,7 @@
                         <properties>
                           <foreground color="-6468408"/>
                           <horizontalTextPosition value="11"/>
-                          <opaque value="true"/>
+                          <opaque value="false"/>
                           <preferredSize width="50" height="17"/>
                           <text value="hola"/>
                         </properties>

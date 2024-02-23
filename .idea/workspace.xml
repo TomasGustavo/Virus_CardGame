@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- me quiero morir x2">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- UML">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Tipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Tipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArchivosDeGuardado.dat" beforeDir="false" afterPath="$PROJECT_DIR$/ArchivosDeGuardado.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogGuardarPartida.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogGuardarPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogMostrarReglas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogMostrarReglas.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogMostrarReglas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogMostrarReglas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogPartidaFinalizada.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogPartidaFinalizada.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogPartidaFinalizada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogPartidaFinalizada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogTirarVirus.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogTirarVirus.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogTirarVirus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogTirarVirus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,39 +49,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.AppCliente.executor": "Run",
-    "Application.AppServidor.executor": "Run",
-    "Application.Correr Prueba.executor": "Run",
-    "Application.Main.executor": "Run",
-    "JAR Application.LibreriaRMIMVC.jar.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "183",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "272",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Universidad/POO/POO/Virus CardGame/LibreriaRMIMVC.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.rainbow.brackets.root",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AppCliente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AppServidor.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Correr Prueba.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.LibreriaRMIMVC.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;183&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;272&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/,/boludeces mias&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="padre.virus.serializacion" />
@@ -82,8 +91,8 @@
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\resources\imagenes\Cartas" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\vistas\VistaGrafica" />
+      <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\resources\imagenes\Cartas" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame\src\padre\virus\vistas\VistaConsola" />
       <recent name="E:\Universidad\POO\POO\Virus CardGame" />
     </key>
@@ -212,23 +221,8 @@
       <workItem from="1708456086941" duration="13781000" />
       <workItem from="1708543288290" duration="18729000" />
       <workItem from="1708573684212" duration="6447000" />
-      <workItem from="1708626429939" duration="15428000" />
-    </task>
-    <task id="LOCAL-00028" summary="- fix chat Global, muestra el nombre de quien envia el mensaje, sino ingreso nombre de usuario no envia el mensaje">
-      <option name="closed" value="true" />
-      <created>1706821063863</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1706821063863</updated>
-    </task>
-    <task id="LOCAL-00029" summary="- add botonBar con sus Jmenu y JMenuItem">
-      <option name="closed" value="true" />
-      <created>1706826266570</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1706826266570</updated>
+      <workItem from="1708626429939" duration="18217000" />
+      <workItem from="1708706037454" duration="1157000" />
     </task>
     <task id="LOCAL-00030" summary="- fix JMenu background">
       <option name="closed" value="true" />
@@ -606,7 +600,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708646948034</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="- ultimos fixs">
+      <option name="closed" value="true" />
+      <created>1708650448424</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1708650448424</updated>
+    </task>
+    <task id="LOCAL-00078" summary="- UML">
+      <option name="closed" value="true" />
+      <created>1708654138196</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1708654138196</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,8 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- TODO" />
-    <MESSAGE value="- Muestra organos propios correctamente" />
     <MESSAGE value="- ajuste de tamaño de imagenes y nombre" />
     <MESSAGE value="- implementacion de IJugador y modificacion en la estructura de las clases Modelo,Controlador y VistaGrafica." />
     <MESSAGE value="- mostrarNuevoJugador() vista grafica" />
@@ -649,7 +657,9 @@
     <MESSAGE value="- demasiadas cosas, ya ni me acuerdo" />
     <MESSAGE value="- me quiero morir" />
     <MESSAGE value="- me quiero morir x2" />
-    <option name="LAST_COMMIT_MESSAGE" value="- me quiero morir x2" />
+    <MESSAGE value="- ultimos fixs" />
+    <MESSAGE value="- UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="- UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,7 +669,7 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java</url>
+          <url>file://$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/DialogGuardarPartida.java</url>
           <line>96</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -681,5 +691,9 @@
         <watch expression="juego" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

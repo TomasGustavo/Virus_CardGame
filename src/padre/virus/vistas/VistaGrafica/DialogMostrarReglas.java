@@ -1,4 +1,4 @@
-package padre.virus.modelo;
+package padre.virus.vistas.VistaGrafica;
 
 import padre.virus.vistas.ColorRGB;
 

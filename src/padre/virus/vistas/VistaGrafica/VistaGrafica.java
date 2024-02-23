@@ -808,7 +808,10 @@ public class VistaGrafica implements IVista, Serializable {
     public void mostarInicioPartido(IJugador jugadorActual, ArrayList<ICarta> cartas, ArrayList<ICarta> organos) throws RemoteException {
 
         backgroundPartida = new ImageIcon("src/padre/virus/resources/imagenes/backGruond.jpg").getImage();
-
+        pnlJugadorWest.setVisible(false);
+        scpOrganosWest.setVisible(false);
+        pnlJugadorEast.setVisible(false);
+        scpOrganosEast.setVisible(false);
         mostrarTurno(jugadorActual);
 
         //deshabilita los botones de las vistas las cuales no sea su turno
@@ -991,6 +994,7 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void abandonoPartida(IJugador nombre) {
+        controlador.reiniciar();
         cambiarCardPanel(pnlCardMenuPrincipal);
         notificarMensaje("El jugador "+nombre.getNombre()+" ha abanado la partida");
     }

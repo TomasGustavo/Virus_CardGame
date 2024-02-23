@@ -1,6 +1,8 @@
-package padre.virus.modelo;
+package padre.virus.vistas.VistaGrafica;
 
 import padre.virus.gameController.Controlador;
+import padre.virus.modelo.ICarta;
+import padre.virus.modelo.IJugador;
 
 import javax.swing.*;
 import java.awt.event.*;
