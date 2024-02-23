@@ -20,5 +20,7 @@ public interface IJugador{
     void descartar(int carta);
     void setEsHost(boolean host);
     boolean getEsHost();
+    void vaciarJugador();
+
 
 }

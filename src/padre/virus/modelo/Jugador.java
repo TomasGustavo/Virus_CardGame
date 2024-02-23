@@ -108,4 +108,13 @@ public class Jugador implements IJugador, Serializable {
     public void descartar(int carta){
         mano.remove(carta);
     }
+
+    public void vaciarJugador(){
+        for(int i = 0 ; i< mano.size();i++){
+            mano.remove(0);
+        }
+        for(int i = 0 ; i< cuerpo.size();i++){
+            cuerpo.remove(0);
+        }
+    }
 }

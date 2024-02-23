@@ -27,12 +27,12 @@ public class VistaConsola implements IVista {
     private JLabel mensaje;
     private Flujo flujoActual;
 
-    public VistaConsola(int x, int y) {
+    public VistaConsola() {
         frame = new JFrame("Virus!");
         frame.setContentPane(panel1);
         frame.setSize(750, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocation(x,y);
+       // frame.setLocation(x,y);
 
         ENTER.addActionListener(new ActionListener() {
             @Override
@@ -120,6 +120,7 @@ public class VistaConsola implements IVista {
             printear(i + " - Carta ["+ carta.toString() +"]\n", ColorRGB.PINK);
             i++;
         }
+        //actualizarMazo();
 
     }
 
@@ -138,7 +139,7 @@ public class VistaConsola implements IVista {
         for (IJugador i : jugadores) {
             if (!i.getNombre().equals(jugador.getNombre())) {
                 //printear("\n----------------------------------------------------------------------",Color.orange);
-                printear("\nCuerpo de " + i + ": ", ColorRGB.CYAN);
+                printear("\nCuerpo de " + i.getNombre() + ": ", ColorRGB.CYAN);
                 int j = 1;
                 for (ICarta organo : controlador.obtenerOrganos(i.getNombre())) {
                     printear(j + " - " + organo.toString() + "  |  ", Color.white);

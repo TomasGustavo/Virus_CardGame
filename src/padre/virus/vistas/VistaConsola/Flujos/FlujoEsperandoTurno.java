@@ -11,7 +11,7 @@ public class FlujoEsperandoTurno extends Flujo{
     }
     @Override
     public Flujo procesarEntrada(String string) {
-        controlador.terminoPartida();
+        //controlador.terminoPartida();
         return null;
     }
 
@@ -19,6 +19,6 @@ public class FlujoEsperandoTurno extends Flujo{
     public void mostrarSiguienteTexto() {
             vista.desEntradas();
             vista.printear("\nEspere el cambio de turno\n", ColorRGB.RED);
-            controlador.terminoPartida();
+            //controlador.terminoPartida();
     }
 }

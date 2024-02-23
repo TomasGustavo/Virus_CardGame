@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
+    private static Modelo instancia;
     private ArrayList<Observador> observadores;
     private Mazo mazo;
     private Mazo mazoDescarte;
@@ -31,11 +32,14 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
     }
 
-/*
-    public String getMensajeSistema(){
-        return mensajeSistema;
+    public static IModelo getInstancia() {
+
+        if (instancia == null){
+            instancia = new Modelo();
+        }
+        return instancia;
     }
-*/
+
 
     @Override
     public IJugador agregarJugador(String nombre) throws RemoteException {
@@ -53,6 +57,13 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
     public boolean esHost(IJugador jugador) throws RemoteException{
         return jugador.getEsHost();
+    }
+
+    public void reiniciar(){
+        this.mazo.vaciarMazo();
+        for(IJugador jugador: jugadores){
+            jugador.vaciarJugador();
+        }
     }
 
     @Override
@@ -252,9 +263,9 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
                 actualizarMazoDescarte(jugador.getMano().get(opcion));
                 jugador.descartar(opcion);
                 tomarCarta(nombreJugador);
-                notificarObservadores(Eventos.ACTUALIZAR_MAZOS);
             }
         }
+        notificarObservadores(Eventos.ACTUALIZAR_MAZOS);
     }
 
     private void actualizarMazoDescarte(Carta carta){
@@ -319,7 +330,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
         return saves;
     }
 
-    private void agregarPartidaGuardada(ArrayList<Save> partidas){ // TODO mirar porque guarda la partida 2 veces
+    private void agregarPartidaGuardada(ArrayList<Save> partidas){
         serializador.writeOneObject(partidas.get(0));
         for (int i = 1; i<partidas.size();i++) {
             serializador.addOneObject(partidas.get(i));
@@ -332,9 +343,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
             Save carga = partidas.get(idPartida);
             Modelo juego = carga.getPartidaGuardada();
             IJugador hostCargado = juego.jugadores.get(0);
-            if(hostCargado.getNombre().equals(host)){
-                cargarDatos(juego);
-            }
+            cargarDatos(juego);
             //notificarObservadores(Eventos.PARTIDA_INICIADA);
         }
     }
@@ -357,16 +366,4 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
         return listaSaves;
     }
 
-   /*
-    public void reEscribirPartida(int posicion, String nombreSave)throws RemoteException{
-        ArrayList<Save> partidas = getPartidasGuardadas();
-        if(partidas.size() >= posicion){
-            Save partida = new Save(nombreSave,this);
-            partidas.remove(posicion);
-            partidas.add(posicion,partida);
-            agregarPartidaGuardada(partidas);
-        }
-    }
-
-    */
 }

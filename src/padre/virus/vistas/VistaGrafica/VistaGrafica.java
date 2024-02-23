@@ -6,10 +6,8 @@ import padre.virus.vistas.ColorRGB;
 import padre.virus.vistas.IVista;
 
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Style;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
+import javax.swing.border.Border;
+import javax.swing.text.*;
 import java.awt.*;
 import java.awt.Color;
 import java.awt.event.*;
@@ -112,7 +110,7 @@ public class VistaGrafica implements IVista, Serializable {
 
     private JFrame frame;
 
-    public VistaGrafica(int x, int y) {
+    public VistaGrafica() {
 
 
         // constructor de la ventana
@@ -122,7 +120,7 @@ public class VistaGrafica implements IVista, Serializable {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setMinimumSize(new Dimension(450, 400));
         frame.setPreferredSize(new Dimension(900, 700));
-        frame.setLocation(x, y);
+        //frame.setLocation(x, y);
         //frame.setVisible(true);
 
         // Crea el listModel necesario para mostrar las cartas de la mano
@@ -177,7 +175,7 @@ public class VistaGrafica implements IVista, Serializable {
         splPrincipal.remove(pnlMenu);
         txtEscritura.setEnabled(false);
 
-
+        cargarImagenLogo();
         // funcionalidad de los botones
 
         txtEscritura.addKeyListener(new KeyAdapter() {
@@ -203,7 +201,6 @@ public class VistaGrafica implements IVista, Serializable {
                 if (!txtNombreJugador.getText().isEmpty()) {
                     txtEscritura.setEnabled(true);
                     controlador.AgregarJugador(txtNombreJugador.getText());
-                    agregarTitulo();
                     cambiarCardPanel(pnlCardMenuPrincipal);
                     notificarMensaje("El jugador " + txtNombreJugador.getText() + " se ha unido");
                 } else {
@@ -218,6 +215,14 @@ public class VistaGrafica implements IVista, Serializable {
             public void actionPerformed(ActionEvent e) {
 
                 controlador.Jugar();
+            }
+        });
+
+        btnReglas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                mostrarReglas();
             }
         });
 
@@ -300,18 +305,9 @@ public class VistaGrafica implements IVista, Serializable {
         });
     }
 
-    private void crearListModel() {
-
-    }
-
-
-    private void asignarNombre(){
-        if(controlador.esHost()){
-            lblNombreSur.setText(controlador.getNombre()+" * ");
-        }else{
-            lblNombreSur.setText(controlador.getNombre());
-        }
-        lblNombreNorte.setText(controlador.getOponente());
+    private void cargarImagenLogo(){
+        imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/logo.png");
+        lblLogoTitulo.setIcon(imgiMazo);
 
     }
     private static void extracted(int[] descartes, Integer[] des) {
@@ -507,12 +503,11 @@ public class VistaGrafica implements IVista, Serializable {
         dialog.setVisible(true);
     }
 
-    private void agregarTitulo() {
-
-    }
-
     private void mostrarReglas() {
-
+        DialogMostrarReglas dialog = new DialogMostrarReglas();
+        dialog.setPreferredSize(new Dimension(800,700));
+        dialog.pack();
+        dialog.setVisible(true);
     }
 
     private void cambiarCardPanel(JPanel panelCard) {
@@ -603,7 +598,7 @@ public class VistaGrafica implements IVista, Serializable {
     private void actualizarNorte(ArrayList<ICarta> cartas) {
         listaModeloNorte.removeAllElements();
         for (int i = 0; i < cartas.size(); i++) {
-            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo2.png");
             listaModeloNorte.addElement(cartaActual);
         }
         scpManoNorte.setPreferredSize(new Dimension(lstManoNorte.getPreferredSize().width, lstManoNorte.getPreferredSize().height));
@@ -616,7 +611,7 @@ public class VistaGrafica implements IVista, Serializable {
     private void actualizarOeste(ArrayList<ICarta> cartas) {
         listaModeloOeste.removeAllElements();
         for (int i = 0; i < cartas.size(); i++) {
-            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo2.png");
             listaModeloOeste.addElement(cartaActual);
         }
         scpManoWest.setPreferredSize(new Dimension(lstManoWest.getPreferredSize().width, lstManoWest.getPreferredSize().height));
@@ -629,7 +624,7 @@ public class VistaGrafica implements IVista, Serializable {
     private void actualizarEste(ArrayList<ICarta> cartas) {
         listaModeloEste.removeAllElements();
         for (int i = 0; i < cartas.size(); i++) {
-            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+            ImageIcon cartaActual = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo2.png");
             listaModeloEste.addElement(cartaActual);
         }
         scpManoEast.setPreferredSize(new Dimension(lstManoEast.getPreferredSize().width, lstManoEast.getPreferredSize().height));
@@ -646,7 +641,7 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     @Override
-    public void mostrarCuerpo(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+    public void mostrarCuerpo(ArrayList<ICarta> organos) {
 
         lstOrganosSur.setAlignmentX(Component.CENTER_ALIGNMENT);
         listaModeloSurOrganos.removeAllElements();
@@ -679,7 +674,7 @@ public class VistaGrafica implements IVista, Serializable {
         frame.repaint();
     }
 
-    private void mostrarCuerpoNorte(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+    private void mostrarCuerpoNorte(ArrayList<ICarta> organos) {
 
         lstOrganosNorte.setAlignmentX(Component.CENTER_ALIGNMENT);
         listaModeloNorteOrganos.removeAllElements();
@@ -713,7 +708,7 @@ public class VistaGrafica implements IVista, Serializable {
         frame.repaint();
     }
 
-    private void mostrarCuerpoWest(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+    private void mostrarCuerpoWest(ArrayList<ICarta> organos) {
 
         lstOrganosWest.setAlignmentX(Component.CENTER_ALIGNMENT);
         listaModeloOesteOrganos.removeAllElements();
@@ -747,7 +742,7 @@ public class VistaGrafica implements IVista, Serializable {
         frame.repaint();
     }
 
-    private void mostrarCuerpoEast(ArrayList<ICarta> organos) { // TODO hacer el mostrar organos de los jugadores
+    private void mostrarCuerpoEast(ArrayList<ICarta> organos) {
 
         lstOrganosEast.setAlignmentX(Component.CENTER_ALIGNMENT);
         listaModeloEsteOrganos.removeAllElements();
@@ -795,7 +790,6 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void mostrarJugadores(ArrayList<IJugador> jugadores) {
-
     }
 
     @Override
@@ -821,7 +815,7 @@ public class VistaGrafica implements IVista, Serializable {
         pnlJugadorNorth.setVisible(true);
         scpManoSur.getViewport().setOpaque(false);
 
-        imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo.png");
+        imgiMazo = new ImageIcon("src/padre/virus/resources/imagenes/Cartas/dorsomazo2.png");
         lblMazo.setIcon(imgiMazo);
         lblMazoDescarte.setIcon(imgiMazo);
         lblNumeroMazo.setText(""+controlador.obtenerMazo());
@@ -926,42 +920,61 @@ public class VistaGrafica implements IVista, Serializable {
     }
 
     @Override
-    public void partidaTerminada(String jugadorActual) { // TODO arreglar esta cagada
+    public void partidaTerminada(String jugadorActual) {
         deshabilitarEntradas(true);
-       /* DialogPartidaFinalizada dialog = new DialogPartidaFinalizada();
-        dialog.setPreferredSize(new Dimension(400,200));
-        dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
-        dialog.pack();
-        dialog.setVisible(true);
-        cambiarCardPanel(pnlCardMenuPrincipal);
-
-        */
         popUpFinal();
-
     }
 
     private void popUpFinal(){
         JWindow pFinal = new JWindow();
-        pFinal.setLocationRelativeTo(null);
-        pFinal.setPreferredSize(new Dimension(400,500));
-        JPanel contenedor = new JPanel(new GridLayout());
-        JLabel text = new JLabel();
-        text.setText("gracias por jugar");
-        JButton boton = new JButton();
-        boton.setText("Volver al menu");
-        boton.addActionListener(new ActionListener() {
+        pFinal.setLocationRelativeTo(pnlPrincipal);
+        pFinal.setPreferredSize(new Dimension(300,200));
+
+        JPanel contenedor = new JPanel(new BorderLayout());
+        contenedor.setBackground(ColorRGB.DARK_TIEL);
+        contenedor.setOpaque(true);
+
+        JTextPane text = new JTextPane();
+        text.setForeground(ColorRGB.PINK);
+        text.setOpaque(false);
+        text.setEditable(false); // Deshabilitar la edición del JTextArea
+
+        StyledDocument doc = text.getStyledDocument();
+        SimpleAttributeSet center = new SimpleAttributeSet();
+        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+        doc.setParagraphAttributes(0, doc.getLength(), center, false);
+
+        text.setText("La partida ha finalizado!!!\n\nEl gran gandor es "+controlador.getGanador()+" que ha logrado la azaña de tener 4 organos sanos\n\n\t\tMuchas gracias por haber jugado a Virus, en unos segundos seran movidos al MENU PRINCIPAL!");
+        text.setAlignmentX(Component.CENTER_ALIGNMENT);
+        text.setAlignmentY(Component.CENTER_ALIGNMENT);
+
+        // Crear un borde compuesto con esquinas redondeadas
+        Border borde = BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(Color.BLACK, 2), // Borde lineal con grosor de 2 píxeles y color negro
+                BorderFactory.createLineBorder(Color.WHITE, 1) // Borde lineal adicional con grosor de 1 píxel y color blanco
+        );
+
+        contenedor.setBorder(borde);
+
+        Timer timer = new Timer(15000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cambiarCardPanel(pnlCardMenuPrincipal);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        cambiarCardPanel(pnlCardMenuPrincipal);
+                        pFinal.dispose();
+                    }
+                });
             }
         });
-        contenedor.add(text);
-        contenedor.add(boton);
+
+        timer.setRepeats(false);
+        contenedor.add(text,BorderLayout.CENTER);
         pFinal.add(contenedor);
         pFinal.pack();
+        timer.start();
         pFinal.setVisible(true);
-        frame.revalidate();
-        frame.repaint();
     }
 
     @Override

@@ -28,6 +28,9 @@ public class FlujoMenuPrincipal extends Flujo{
                 mostrarJugadores();
             }
             case "3" -> {
+                return new FlujoCargarPartida(vista,controlador);
+            }
+            case "4" -> {
                 return new FlujoMostrarReglas(vista,controlador);
             }
 
@@ -41,9 +44,10 @@ public class FlujoMenuPrincipal extends Flujo{
         vista.printear("--------------------------------------------------------------------\n", ColorRGB.MAGENTA);
         vista.printear("|                             Menu principal                       |\n",ColorRGB.MAGENTA);
         vista.printear("--------------------------------------------------------------------\n",ColorRGB.MAGENTA);
-        vista.printear("1 - iniciar partida \n",ColorRGB.MAGENTA);
-        vista.printear("2 - mostrar jugadores \n",ColorRGB.MAGENTA);
-        vista.printear("3 - mostrar reglas \n",ColorRGB.MAGENTA);
+        vista.printear("1 - Iniciar partida \n",ColorRGB.MAGENTA);
+        vista.printear("2 - Mostrar jugadores \n",ColorRGB.MAGENTA);
+        vista.printear("3 - Cargar Partida \n",ColorRGB.MAGENTA);
+        vista.printear("4 - Mostrar reglas \n",ColorRGB.MAGENTA);
 
     }
 

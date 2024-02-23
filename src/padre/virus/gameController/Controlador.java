@@ -54,6 +54,9 @@ public class Controlador implements IControladorRemoto {
                     this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 ).getNombre()+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
+                    if(partidaIniciada){
+                        reiniciar();
+                    }
                     partidaIniciada = true;
                     cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
                     organos = this.modelo.obtenerOrganos(nombreJugador.getNombre());
@@ -143,13 +146,6 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
-    public boolean esHost(){
-        try {
-            return modelo.esHost(nombreJugador);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public void AgregarJugador(String nombre){
         try {
@@ -228,25 +224,9 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
-    public void terminoTurno(){
-        try {
-            modelo.cambiarTurno(idJA);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public void pasoTurno(){
         try {
             modelo.terminarTurno(nombreJugador);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void tomarCarta(){
-        try {
-            modelo.tomarCarta(nombreJugador);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -267,9 +247,17 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
-    public void terminoPartida(){
+    public boolean terminoPartida(){
         try {
-            modelo.hayGandor();
+            return modelo.hayGandor();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getGanador(){
+        try {
+            return modelo.getGanador();
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -278,6 +266,13 @@ public class Controlador implements IControladorRemoto {
         try {
             modelo.abandonoPartida();
             return nombreJugador;
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void reiniciar(){
+        try {
+            modelo.reiniciar();
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -311,16 +306,6 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
-    /*
-    public void sobreEscribirPartida(int posicion,String nombreSave){
-        try {
-            modelo.reEscribirPartida(posicion,nombreSave);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-     */
 
     public ArrayList<String> getPartidasGuardadas(){
         ArrayList<String> partidas;

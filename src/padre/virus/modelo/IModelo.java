@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public interface IModelo extends IObservableRemoto {
     IJugador agregarJugador(String nombre) throws RemoteException;
+    void reiniciar()throws RemoteException;
 
     void jugar() throws RemoteException;
 

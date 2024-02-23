@@ -28,7 +28,10 @@ public class FlujoJugar extends Flujo{
             case "3" -> {
                 return new FlujoPasarTurno(vista,controlador);
             }
-            case "4" ->{
+            case "4" -> {
+                return new FlujoGuardarPartida(vista,controlador);
+            }
+            case "5" ->{
                 String nombre = controlador.abandonoPartida().getNombre();
                 return new FlujoAbandonarPartida(vista,controlador,nombre);
 
@@ -42,10 +45,11 @@ public class FlujoJugar extends Flujo{
     @Override
     public void mostrarSiguienteTexto() {
         //vista.mostrarCartas(controlador.obtenerCartas());
-        vista.printear("\n\n1 - hacer jugada\n", ColorRGB.MAGENTA);
-        vista.printear("2 - descartar cartas\n", ColorRGB.MAGENTA);
-        vista.printear("3 - terminar turno\n", ColorRGB.MAGENTA);
-        vista.printear("4 - abandonar partida\n", ColorRGB.MAGENTA);
+        vista.printear("\n\n1 - Hacer jugada\n", ColorRGB.MAGENTA);
+        vista.printear("2 - Descartar cartas\n", ColorRGB.MAGENTA);
+        vista.printear("3 - Terminar turno\n", ColorRGB.MAGENTA);
+        vista.printear("4 - Guardar partida\n", ColorRGB.MAGENTA);
+        vista.printear("5 - Abandonar partida\n", ColorRGB.MAGENTA);
         vista.printear("-----------------------------------------------\n", ColorRGB.MAGENTA);
         vista.printear("seleccionar opcion: \n", ColorRGB.CYAN);
     }

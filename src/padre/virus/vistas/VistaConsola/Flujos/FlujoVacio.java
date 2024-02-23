@@ -13,7 +13,7 @@ public class FlujoVacio extends Flujo{
 
     @Override
     public Flujo procesarEntrada(String string) {
-        return null;
+        return this;
     }
 
     @Override

@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- fix agregarPartidadGuardada(), las guarda correctamente">
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogPartidaFinalizada.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogPartidaFinalizada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- demasiadas cosas, ya ni me acuerdo">
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogMostrarReglas.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogMostrarReglas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoCargarPartida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoGuardarPartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ArchivosDeGuardado.dat" beforeDir="false" afterPath="$PROJECT_DIR$/ArchivosDeGuardado.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/AppCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/AppServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/AppServidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IJugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/resources/imagenes/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoDescartar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoDescartar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoEsperandoTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoEsperandoTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoJugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoJugar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoMenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoVacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoVacio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/VistaConsola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
@@ -38,7 +47,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -54,13 +63,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.AppCliente.executor": "Run",
+    "Application.AppServidor.executor": "Run",
     "Application.Correr Prueba.executor": "Run",
     "Application.Main.executor": "Run",
     "JAR Application.LibreriaRMIMVC.jar.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "183",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "272",
@@ -101,7 +112,33 @@
       <recent name="padre.virus.vistas" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Correr Prueba">
+  <component name="RunManager" selected="Application.AppCliente">
+    <configuration name="AppCliente" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="padre.virus.AppCliente" />
+      <module name="Virus CardGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="padre.virus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppServidor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="padre.virus.AppServidor" />
+      <module name="Virus CardGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="padre.virus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Correr Prueba" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="padre.virus.Test" />
       <module name="Virus CardGame" />
@@ -123,11 +160,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.Correr Prueba" />
+      <item itemvalue="Application.AppCliente" />
+      <item itemvalue="Application.AppServidor" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JAR Application.LibreriaRMIMVC.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppCliente" />
+        <item itemvalue="Application.AppServidor" />
         <item itemvalue="JAR Application.LibreriaRMIMVC.jar" />
         <item itemvalue="Application.Main" />
       </list>
@@ -190,23 +231,8 @@
       <workItem from="1708379896590" duration="4000" />
       <workItem from="1708456086941" duration="13781000" />
       <workItem from="1708543288290" duration="18729000" />
-      <workItem from="1708573684212" duration="6241000" />
-    </task>
-    <task id="LOCAL-00024" summary="- implementacion RMI MVC (unidad de testeo realizada)">
-      <option name="closed" value="true" />
-      <created>1706571997279</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1706571997280</updated>
-    </task>
-    <task id="LOCAL-00025" summary="- inicio vista grafica">
-      <option name="closed" value="true" />
-      <created>1706645671381</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1706645671381</updated>
+      <workItem from="1708573684212" duration="6447000" />
+      <workItem from="1708626429939" duration="13798000" />
     </task>
     <task id="LOCAL-00026" summary="- menu nuevo jugador&#10;- menu principal hecho">
       <option name="closed" value="true" />
@@ -584,7 +610,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708544631788</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="- demasiadas cosas, ya ni me acuerdo">
+      <option name="closed" value="true" />
+      <created>1708580593974</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1708580593975</updated>
+    </task>
+    <task id="LOCAL-00074" summary="- demasiadas cosas, ya ni me acuerdo">
+      <option name="closed" value="true" />
+      <created>1708580614711</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1708580614711</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,7 +644,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- intento fallido de mostrar las cartas" />
     <MESSAGE value="- redimension de imagenes de las cartas" />
     <MESSAGE value="- modificacion de mostrarCartas(), muestra imagenes correspondientes" />
     <MESSAGE value="- TODO" />
@@ -627,7 +668,8 @@
     <MESSAGE value="- mas cambios de Ijugador" />
     <MESSAGE value="- serializacion andando&#10;- btnCargarPartida falta hacer&#10;- guarda las partidas 2 veces" />
     <MESSAGE value="- fix agregarPartidadGuardada(), las guarda correctamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix agregarPartidadGuardada(), las guarda correctamente" />
+    <MESSAGE value="- demasiadas cosas, ya ni me acuerdo" />
+    <option name="LAST_COMMIT_MESSAGE" value="- demasiadas cosas, ya ni me acuerdo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -640,6 +682,16 @@
           <url>file://$PROJECT_DIR$/src/padre/virus/modelo/DialogGuardarPartida.java</url>
           <line>96</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java</url>
+          <line>344</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoCargarPartida.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

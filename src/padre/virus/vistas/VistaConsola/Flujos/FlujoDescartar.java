@@ -30,7 +30,10 @@ public class FlujoDescartar extends Flujo{
             }
 
             controlador.pasoTurno();
-            return new FlujoEsperandoTurno(vista,controlador);
+            if(!controlador.terminoPartida()){
+                return new FlujoEsperandoTurno(vista,controlador);
+            }
+            return new FlujoPartidaTerminada(vista,controlador, controlador.getGanador(), true);
 
         } catch (NumberFormatException e){
             vista.printear("El numero de carta no es valido \n", ColorRGB.RED);
