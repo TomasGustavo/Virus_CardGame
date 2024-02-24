@@ -4,13 +4,15 @@ public class Organo extends Carta {
 
     private boolean sano;
     private boolean inmune;
-    private int count;
+    private int countCura;
+    private int countVirus;
 
     public Organo (Color color){
         super(color,Tipo.ORGANO);
         this.sano = true;
         this.inmune = false;
-        this.count = 0;
+        this.countCura = 0;
+        this.countVirus = 0;
     }
 
     public boolean estaSano(){
@@ -25,11 +27,22 @@ public class Organo extends Carta {
     public void setInmune(boolean inmune){
         this.inmune = inmune;
     }
-    public int getCount(){
-        return count;
+    public int getCountCura(){
+        return countCura;
     }
-    public void setCount(int count){
-        this.count = count;
+    public void setCountCura(int count){
+        this.countCura = count;
+    }
+    public int getCountVirus(){
+        return countVirus;
+    }
+    public void setCountVirus(int count){
+        this.countVirus = count;
+    }
+    public void extripado(){
+        setSano(true);
+        setCountVirus(0);
+        setCountCura(0);
     }
 
     public String toString(){

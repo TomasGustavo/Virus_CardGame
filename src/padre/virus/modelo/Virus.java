@@ -8,13 +8,13 @@ public class Virus extends Carta {
 
     public boolean Infectado(Organo organo){
         boolean infectado = false;
-        if(!organo.esInmune() && ((organo.getColor() == this.getColor())  || this.getColor() == Color.MULTICOLOR || organo.getColor() == Color.MULTICOLOR) && organo.estaSano()){
-            if(organo.getCount() == 1){
-                organo.setCount(0);
+        if(!organo.esInmune() && ((organo.getColor() == this.getColor())  || this.getColor() == Color.MULTICOLOR || organo.getColor() == Color.MULTICOLOR)){
+            if(organo.getCountCura() == 1){
+                organo.setCountCura(0);
             }
             organo.setSano(false);
+            organo.setCountVirus(organo.getCountVirus()+1);
             infectado = true;
-
         }
         return infectado;
     }
