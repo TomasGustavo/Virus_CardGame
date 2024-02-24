@@ -54,9 +54,6 @@ public class Controlador implements IControladorRemoto {
                     this.vista.mostrarTexto("El Jugador "+jugadores.get(jugadores.size() - 1 ).getNombre()+" se ha unido a la partida\n");
                 }
                 case PARTIDA_INICIADA -> {
-                    if(partidaIniciada){
-                        reiniciar();
-                    }
                     partidaIniciada = true;
                     cartas = this.modelo.obtenerCartas(nombreJugador.getNombre());
                     organos = this.modelo.obtenerOrganos(nombreJugador.getNombre());
@@ -102,6 +99,7 @@ public class Controlador implements IControladorRemoto {
                 case PARTIDA_FINALIZADA -> {
                     Ganador = this.modelo.getGanador();
                     vista.partidaTerminada(Ganador);
+
                 }
                 case ABANDONO_PARTIDA -> {
                     vista.abandonoPartida(nombreJugador);
@@ -270,13 +268,15 @@ public class Controlador implements IControladorRemoto {
             throw new RuntimeException(e);
         }
     }
-    public void reiniciar(){
+    /*public void reiniciar(){
         try {
             modelo.reiniciar();
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
+
+     */
 
     public void actualizarChat(String txt, String jugador){
         try {

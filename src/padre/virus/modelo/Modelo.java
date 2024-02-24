@@ -1,5 +1,6 @@
 package padre.virus.modelo;
 
+import ar.edu.unlu.rmimvc.cliente.IControladorRemoto;
 import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
 import padre.virus.Save;
 import padre.virus.observer.Observador;
@@ -24,6 +25,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
 
     String ganador;
     private boolean partidaCargada = false;
+    private boolean partidaIniciada= false;
 
 
     public Modelo(){
@@ -60,6 +62,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     }
 
     public void reiniciar(){
+        ganador = "";
         this.mazo.vaciarMazo();
         for(IJugador jugador: jugadores){
             jugador.vaciarJugador();
@@ -69,12 +72,16 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     @Override
     public void jugar() throws RemoteException{
         if(!partidaCargada){
+            if(partidaIniciada){
+                reiniciar();
+            }
             if(jugadores.size() >=2){
                 this.mazo = new Mazo(false);
                 this.mazoDescarte = new Mazo(true);
                 mazo.BarajarMazo();
                 RepartirCartas();
                 asignarTurno();
+                partidaIniciada=true;
                 this.notificarObservadores(Eventos.PARTIDA_INICIADA);
             }
         }else{
@@ -192,6 +199,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
                             jugadordestino.setCuerpo(organoVictima);
                         }else if (organoVictima.getCountVirus()>=2){
                             organoVictima.extripado();
+                            actualizarMazoDescarte(organoVictima);
                         }
                     }
                     if(jugada){
@@ -290,7 +298,6 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     @Override
     public void partidaTerminada(String ganador)throws RemoteException{
         this.ganador = ganador;
-
 
     }
 

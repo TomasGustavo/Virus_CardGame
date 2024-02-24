@@ -189,6 +189,15 @@ public class VistaGrafica implements IVista, Serializable {
             }
         });
 
+        txtNombreJugador.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    btnAceptar.doClick();
+                }
+            }
+        });
         btnAceptar.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -816,7 +825,7 @@ public class VistaGrafica implements IVista, Serializable {
 
         //deshabilita los botones de las vistas las cuales no sea su turno
         //if(!controlador.getNombre().equals(jugadorActual.getNombre())){
-        deshabilitarEntradas(false);
+            deshabilitarEntradas(false);
         //}
         if(controlador.listaJugadores().size()==3){
             pnlJugadorWest.setVisible(true);
@@ -994,7 +1003,6 @@ public class VistaGrafica implements IVista, Serializable {
 
     @Override
     public void abandonoPartida(IJugador nombre) {
-        controlador.reiniciar();
         cambiarCardPanel(pnlCardMenuPrincipal);
         notificarMensaje("El jugador "+nombre.getNombre()+" ha abanado la partida");
     }

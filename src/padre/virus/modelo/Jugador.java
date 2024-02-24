@@ -110,11 +110,14 @@ public class Jugador implements IJugador, Serializable {
     }
 
     public void vaciarJugador(){
-        for(int i = 0 ; i< mano.size();i++){
+        int cant = mano.size();
+        for(int i = 0 ; i< cant;i++){
             mano.remove(0);
         }
-        for(int i = 0 ; i< cuerpo.size();i++){
+        cant = cuerpo.size();
+        for(int i = 0 ; i< cant;i++){
             cuerpo.remove(0);
         }
+        setSuTurno(false);
     }
 }
