@@ -6,7 +6,7 @@ public class Cura extends Carta {
         super (color,Tipo.CURA);
     }
 
-    public boolean cura(Organo organo){
+    private boolean cura(Organo organo){
         boolean curado = false;
         if(((organo.getColor() == this.getColor()) || organo.getColor() == Color.MULTICOLOR || this.getColor() == Color.MULTICOLOR)){
             if(organo.getCountCura() == 1){
@@ -18,6 +18,11 @@ public class Cura extends Carta {
             curado = true;
         }
         return curado;
+    }
+
+    @Override
+    public boolean accion(Organo organo) {
+        return cura(organo);
     }
 
     @Override

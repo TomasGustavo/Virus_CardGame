@@ -6,7 +6,7 @@ public class Virus extends Carta {
         super(color,Tipo.VIRUS);
     }
 
-    public boolean Infectado(Organo organo){
+    private boolean Infectado(Organo organo){
         boolean infectado = false;
         if(!organo.esInmune() && ((organo.getColor() == this.getColor())  || this.getColor() == Color.MULTICOLOR || organo.getColor() == Color.MULTICOLOR)){
             if(organo.getCountCura() == 1){
@@ -17,6 +17,11 @@ public class Virus extends Carta {
             infectado = true;
         }
         return infectado;
+    }
+
+    @Override
+    public boolean accion(Organo organo) {
+        return Infectado(organo);
     }
 
     @Override

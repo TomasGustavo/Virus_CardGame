@@ -55,4 +55,9 @@ public class Organo extends Carta {
         return "Organo " + "["+this.getColor()+"]" +" [INFECTADO]";
     }
 
+    @Override
+    public boolean accion(Organo organo) {
+        return false;
+    }
+
 }

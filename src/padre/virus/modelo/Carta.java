@@ -12,6 +12,7 @@ public abstract class Carta implements ICarta, Serializable {
         this.tipo = tipo;
     }
 
+
     public Color getColor(){
         return color;
     }
