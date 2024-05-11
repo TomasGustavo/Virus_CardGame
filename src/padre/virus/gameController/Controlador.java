@@ -232,7 +232,7 @@ public class Controlador implements IControladorRemoto {
 
     public void tirarCarta(String jugadorDestino,Integer idCarta,int idOrgano){
         try {
-            modelo.tirarCarta(jugadorActual.getNombre(),jugadorDestino,idCarta,idOrgano);
+            modelo.tirarCarta(jugadorActual.getNombre(),jugadorDestino,idCarta-1,idOrgano-1);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

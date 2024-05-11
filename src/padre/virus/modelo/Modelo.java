@@ -186,24 +186,21 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
         if(jugadorOrigen != null && jugadordestino != null){
             boolean jugada = true;
             try {
-                Carta carta = jugadororigen.getMano().get(IdCarta-1); // TODO modificar el IDCarta-1
+                Carta carta = jugadororigen.getMano().get(IdCarta);
                 if(carta != null){
-                    if(carta instanceof Cura){ //TODO sacar los instance of, crear metodo en carta accion() y ahi vea de que tipo es
-                        Organo organoVictima = jugadordestino.getCuerpo().remove(IdOrgano-1);
-                        jugada = ((Cura) carta).cura(organoVictima);
+
+                    Organo organoVictima = jugadordestino.getCuerpo().remove(IdOrgano);
+                    jugada = carta.accion(organoVictima);
+
+                    if(organoVictima.getCountVirus() < 2){
                         jugadordestino.setCuerpo(organoVictima);
-                    } else if(carta instanceof Virus){
-                        Organo organoVictima = jugadordestino.getCuerpo().remove(IdOrgano-1);
-                        jugada = ((Virus) carta).Infectado(organoVictima);
-                        if(organoVictima.getCountVirus() < 2){
-                            jugadordestino.setCuerpo(organoVictima);
-                        }else if (organoVictima.getCountVirus()>=2){
-                            organoVictima.extripado();
-                            actualizarMazoDescarte(organoVictima);
-                        }
+                    }else if (organoVictima.getCountVirus()>=2){
+                        organoVictima.extripado();
+                        actualizarMazoDescarte(organoVictima);
                     }
+
                     if(jugada){
-                        jugadororigen.descartar(IdCarta-1);
+                        jugadororigen.descartar(IdCarta);
                     }
                 }
             } catch (IndexOutOfBoundsException e){
