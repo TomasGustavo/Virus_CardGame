@@ -31,6 +31,7 @@ public class Jugador implements IJugador, Serializable {
             if (!contieneOrganoConMismoColor(organo.getColor())) {
                 // Agrega el órgano al cuerpo
                 Organo org = (Organo) organo;
+                org.setIdJugador(IdJugador);
                 this.cuerpo.add(org);
                 //System.out.println("paso...\n");
                 return true;

@@ -6,6 +6,7 @@ public class Organo extends Carta {
     private boolean inmune;
     private int countCura;
     private int countVirus;
+    private int idJugador;
 
     public Organo (Color color){
         super(color,Tipo.ORGANO);
@@ -43,6 +44,13 @@ public class Organo extends Carta {
         setSano(true);
         setCountVirus(0);
         setCountCura(0);
+    }
+
+    public void setIdJugador(int id){
+        this.idJugador = id;
+    }
+    public int getIdJugador(){
+        return  idJugador;
     }
 
     public String toString(){

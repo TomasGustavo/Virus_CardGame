@@ -261,12 +261,22 @@ public class VistaGrafica implements IVista, Serializable {
             public void actionPerformed(ActionEvent e) {
 
                 if(!sinOrganos()){
-                    if(lstManoSur.getSelectedIndex() != -1){
-                        DialogTirarVirus dialog = new DialogTirarVirus(controlador.listaIJugadores(), controlador.getJugadorActual(), controlador,lstManoSur.getSelectedIndex());
+                    int idCarta = lstManoSur.getSelectedIndex();
+                    if(idCarta != -1){
+
+                        int [] Jugador_Y_Organo = organoSeleccionado(); // TODO arreglar problema con los indices.
+                        if (Jugador_Y_Organo[1] !=-1){
+                            controlador.tirarCarta(controlador.getJugadorPorID(Jugador_Y_Organo[0]),idCarta, Jugador_Y_Organo[1]);
+                            controlador.actualizarMano();
+                            mostrarCuerpo(controlador.obtenerOrganos(controlador.getNombre()));
+                            notificarMensaje("Virus lanzado con exito");
+                        }
+                        /*DialogTirarVirus dialog = new DialogTirarVirus(controlador.listaIJugadores(), controlador.getJugadorActual(), controlador,lstManoSur.getSelectedIndex());
                         dialog.setPreferredSize(new Dimension(400,200));
                         dialog.setLocation((splPrincipal.getLocation().x + (splPrincipal.getWidth() - (dialog.getWidth())))/2,(splPrincipal.getLocation().y + (splPrincipal.getHeight() - dialog.getHeight())/2));
                         dialog.pack();
                         dialog.setVisible(true);
+                         */
                     }else {
                         notificarMensaje("No puede tirar un virus sin antes seleccionar uno de los que tenga en su mano!!!");
                     }
@@ -300,10 +310,10 @@ public class VistaGrafica implements IVista, Serializable {
 
         btnCurar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                int idCarta = lstManoSur.getSelectedIndex()+1;
+            public void actionPerformed(ActionEvent e) { // TODO arrelgar el problema con los indices.
+                int idCarta = lstManoSur.getSelectedIndex();
                 if(idCarta != -1 && controlador.esCura(idCarta) && lstOrganosSur.getSelectedIndex() !=-1){
-                    controlador.tirarCarta(controlador.getNombre(),idCarta,lstOrganosSur.getSelectedIndex()+1);
+                    controlador.tirarCarta(controlador.getNombre(),idCarta,lstOrganosSur.getSelectedIndex());
                     controlador.actualizarMano();
                     mostrarCuerpo(controlador.obtenerOrganos(controlador.getNombre()));
                     notificarMensaje("Cura realiza con exito!");
@@ -402,7 +412,7 @@ public class VistaGrafica implements IVista, Serializable {
         reglas.setText("Mostrar Reglas");
         reglas.setBackground(ColorRGB.PINK);
         reglas.setForeground(Color.black);
-        reglas.setMaximumSize(new java.awt.Dimension(150, 30));
+        reglas.setMaximumSize(new Dimension(150, 30));
         reglas.setAlignmentX(Component.CENTER_ALIGNMENT);
         reglas.addActionListener(new ActionListener() {
             @Override
@@ -418,7 +428,7 @@ public class VistaGrafica implements IVista, Serializable {
         salir.setText("Abandonar Partida");
         salir.setBackground(ColorRGB.PINK);
         salir.setForeground(Color.black);
-        salir.setMaximumSize(new java.awt.Dimension(150, 30));
+        salir.setMaximumSize(new Dimension(150, 30));
         salir.setAlignmentX(Component.CENTER_ALIGNMENT);
         salir.addActionListener(new ActionListener() {
             @Override
@@ -438,7 +448,7 @@ public class VistaGrafica implements IVista, Serializable {
         deshabilitarChat.setBackground(ColorRGB.PINK);
         deshabilitarChat.setOpaque(true);
         deshabilitarChat.setForeground(Color.black);
-        deshabilitarChat.setMaximumSize(new java.awt.Dimension(150, 30));
+        deshabilitarChat.setMaximumSize(new Dimension(150, 30));
         deshabilitarChat.setAlignmentX(Component.CENTER_ALIGNMENT);
         deshabilitarChat.addItemListener(new ItemListener() {
             @Override
@@ -462,7 +472,7 @@ public class VistaGrafica implements IVista, Serializable {
         btnGuardar.setBackground(ColorRGB.PINK);
         btnGuardar.setOpaque(true);
         btnGuardar.setForeground(Color.black);
-        btnGuardar.setMaximumSize(new java.awt.Dimension(150, 30));
+        btnGuardar.setMaximumSize(new Dimension(150, 30));
         btnGuardar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         btnGuardar.addActionListener(new ActionListener() {
@@ -486,7 +496,7 @@ public class VistaGrafica implements IVista, Serializable {
         btnCargar.setBackground(ColorRGB.PINK);
         btnCargar.setOpaque(true);
         btnCargar.setForeground(Color.black);
-        btnCargar.setMaximumSize(new java.awt.Dimension(150, 30));
+        btnCargar.setMaximumSize(new Dimension(150, 30));
         btnCargar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         btnCargar.addActionListener(new ActionListener() {
@@ -941,6 +951,36 @@ public class VistaGrafica implements IVista, Serializable {
         }
 
 
+    }
+
+    public int [] organoSeleccionado(){
+        int [] Jugador_y_Organo = new int[2];
+
+        Organo organoSeleccionado = null;
+        int idOrgano = -1;
+
+        if (lstOrganosEast.getSelectedIndex() != -1){
+            idOrgano = lstOrganosEast.getSelectedIndex();
+            organoSeleccionado = (Organo) lstOrganosEast.getSelectedValue();
+        }
+        else if(lstOrganosWest.getSelectedIndex() != -1){
+            idOrgano = lstOrganosWest.getSelectedIndex();
+            organoSeleccionado = (Organo) lstOrganosWest.getSelectedValue();
+        }
+        else if(lstOrganosNorte.getSelectedIndex() != -1){
+            Object selectedValue = lstOrganosNorte.getSelectedValue();
+            if(selectedValue instanceof Organo){
+                idOrgano = lstOrganosNorte.getSelectedIndex();
+                organoSeleccionado = (Organo) lstOrganosNorte.getSelectedValue();
+            }
+        }
+
+        if(organoSeleccionado != null){
+            Jugador_y_Organo[0] = organoSeleccionado.getIdJugador();
+            Jugador_y_Organo[1] = idOrgano;
+        }
+
+        return Jugador_y_Organo;
     }
 
     @Override

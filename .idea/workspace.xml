@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- modificacion reiniciar()">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- new function accion() generica en Icarta, Cura, Virus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Carta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/ICarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/ICarta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Virus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;183&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;272&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;419&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -74,7 +72,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.rainbow.brackets.root&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -221,23 +219,9 @@
       <workItem from="1708706037454" duration="2276000" />
       <workItem from="1708714883450" duration="3656000" />
       <workItem from="1708733497362" duration="6280000" />
-      <workItem from="1715437671137" duration="2186000" />
-    </task>
-    <task id="LOCAL-00033" summary="- engranaje funcionando con clicks, new popUp para el menu opciones">
-      <option name="closed" value="true" />
-      <created>1706919353046</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1706919353046</updated>
-    </task>
-    <task id="LOCAL-00034" summary="- fix tamanio area clickable del engranaje, ajuste de la forma en la que muestra el popUp">
-      <option name="closed" value="true" />
-      <created>1706996312234</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1706996312234</updated>
+      <workItem from="1715437671137" duration="2449000" />
+      <workItem from="1715636484656" duration="4742000" />
+      <workItem from="1715641759660" duration="683000" />
     </task>
     <task id="LOCAL-00035" summary="- new png flecha">
       <option name="closed" value="true" />
@@ -615,7 +599,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708739775867</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="- fix tirarCarta() en Modelo y Controlador">
+      <option name="closed" value="true" />
+      <created>1715440044326</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1715440044327</updated>
+    </task>
+    <task id="LOCAL-00083" summary="- new function accion() generica en Icarta, Cura, Virus">
+      <option name="closed" value="true" />
+      <created>1715440098056</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1715440098056</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,8 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- bug fix, camibo de JScrollPne por JPanel (organoSur)&#10;- fix error Cliente (aparentemente)&#10;- new background pnlCardPartida&#10;- new Botonera de acciones&#10;- movimiento de funciones por fuera del constructor de la GraficaConsola" />
-    <MESSAGE value="- funcion al boton terminar turno&#10;- new deshabilitarEntredas() (no anda) y habiilitarEntradas()" />
     <MESSAGE value="- a" />
     <MESSAGE value="- new Dialog para btnTirarCarta&#10;- btnTerminarTurno andando&#10;- modificacion de como cambia el turno el modelo" />
     <MESSAGE value="- nuevas imagenes de carta infectada e inmune" />
@@ -658,7 +656,9 @@
     <MESSAGE value="- ultimos cambios aaaaaaaaaaahhhhhhh" />
     <MESSAGE value="- implemetacion, organo con 2 virus es extripado del cuerpo" />
     <MESSAGE value="- modificacion reiniciar()" />
-    <option name="LAST_COMMIT_MESSAGE" value="- modificacion reiniciar()" />
+    <MESSAGE value="- fix tirarCarta() en Modelo y Controlador" />
+    <MESSAGE value="- new function accion() generica en Icarta, Cura, Virus" />
+    <option name="LAST_COMMIT_MESSAGE" value="- new function accion() generica en Icarta, Cura, Virus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -674,7 +674,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java</url>
-          <line>352</line>
+          <line>350</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

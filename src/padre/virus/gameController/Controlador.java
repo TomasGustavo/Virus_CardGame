@@ -188,6 +188,14 @@ public class Controlador implements IControladorRemoto {
         return cura;
     }
 
+    public String getJugadorPorID(int id){
+        try {
+            return modelo.getOponente(id);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public ArrayList<ICarta> getManoContrincante(String nombre) {
         try {
             return modelo.obtenerCartas(nombre);
@@ -232,7 +240,7 @@ public class Controlador implements IControladorRemoto {
 
     public void tirarCarta(String jugadorDestino,Integer idCarta,int idOrgano){
         try {
-            modelo.tirarCarta(jugadorActual.getNombre(),jugadorDestino,idCarta-1,idOrgano-1);
+            modelo.tirarCarta(jugadorActual.getNombre(),jugadorDestino,idCarta,idOrgano);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

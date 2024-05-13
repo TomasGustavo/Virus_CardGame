@@ -155,7 +155,6 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
                 while(i.getMano().size() < 3 && j < 3){
                     Carta carta = mazo.TomarCarta();
                     if(carta instanceof Organo){
-                        //System.out.println("paso tomarCarta..."+nombreJugador+"\n");
                         if(!i.setCuerpo(carta)){
                             i.tomarCarta(carta);
                         }
