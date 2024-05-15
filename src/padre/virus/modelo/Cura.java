@@ -9,6 +9,7 @@ public class Cura extends Carta {
     private boolean cura(Organo organo){
         boolean curado = false;
         if(((organo.getColor() == this.getColor()) || organo.getColor() == Color.MULTICOLOR || this.getColor() == Color.MULTICOLOR)){
+            organo.setCountVirus(0);
             if(organo.getCountCura() == 1){
                 organo.setInmune(true);
             }else {

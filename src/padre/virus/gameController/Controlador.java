@@ -190,7 +190,7 @@ public class Controlador implements IControladorRemoto {
 
     public String getJugadorPorID(int id){
         try {
-            return modelo.getOponente(id);
+            return modelo.getOponentePorID(id);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -204,9 +204,9 @@ public class Controlador implements IControladorRemoto {
         }
     }
 
-    public String getOponente(){
+    public String getOponenteLBL(){
         try{
-            return modelo.getOponente(nombreJugador.getID());
+            return modelo.getOponenteLBL(nombreJugador.getID());
         } catch (RemoteException e){
             throw new RuntimeException(e);
         }

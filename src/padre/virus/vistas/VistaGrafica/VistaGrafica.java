@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale;
 
 import static java.lang.System.exit;
 
@@ -264,7 +265,7 @@ public class VistaGrafica implements IVista, Serializable {
                     int idCarta = lstManoSur.getSelectedIndex();
                     if(idCarta != -1){
 
-                        int [] Jugador_Y_Organo = organoSeleccionado(); // TODO arreglar problema con los indices.
+                        int [] Jugador_Y_Organo = organoSeleccionado();
                         if (Jugador_Y_Organo[1] !=-1){
                             controlador.tirarCarta(controlador.getJugadorPorID(Jugador_Y_Organo[0]),idCarta, Jugador_Y_Organo[1]);
                             controlador.actualizarMano();
@@ -310,7 +311,7 @@ public class VistaGrafica implements IVista, Serializable {
 
         btnCurar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { // TODO arrelgar el problema con los indices.
+            public void actionPerformed(ActionEvent e) {
                 int idCarta = lstManoSur.getSelectedIndex();
                 if(idCarta != -1 && controlador.esCura(idCarta) && lstOrganosSur.getSelectedIndex() !=-1){
                     controlador.tirarCarta(controlador.getNombre(),idCarta,lstOrganosSur.getSelectedIndex());
@@ -860,7 +861,7 @@ public class VistaGrafica implements IVista, Serializable {
         //asignarNombre();
         lblNombreSur.setForeground(ColorRGB.CYAN);
         lblNombreSur.setText(" " + controlador.getNombre().toUpperCase() + " ");
-        lblNombreNorte.setText(controlador.getOponente().toUpperCase());
+        lblNombreNorte.setText(controlador.getOponenteLBL().toUpperCase());
         mostrarCartas(cartas);
         mostrarCuerpo(organos);
 
@@ -968,12 +969,11 @@ public class VistaGrafica implements IVista, Serializable {
             organoSeleccionado = (Organo) lstOrganosWest.getSelectedValue();
         }
         else if(lstOrganosNorte.getSelectedIndex() != -1){
-            Object selectedValue = lstOrganosNorte.getSelectedValue();
-            if(selectedValue instanceof Organo){
-                idOrgano = lstOrganosNorte.getSelectedIndex();
-                organoSeleccionado = (Organo) lstOrganosNorte.getSelectedValue();
-            }
+            String nombreNorte = lblNombreNorte.getText().toLowerCase();
+            organoSeleccionado = (Organo) controlador.obtenerOrganos(nombreNorte).get(lstOrganosNorte.getSelectedIndex());
+            idOrgano = lstOrganosNorte.getSelectedIndex();
         }
+
 
         if(organoSeleccionado != null){
             Jugador_y_Organo[0] = organoSeleccionado.getIdJugador();

@@ -98,6 +98,7 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
     public IJugador cambiarTurno(int jugadorID) throws RemoteException{
         if(hayGandor()){
             notificarObservadores(Eventos.PARTIDA_FINALIZADA);
+            reiniciar();
         }
         int indice = (jugadorID + 1) % jugadores.size();
         //String jActual = turnoActual();
@@ -220,9 +221,13 @@ public class Modelo extends ObservableRemoto implements IModelo,Serializable {
         return null;
     }
 
-    public String getOponente(int jugadorID) throws RemoteException{
+    public String getOponenteLBL(int jugadorID) throws RemoteException{
         int id = (jugadorID+1)%jugadores.size();
         return jugadores.get(id).getNombre();
+    }
+
+    public String getOponentePorID(int jugadorID) throws RemoteException{
+        return jugadores.get(jugadorID).getNombre();
     }
 
     @Override

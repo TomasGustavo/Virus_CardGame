@@ -32,8 +32,9 @@ public interface IModelo extends IObservableRemoto {
     ArrayList<ICarta> obtenerOrganos(String nombre) throws RemoteException;
 
     String getGanador() throws RemoteException;
-    public String getOponente(int jugadorID) throws RemoteException;
+    public String getOponenteLBL(int jugadorID) throws RemoteException;
 
+    public String getOponentePorID(int jugadorID) throws RemoteException;
     void abandonoPartida() throws RemoteException;
 
     void descartar(IJugador nombreJugador, int opcion) throws RemoteException;

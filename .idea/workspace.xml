@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- new function accion() generica en Icarta, Cura, Virus">
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos">
+      <change afterPath="$PROJECT_DIR$/src/padre/virus/AppClienteTestConsola.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Organo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoSeleccionCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoSeleccionCarta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,39 +46,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.AppCliente.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.AppServidor.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Correr Prueba.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.LibreriaRMIMVC.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;183&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;419&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/OneDrive/Desktop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.rainbow.brackets.root&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.AppCliente.executor": "Debug",
+    "Application.AppServidor.executor": "Run",
+    "Application.Correr Prueba.executor": "Debug",
+    "Application.Main.executor": "Run",
+    "JAR Application.LibreriaRMIMVC.jar.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "183",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "419",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/OneDrive/Desktop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.rainbow.brackets.root",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="padre.virus.serializacion" />
@@ -93,6 +96,9 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="padre.virus.modelo" />
       <recent name="padre.virus.vistas" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="padre.virus" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Correr Prueba">
@@ -221,15 +227,8 @@
       <workItem from="1708733497362" duration="6280000" />
       <workItem from="1715437671137" duration="2449000" />
       <workItem from="1715636484656" duration="4742000" />
-      <workItem from="1715641759660" duration="683000" />
-    </task>
-    <task id="LOCAL-00035" summary="- new png flecha">
-      <option name="closed" value="true" />
-      <created>1707072626141</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1707072626141</updated>
+      <workItem from="1715641759660" duration="740000" />
+      <workItem from="1715805142606" duration="5107000" />
     </task>
     <task id="LOCAL-00036" summary="- boton flecha atras en popUp y nuevos btnSalir y btnReglas">
       <option name="closed" value="true" />
@@ -615,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715440098056</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos">
+      <option name="closed" value="true" />
+      <created>1715642484564</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1715642484564</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +640,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- a" />
     <MESSAGE value="- new Dialog para btnTirarCarta&#10;- btnTerminarTurno andando&#10;- modificacion de como cambia el turno el modelo" />
     <MESSAGE value="- nuevas imagenes de carta infectada e inmune" />
     <MESSAGE value="- modificacion de ICarta para poder usar esSano() y esInmune() con los organos." />
@@ -658,7 +664,8 @@
     <MESSAGE value="- modificacion reiniciar()" />
     <MESSAGE value="- fix tirarCarta() en Modelo y Controlador" />
     <MESSAGE value="- new function accion() generica en Icarta, Cura, Virus" />
-    <option name="LAST_COMMIT_MESSAGE" value="- new function accion() generica en Icarta, Cura, Virus" />
+    <MESSAGE value="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos" />
+    <option name="LAST_COMMIT_MESSAGE" value="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -674,7 +681,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java</url>
-          <line>350</line>
+          <line>355</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -684,8 +691,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="16" />
+          <line>191</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

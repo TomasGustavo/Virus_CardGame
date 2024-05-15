@@ -35,7 +35,7 @@ public class FlujoSeleccionCarta extends Flujo{
                 // selecciona el organo y llama al controlador para hacer la jugado con todos los datos
                 if(opcion >=1 && opcion <= controlador.obtenerOrganos(jugadorDestino).size()){
 
-                    controlador.tirarCarta(jugadorDestino,cartaSelect,opcion);
+                    controlador.tirarCarta(jugadorDestino,cartaSelect-1,opcion-1);
 
                 }
             }
