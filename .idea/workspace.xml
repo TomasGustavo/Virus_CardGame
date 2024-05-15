@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos">
-      <change afterPath="$PROJECT_DIR$/src/padre/virus/AppClienteTestConsola.java" afterDir="false" />
+    <list default="true" id="d026ec24-4607-477f-9339-97cf8032263c" name="Changes" comment="- ultimos fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/gameController/Controlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Cura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/IModelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoSeleccionCarta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaConsola/Flujos/FlujoSeleccionCarta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/padre/virus/vistas/VistaGrafica/VistaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,15 +221,7 @@
       <workItem from="1715437671137" duration="2449000" />
       <workItem from="1715636484656" duration="4742000" />
       <workItem from="1715641759660" duration="740000" />
-      <workItem from="1715805142606" duration="5107000" />
-    </task>
-    <task id="LOCAL-00036" summary="- boton flecha atras en popUp y nuevos btnSalir y btnReglas">
-      <option name="closed" value="true" />
-      <created>1707072668465</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1707072668465</updated>
+      <workItem from="1715805142606" duration="5953000" />
     </task>
     <task id="LOCAL-00037" summary="- creacion CardPartda y seteo de los paneles de cada jugador">
       <option name="closed" value="true" />
@@ -622,7 +607,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715642484564</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="- ultimos fix">
+      <option name="closed" value="true" />
+      <created>1715815119289</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1715815119289</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- new Dialog para btnTirarCarta&#10;- btnTerminarTurno andando&#10;- modificacion de como cambia el turno el modelo" />
     <MESSAGE value="- nuevas imagenes de carta infectada e inmune" />
     <MESSAGE value="- modificacion de ICarta para poder usar esSano() y esInmune() con los organos." />
     <MESSAGE value="- logo.png" />
@@ -665,7 +657,8 @@
     <MESSAGE value="- fix tirarCarta() en Modelo y Controlador" />
     <MESSAGE value="- new function accion() generica en Icarta, Cura, Virus" />
     <MESSAGE value="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos" />
-    <option name="LAST_COMMIT_MESSAGE" value="- nuevo mood de tirarVirus, arreglar los indices de las cartas y organos" />
+    <MESSAGE value="- ultimos fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="- ultimos fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

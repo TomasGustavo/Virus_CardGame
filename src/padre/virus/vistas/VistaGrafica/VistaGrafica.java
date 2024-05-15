@@ -959,18 +959,21 @@ public class VistaGrafica implements IVista, Serializable {
 
         Organo organoSeleccionado = null;
         int idOrgano = -1;
+        String nombre ="";
 
         if (lstOrganosEast.getSelectedIndex() != -1){
+            nombre = lblNombreEast.getText().toLowerCase();
+            organoSeleccionado = (Organo) controlador.obtenerOrganos(nombre).get(lstOrganosEast.getSelectedIndex());
             idOrgano = lstOrganosEast.getSelectedIndex();
-            organoSeleccionado = (Organo) lstOrganosEast.getSelectedValue();
         }
         else if(lstOrganosWest.getSelectedIndex() != -1){
+            nombre = lblNombreWest.getText().toLowerCase();
+            organoSeleccionado = (Organo) controlador.obtenerOrganos(nombre).get(lstOrganosWest.getSelectedIndex());
             idOrgano = lstOrganosWest.getSelectedIndex();
-            organoSeleccionado = (Organo) lstOrganosWest.getSelectedValue();
         }
         else if(lstOrganosNorte.getSelectedIndex() != -1){
-            String nombreNorte = lblNombreNorte.getText().toLowerCase();
-            organoSeleccionado = (Organo) controlador.obtenerOrganos(nombreNorte).get(lstOrganosNorte.getSelectedIndex());
+            nombre = lblNombreNorte.getText().toLowerCase();
+            organoSeleccionado = (Organo) controlador.obtenerOrganos(nombre).get(lstOrganosNorte.getSelectedIndex());
             idOrgano = lstOrganosNorte.getSelectedIndex();
         }
 
